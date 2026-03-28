@@ -3,54 +3,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FundedXYZ — Get Funded Up to $100K | Crypto Prop Trading</title>
-    <meta name="description" content="Trade crypto with up to $100K in funded capital. Single-phase challenge from $79. No daily drawdown, no time limits, 90% profit split. USDT payouts in 3-7 days.">
+    <title>FundedXYZ — Get Funded Up to $200K | Crypto Prop Trading</title>
+    <meta name="description" content="Trade crypto with up to $200K in funded capital. Single-phase challenge from $30. No time limits, up to 90% profit split. USDT payouts in 3-7 days.">
     <meta property="og:title" content="FundedXYZ — Crypto Prop Trading">
-    <meta property="og:description" content="Get funded up to $100K. Single challenge, no time limits, 90% profit split.">
+    <meta property="og:description" content="Get funded up to $200K. Single challenge, no time limits, up to 90% profit split.">
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ===== FONT AWESOME ICON STYLING ===== */
-        .fa-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 6px rgba(108, 92, 231, 0.4));
-        }
-        .fa-icon-green {
-            background: linear-gradient(135deg, #00d4aa, #00f5c4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 6px rgba(0, 212, 170, 0.4));
-        }
-        .fa-icon-gold {
-            background: linear-gradient(135deg, #ffd700, #ffed4a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4));
-        }
-        .diff-icon i, .advantage-icon i, .feature-icon i, .rank-circle i {
-            font-size: inherit;
-        }
-        .social-link i {
-            font-size: 18px;
-            -webkit-text-fill-color: currentColor;
-        }
         /* ===== RESET & BASE ===== */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
             --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
+            --bg-secondary: #0e0e16;
             --bg-card: rgba(255,255,255,0.03);
             --bg-card-hover: rgba(255,255,255,0.06);
             --text-primary: #ffffff;
@@ -84,328 +52,332 @@
 
         a { color: inherit; text-decoration: none; }
         img { max-width: 100%; display: block; }
-        
         .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
-        
         .section { padding: 100px 0; }
         .section-label {
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-light);
-            margin-bottom: 12px;
+            font-size: 13px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--accent-light); margin-bottom: 12px;
         }
         .section-title {
-            font-size: clamp(28px, 4vw, 42px);
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 16px;
+            font-size: clamp(28px, 4vw, 42px); font-weight: 800;
+            line-height: 1.2; margin-bottom: 16px;
         }
         .section-subtitle {
-            font-size: 17px;
-            color: var(--text-secondary);
-            max-width: 600px;
-            line-height: 1.7;
+            font-size: 17px; color: var(--text-secondary);
+            max-width: 600px; line-height: 1.7;
         }
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header .section-subtitle { margin: 0 auto; }
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
+        /* ===== LOADING SCREEN ===== */
+        .page-loader {
+            position: fixed; inset: 0; z-index: 9999;
+            background: var(--bg-primary);
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        .page-loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .loader-ring {
+            width: 48px; height: 48px; border-radius: 50%;
+            border: 3px solid var(--glass-border);
+            border-top-color: var(--accent-light);
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ===== BUTTONS ===== */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 15px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 32px; border-radius: 50px; font-weight: 600;
+            font-size: 15px; border: none; cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+            font-family: inherit; position: relative; overflow: hidden;
         }
         .btn-primary {
-            background: var(--accent-gradient);
-            color: white;
+            background: var(--accent-gradient); color: white;
             box-shadow: 0 4px 20px rgba(108,92,231,0.4);
         }
+        .btn-primary::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        .btn-primary:hover::before { left: 100%; }
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(108,92,231,0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(108,92,231,0.5);
         }
         .btn-secondary {
-            background: var(--glass);
-            color: white;
+            background: var(--glass); color: white;
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(10px);
         }
         .btn-secondary:hover {
             background: var(--bg-card-hover);
-            border-color: var(--accent);
+            border-color: var(--accent); transform: translateY(-2px);
         }
 
-        /* Glass card */
+        /* ===== GLASS CARD WITH ANIMATED BORDER ===== */
         .glass-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius);
-            backdrop-filter: blur(20px);
-            transition: all 0.3s ease;
+            background: var(--glass); border: 1px solid var(--glass-border);
+            border-radius: var(--radius); backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+            position: relative; overflow: hidden;
         }
+        .glass-card::before {
+            content: ''; position: absolute; inset: -1px;
+            border-radius: var(--radius); padding: 1px;
+            background: conic-gradient(from var(--card-angle, 0deg), transparent 40%, var(--accent) 50%, var(--accent-light) 55%, transparent 65%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude;
+            opacity: 0; transition: opacity 0.5s ease;
+        }
+        .glass-card:hover::before { opacity: 1; }
         .glass-card:hover {
             background: var(--bg-card-hover);
-            border-color: rgba(108,92,231,0.3);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+            transform: translateY(-6px) perspective(1000px) rotateX(2deg);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(108,92,231,0.1);
         }
 
         /* ===== STICKY HEADER ===== */
         .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 16px 0;
-            transition: all 0.3s ease;
-            background: transparent;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 16px 0; transition: all 0.4s ease; background: transparent;
         }
         .header.scrolled {
-            background: rgba(10,10,15,0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            padding: 10px 0;
+            background: rgba(10,10,15,0.85); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border); padding: 10px 0;
         }
-        .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .logo {
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
+        .header .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
         .logo span { color: var(--accent-light); }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            list-style: none;
-        }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
         .nav-links a {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-secondary);
-            transition: color 0.2s;
+            font-size: 14px; font-weight: 500; color: var(--text-secondary);
+            transition: color 0.2s; position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 2px; background: var(--accent-gradient);
+            transition: width 0.3s ease;
         }
         .nav-links a:hover { color: white; }
+        .nav-links a:hover::after { width: 100%; }
         .header .btn { padding: 10px 24px; font-size: 14px; }
         .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
+            display: none; background: none; border: none;
+            color: white; font-size: 24px; cursor: pointer;
         }
 
         /* ===== HERO ===== */
         .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 100px;
-            overflow: hidden;
+            position: relative; min-height: 100vh; display: flex;
+            align-items: center; padding-top: 100px; overflow: hidden;
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(108,92,231,0.15) 0%, transparent 70%);
-            pointer-events: none;
+        /* Animated gradient background */
+        .hero-bg {
+            position: absolute; inset: 0; z-index: 0;
+            background: linear-gradient(-45deg, #0a0a1a, #1a0a2e, #0a1a2e, #0a0a1a);
+            background-size: 400% 400%;
+            animation: heroGradient 15s ease infinite;
         }
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 20%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
-            pointer-events: none;
+        @keyframes heroGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .hero .container {
-            text-align: center;
-            position: relative;
-            z-index: 1;
+        /* Floating grid */
+        .hero-grid {
+            position: absolute; inset: 0; z-index: 1;
+            background-image:
+                linear-gradient(rgba(108,92,231,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(108,92,231,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridFloat 20s linear infinite;
         }
+        @keyframes gridFloat {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+        /* Glow orbs */
+        .hero-orb {
+            position: absolute; border-radius: 50%; pointer-events: none;
+            filter: blur(80px); z-index: 1;
+        }
+        .hero-orb-1 {
+            width: 600px; height: 600px; top: -15%; left: 50%; transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(108,92,231,0.2) 0%, transparent 70%);
+            animation: orbFloat1 8s ease-in-out infinite;
+        }
+        .hero-orb-2 {
+            width: 400px; height: 400px; bottom: 10%; right: -5%;
+            background: radial-gradient(circle, rgba(0,212,170,0.1) 0%, transparent 70%);
+            animation: orbFloat2 10s ease-in-out infinite;
+        }
+        @keyframes orbFloat1 {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(30px); }
+        }
+        @keyframes orbFloat2 {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(-10px); }
+        }
+        .hero .container { text-align: center; position: relative; z-index: 2; }
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-secondary);
-            margin-bottom: 28px;
-            backdrop-filter: blur(10px);
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--glass); border: 1px solid var(--glass-border);
+            padding: 8px 20px; border-radius: 50px; font-size: 13px;
+            font-weight: 500; color: var(--text-secondary);
+            margin-bottom: 28px; backdrop-filter: blur(10px);
+            opacity: 0; animation: slideUp 0.8s ease 0.2s forwards;
         }
         .hero-badge .pulse {
-            width: 8px; height: 8px;
-            background: var(--green);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
+            width: 8px; height: 8px; background: var(--green);
+            border-radius: 50%; animation: pulse 2s infinite;
         }
         @keyframes pulse {
             0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,212,170,0.4); }
             50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(0,212,170,0); }
         }
-        .hero h1 {
-            font-size: clamp(36px, 6vw, 68px);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            letter-spacing: -1.5px;
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .hero h1 .gradient-text {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 68px); font-weight: 900;
+            line-height: 1.1; margin-bottom: 20px; letter-spacing: -1.5px;
+        }
+        .hero h1 .word {
+            display: inline-block; opacity: 0;
+            animation: wordReveal 0.6s ease forwards;
+        }
+        .hero h1 .word:nth-child(1) { animation-delay: 0.3s; }
+        .hero h1 .word:nth-child(2) { animation-delay: 0.4s; }
+        .hero h1 .word:nth-child(3) { animation-delay: 0.5s; }
+        .hero h1 .word:nth-child(4) { animation-delay: 0.6s; }
+        .hero h1 .word:nth-child(5) { animation-delay: 0.7s; }
+        .hero h1 .word:nth-child(6) { animation-delay: 0.8s; }
+        @keyframes wordReveal {
+            from { opacity: 0; transform: translateY(40px); filter: blur(4px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
         .hero p {
-            font-size: clamp(16px, 2vw, 19px);
-            color: var(--text-secondary);
-            max-width: 580px;
-            margin: 0 auto 36px;
-            line-height: 1.7;
+            font-size: clamp(16px, 2vw, 19px); color: var(--text-secondary);
+            max-width: 580px; margin: 0 auto 36px; line-height: 1.7;
+            opacity: 0; animation: slideUp 0.8s ease 0.9s forwards;
         }
         .hero-ctas {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 48px;
+            display: flex; gap: 16px; justify-content: center;
+            flex-wrap: wrap; margin-bottom: 48px;
+            opacity: 0; animation: slideUp 0.8s ease 1.0s forwards;
+        }
+        /* Shimmer CTA */
+        .btn-hero-primary {
+            background: var(--accent-gradient); color: white;
+            box-shadow: 0 4px 20px rgba(108,92,231,0.4);
+            position: relative; overflow: hidden;
+            animation: ctaGlow 3s ease-in-out infinite;
+        }
+        @keyframes ctaGlow {
+            0%, 100% { box-shadow: 0 4px 20px rgba(108,92,231,0.4); }
+            50% { box-shadow: 0 4px 40px rgba(108,92,231,0.7), 0 0 60px rgba(108,92,231,0.2); }
+        }
+        .btn-hero-primary::after {
+            content: ''; position: absolute; top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
         }
         .hero-trust {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 24px;
-            flex-wrap: wrap;
+            display: flex; align-items: center; justify-content: center;
+            gap: 24px; flex-wrap: wrap;
+            opacity: 0; animation: slideUp 0.8s ease 1.1s forwards;
         }
         .hero-trust-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: var(--text-muted);
+            display: flex; align-items: center; gap: 8px;
+            font-size: 14px; color: var(--text-muted);
         }
         .hero-trust-item svg { width: 16px; height: 16px; color: var(--green); }
 
-        /* ===== SOCIAL PROOF STATS BAR ===== */
-        .stats-bar {
-            position: relative;
-            padding: 0;
-            margin-top: -40px;
-            z-index: 2;
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar { position: relative; padding: 0; margin-top: -40px; z-index: 2; }
         .stats-bar .container {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius);
-            backdrop-filter: blur(20px);
-            padding: 40px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
+            background: var(--glass); border: 1px solid var(--glass-border);
+            border-radius: var(--radius); backdrop-filter: blur(20px);
+            padding: 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
         }
         .stat-item { text-align: center; }
         .stat-number {
-            font-size: clamp(28px, 3.5vw, 40px);
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 4px;
+            font-size: clamp(28px, 3.5vw, 40px); font-weight: 800;
+            line-height: 1.2; margin-bottom: 4px;
         }
         .stat-number .accent { color: var(--green); }
-        .stat-label {
-            font-size: 14px;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
+        .stat-label { font-size: 14px; color: var(--text-muted); font-weight: 500; }
 
-        /* ===== TRUSTPILOT-STYLE RATING ===== */
-        .trustpilot-bar {
-            padding: 40px 0;
-            text-align: center;
-        }
+        /* ===== TRUSTPILOT ===== */
+        .trustpilot-bar { padding: 40px 0; text-align: center; }
         .trustpilot-inner {
-            display: inline-flex;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: inline-flex; align-items: center; gap: 16px;
+            flex-wrap: wrap; justify-content: center;
         }
         .tp-stars { display: flex; gap: 3px; }
         .tp-stars .star {
-            width: 28px; height: 28px;
-            background: var(--green);
+            width: 28px; height: 28px; background: var(--green);
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
         }
         .tp-stars .star.half {
             background: linear-gradient(90deg, var(--green) 50%, var(--text-muted) 50%);
         }
-        .tp-rating {
-            font-size: 20px;
-            font-weight: 700;
-        }
-        .tp-count {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-        .tp-label {
-            font-size: 14px;
-            color: var(--text-secondary);
-            font-weight: 600;
-        }
+        .tp-rating { font-size: 20px; font-weight: 700; }
+        .tp-count { font-size: 14px; color: var(--text-muted); }
+        .tp-label { font-size: 14px; color: var(--text-secondary); font-weight: 600; }
 
-        /* ===== LIVE PAYOUT FEED ===== */
+        /* ===== PAYOUT FEED ===== */
         .payout-feed {
-            padding: 60px 0;
-            overflow: hidden;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+            padding: 60px 0; overflow: hidden;
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+            position: relative;
         }
+        .payout-feed::before, .payout-feed::after {
+            content: ''; position: absolute; top: 0; bottom: 0; width: 100px;
+            z-index: 2; pointer-events: none;
+        }
+        .payout-feed::before { left: 0; background: linear-gradient(90deg, var(--bg-primary), transparent); }
+        .payout-feed::after { right: 0; background: linear-gradient(-90deg, var(--bg-primary), transparent); }
         .payout-feed h3 {
-            text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-            margin-bottom: 28px;
+            text-align: center; font-size: 14px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 2px;
+            color: var(--text-muted); margin-bottom: 28px;
         }
         .payout-feed h3 .live-dot {
-            display: inline-block;
-            width: 8px; height: 8px;
-            background: #ff4444;
-            border-radius: 50%;
-            margin-right: 8px;
+            display: inline-block; width: 8px; height: 8px;
+            background: #ff4444; border-radius: 50%; margin-right: 8px;
             animation: pulse 1.5s infinite;
         }
         .payout-ticker {
-            display: flex;
-            gap: 24px;
-            animation: ticker 40s linear infinite;
+            display: flex; gap: 24px;
+            animation: ticker 50s linear infinite;
             width: max-content;
         }
         .payout-ticker:hover { animation-play-state: paused; }
@@ -414,135 +386,70 @@
             100% { transform: translateX(-50%); }
         }
         .payout-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
-            padding: 10px 20px 10px 12px;
-            white-space: nowrap;
-            flex-shrink: 0;
+            display: flex; align-items: center; gap: 12px;
+            background: var(--glass); border: 1px solid var(--glass-border);
+            border-radius: 50px; padding: 10px 20px 10px 12px;
+            white-space: nowrap; flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        .payout-item:hover {
+            border-color: rgba(108,92,231,0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
         .payout-avatar {
-            width: 36px; height: 36px;
-            border-radius: 50%;
+            width: 36px; height: 36px; border-radius: 50%;
             background: var(--accent-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 14px;
         }
         .payout-name { font-weight: 600; font-size: 14px; }
         .payout-amount { color: var(--green); font-weight: 700; font-size: 14px; }
         .payout-time { color: var(--text-muted); font-size: 12px; }
 
-        /* ===== KEY DIFFERENTIATORS ===== */
-        .differentiators {
-            padding: 80px 0;
-        }
-        .diff-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-        .diff-card {
-            padding: 32px 24px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+        /* ===== DIFFERENTIATORS ===== */
+        .differentiators { padding: 80px 0; }
+        .diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .diff-card { padding: 32px 24px; text-align: center; }
         .diff-card .diff-icon {
-            width: 56px; height: 56px;
-            border-radius: 14px;
+            width: 56px; height: 56px; border-radius: 14px;
             background: var(--accent-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 24px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px; font-size: 24px; color: white;
         }
-        .diff-card h4 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-        .diff-card p {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
+        .diff-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+        .diff-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
         .diff-card .compare {
-            display: inline-block;
-            margin-top: 8px;
-            font-size: 12px;
-            color: var(--accent-light);
-            background: rgba(108,92,231,0.1);
-            padding: 4px 10px;
-            border-radius: 20px;
+            display: inline-block; margin-top: 8px; font-size: 12px;
+            color: var(--accent-light); background: rgba(108,92,231,0.1);
+            padding: 4px 10px; border-radius: 20px;
         }
 
         /* ===== HOW IT WORKS ===== */
         .how-it-works { background: var(--bg-secondary); }
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            position: relative;
-        }
-        .step-card {
-            padding: 40px 28px;
-            text-align: center;
-        }
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .step-card { padding: 40px 28px; text-align: center; }
         .step-number {
-            width: 48px; height: 48px;
-            border-radius: 50%;
+            width: 48px; height: 48px; border-radius: 50%;
             background: var(--accent-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 18px;
-            margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 18px; margin: 0 auto 20px;
         }
-        .step-card h4 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        .step-card p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
+        .step-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+        .step-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
 
-        /* ===== RANKS PROGRESSION ===== */
-        .ranks { position: relative; }
+        /* ===== RANKS ===== */
         .ranks-track {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0;
-            overflow-x: auto;
-            padding: 20px 0;
+            display: flex; align-items: center; justify-content: center;
+            gap: 0; overflow-x: auto; padding: 20px 0;
         }
-        .rank-node {
-            text-align: center;
-            flex-shrink: 0;
-            position: relative;
-        }
+        .rank-node { text-align: center; flex-shrink: 0; }
         .rank-circle {
-            width: 72px; height: 72px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin: 0 auto 12px;
-            position: relative;
-            z-index: 1;
+            width: 72px; height: 72px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; margin: 0 auto 12px; color: white;
+            transition: all 0.4s ease;
         }
+        .rank-circle:hover { transform: scale(1.15); }
         .rank-circle.junior { background: linear-gradient(135deg, #4a9eff, #2d7dd2); }
         .rank-circle.senior { background: linear-gradient(135deg, #6c5ce7, #a29bfe); }
         .rank-circle.elite { background: linear-gradient(135deg, #00d4aa, #00b894); }
@@ -551,448 +458,325 @@
         .rank-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
         .rank-size { font-size: 12px; color: var(--text-muted); }
         .rank-connector {
-            width: 60px;
-            height: 2px;
+            width: 60px; height: 2px;
             background: linear-gradient(90deg, var(--glass-border), var(--accent), var(--glass-border));
             flex-shrink: 0;
         }
 
         /* ===== ADVANTAGES ===== */
-        .advantages-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-        .advantage-card {
-            padding: 36px;
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
+        .advantages-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .advantage-card { padding: 36px; display: flex; gap: 20px; align-items: flex-start; }
         .advantage-icon {
-            width: 48px; height: 48px;
-            border-radius: 12px;
+            width: 48px; height: 48px; border-radius: 12px;
             background: var(--accent-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; flex-shrink: 0; color: white;
         }
         .advantage-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
         .advantage-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
 
         /* ===== WHY TRADE ===== */
         .why-trade { background: var(--bg-secondary); }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-        .feature-card {
-            padding: 36px 28px;
-            text-align: center;
-        }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .feature-card { padding: 36px 28px; text-align: center; }
         .feature-icon {
-            width: 52px; height: 52px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin: 0 auto 16px;
-            background: rgba(108,92,231,0.15);
-            border: 1px solid rgba(108,92,231,0.2);
+            width: 52px; height: 52px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; margin: 0 auto 16px;
+            background: rgba(108,92,231,0.15); border: 1px solid rgba(108,92,231,0.2);
+            color: var(--accent-light);
         }
         .feature-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
         .feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
 
-        /* ===== PRICING TABLE ===== */
+        /* ===== PRICING TABLE — PREMIUM ===== */
         .pricing { position: relative; }
-        .pricing-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 48px;
-            flex-wrap: wrap;
+        .pricing::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(108,92,231,0.08) 0%, transparent 70%);
+            pointer-events: none;
         }
-        .pricing-tab {
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            border: 1px solid var(--glass-border);
-            background: var(--glass);
-            color: var(--text-secondary);
-            transition: all 0.3s;
+        /* Mode tabs */
+        .mode-tabs {
+            display: flex; justify-content: center; gap: 6px;
+            margin-bottom: 20px; flex-wrap: wrap;
+        }
+        .mode-tab {
+            padding: 10px 22px; border-radius: 50px; font-size: 14px;
+            font-weight: 600; cursor: pointer;
+            border: 1px solid var(--glass-border); background: var(--glass);
+            color: var(--text-secondary); transition: all 0.4s ease;
             font-family: inherit;
         }
-        .pricing-tab.active, .pricing-tab:hover {
-            background: var(--accent-gradient);
-            color: white;
-            border-color: transparent;
-            box-shadow: 0 4px 20px rgba(108,92,231,0.3);
+        .mode-tab.active {
+            background: var(--accent-gradient); color: white;
+            border-color: transparent; box-shadow: 0 4px 20px rgba(108,92,231,0.3);
         }
-        .pricing-details {
-            max-width: 700px;
-            margin: 0 auto;
+        .mode-tab:hover:not(.active) {
+            border-color: var(--accent); color: white;
         }
+        /* Plan pills */
+        .plan-pills {
+            display: flex; justify-content: center; gap: 8px;
+            margin-bottom: 32px; flex-wrap: wrap;
+        }
+        .plan-pill {
+            padding: 10px 24px; border-radius: 50px; font-size: 14px;
+            font-weight: 600; cursor: pointer;
+            border: 1px solid var(--glass-border); background: var(--glass);
+            color: var(--text-secondary); transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        .plan-pill.active {
+            background: rgba(108,92,231,0.2); color: white;
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(108,92,231,0.15);
+        }
+        .plan-pill:hover:not(.active) { border-color: rgba(108,92,231,0.4); color: white; }
+        /* Card */
         .pricing-card {
-            padding: 48px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius);
-            backdrop-filter: blur(20px);
+            max-width: 700px; margin: 0 auto; padding: 48px;
+            background: var(--glass); border: 1px solid var(--glass-border);
+            border-radius: var(--radius); backdrop-filter: blur(20px);
+            position: relative; overflow: hidden;
         }
-        .pricing-amount {
-            text-align: center;
-            margin-bottom: 36px;
+        .pricing-card::before {
+            content: ''; position: absolute; inset: -1px;
+            border-radius: var(--radius); padding: 1px;
+            background: conic-gradient(from 0deg, transparent 30%, var(--accent) 45%, var(--accent-light) 55%, transparent 70%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude;
+            animation: rotateBorder 6s linear infinite;
         }
-        .pricing-amount .size {
-            font-size: 14px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 4px;
+        @keyframes rotateBorder {
+            to { filter: hue-rotate(360deg); }
         }
-        .pricing-amount .price {
-            font-size: 48px;
-            font-weight: 900;
+        .pricing-header-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px 24px; background: rgba(108,92,231,0.08);
+            border-radius: var(--radius-sm); margin-bottom: 16px;
+            font-size: 15px; font-weight: 600;
         }
-        .pricing-amount .price .currency { font-size: 24px; color: var(--text-muted); }
-        .pricing-amount .from {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-top: 4px;
+        .plan-rows { display: flex; flex-direction: column; gap: 2px; }
+        .plan-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px 24px; background: rgba(255,255,255,0.02);
+            border-radius: var(--radius-xs);
+            transition: all 0.3s ease;
+            opacity: 0; animation: rowSlideIn 0.4s ease forwards;
         }
-        .pricing-objectives {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 32px;
+        .plan-row:nth-child(1) { animation-delay: 0.05s; }
+        .plan-row:nth-child(2) { animation-delay: 0.1s; }
+        .plan-row:nth-child(3) { animation-delay: 0.15s; }
+        .plan-row:nth-child(4) { animation-delay: 0.2s; }
+        .plan-row:nth-child(5) { animation-delay: 0.25s; }
+        .plan-row:nth-child(6) { animation-delay: 0.3s; }
+        .plan-row:nth-child(7) { animation-delay: 0.35s; }
+        @keyframes rowSlideIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
         }
-        .pricing-obj {
-            background: rgba(255,255,255,0.02);
-            border-radius: var(--radius-sm);
-            padding: 16px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .plan-row:hover { background: rgba(255,255,255,0.04); }
+        .plan-row .label { display: flex; align-items: center; gap: 10px; color: var(--text-secondary); font-size: 14px; }
+        .plan-row .label i { color: var(--accent-light); width: 18px; text-align: center; }
+        .plan-row .value { font-weight: 700; font-size: 15px; }
+        .plan-cta {
+            margin-top: 24px; text-align: center;
         }
-        .pricing-obj .label { font-size: 13px; color: var(--text-muted); }
-        .pricing-obj .value { font-size: 15px; font-weight: 700; }
-        .pricing-card .btn { width: 100%; justify-content: center; }
+        .plan-cta .cta-note {
+            font-size: 12px; color: var(--text-muted); margin-bottom: 16px; font-style: italic;
+        }
+        .btn-challenge {
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: 8px; padding: 16px 40px; border-radius: 50px;
+            font-weight: 700; font-size: 16px; border: none; cursor: pointer;
+            font-family: inherit; color: white; position: relative; overflow: hidden;
+            background: linear-gradient(135deg, var(--accent), #8b5cf6, var(--accent-light));
+            background-size: 200% 200%; animation: gradientMove 3s ease infinite;
+            box-shadow: 0 4px 25px rgba(108,92,231,0.4);
+            transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .btn-challenge:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 40px rgba(108,92,231,0.6);
+        }
 
         /* ===== TESTIMONIALS ===== */
         .testimonials { background: var(--bg-secondary); }
         .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 24px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;
         }
-        .testimonial-card {
-            padding: 28px;
-        }
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
+        .testimonial-card { padding: 28px; }
+        .testimonial-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
         .testimonial-avatar {
-            width: 44px; height: 44px;
-            border-radius: 50%;
+            width: 44px; height: 44px; border-radius: 50%;
             background: var(--accent-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 16px;
         }
         .testimonial-name { font-weight: 700; font-size: 15px; }
         .testimonial-country { font-size: 13px; color: var(--text-muted); }
         .testimonial-verified {
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 12px;
-            color: var(--green);
-            font-weight: 600;
+            margin-left: auto; display: flex; align-items: center;
+            gap: 4px; font-size: 12px; color: var(--green); font-weight: 600;
         }
-        .testimonial-stars {
-            display: flex;
-            gap: 2px;
-            margin-bottom: 12px;
-        }
-        .testimonial-stars .star {
-            color: var(--gold);
-            font-size: 14px;
-        }
-        .testimonial-text {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 14px;
-        }
+        .testimonial-stars { display: flex; gap: 2px; margin-bottom: 12px; }
+        .testimonial-stars .star { color: var(--gold); font-size: 14px; }
+        .testimonial-text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
         .testimonial-payout {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--green);
-            background: rgba(0,212,170,0.08);
-            padding: 6px 14px;
-            border-radius: 20px;
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 13px; font-weight: 600; color: var(--green);
+            background: rgba(0,212,170,0.08); padding: 6px 14px; border-radius: 20px;
         }
 
         /* ===== VIDEO TESTIMONIALS ===== */
-        .video-testimonials { position: relative; }
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
+        .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
         .video-card {
-            border-radius: var(--radius);
-            overflow: hidden;
-            cursor: pointer;
-            position: relative;
-            aspect-ratio: 16/9;
-            background: var(--bg-secondary);
-            border: 1px solid var(--glass-border);
+            border-radius: var(--radius); overflow: hidden; cursor: pointer;
+            position: relative; aspect-ratio: 16/9;
+            background: var(--bg-secondary); border: 1px solid var(--glass-border);
+            transition: all 0.4s ease;
         }
+        .video-card:hover { transform: scale(1.03); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
         .video-card .video-overlay {
-            position: absolute;
-            inset: 0;
+            position: absolute; inset: 0;
             background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.8) 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 20px;
+            display: flex; flex-direction: column; justify-content: flex-end; padding: 20px;
         }
         .video-play {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 64px; height: 64px;
-            border-radius: 50%;
-            background: var(--accent-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); width: 64px; height: 64px;
+            border-radius: 50%; background: var(--accent-gradient);
+            display: flex; align-items: center; justify-content: center;
             transition: transform 0.3s;
         }
         .video-card:hover .video-play { transform: translate(-50%, -50%) scale(1.1); }
         .video-play::after {
-            content: '';
-            display: block;
-            width: 0; height: 0;
-            border-style: solid;
-            border-width: 10px 0 10px 18px;
-            border-color: transparent transparent transparent white;
-            margin-left: 3px;
+            content: ''; display: block; width: 0; height: 0;
+            border-style: solid; border-width: 10px 0 10px 18px;
+            border-color: transparent transparent transparent white; margin-left: 3px;
         }
         .video-info .video-name { font-weight: 700; font-size: 15px; }
         .video-info .video-earnings { font-size: 13px; color: var(--green); }
 
-        /* ===== PRESS / AS SEEN ON ===== */
+        /* ===== PRESS ===== */
         .press {
             padding: 60px 0;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
         }
         .press h4 {
-            text-align: center;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            font-weight: 600;
+            text-align: center; font-size: 13px; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--text-muted); margin-bottom: 32px; font-weight: 600;
         }
         .press-logos {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 48px;
-            flex-wrap: wrap;
+            display: flex; align-items: center; justify-content: center;
+            gap: 48px; flex-wrap: wrap;
         }
         .press-logo {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-muted);
-            opacity: 0.5;
-            transition: opacity 0.3s;
+            font-size: 20px; font-weight: 700; color: var(--text-muted);
+            opacity: 0.5; transition: opacity 0.3s;
         }
         .press-logo:hover { opacity: 0.8; }
 
         /* ===== FAQ ===== */
         .faq { background: var(--bg-secondary); }
-        .faq-list {
-            max-width: 720px;
-            margin: 0 auto;
-        }
-        .faq-item {
-            border-bottom: 1px solid var(--border);
-        }
+        .faq-list { max-width: 720px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); }
         .faq-question {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 24px 0;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: left;
-            font-family: inherit;
+            width: 100%; display: flex; align-items: center; justify-content: space-between;
+            padding: 24px 0; background: none; border: none;
+            color: var(--text-primary); font-size: 16px; font-weight: 600;
+            cursor: pointer; text-align: left; font-family: inherit;
         }
         .faq-question .icon {
-            font-size: 20px;
-            transition: transform 0.3s;
-            color: var(--text-muted);
-            flex-shrink: 0;
-            margin-left: 16px;
+            font-size: 20px; transition: transform 0.3s; color: var(--text-muted);
+            flex-shrink: 0; margin-left: 16px;
         }
         .faq-item.active .faq-question .icon { transform: rotate(45deg); }
         .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
         }
-        .faq-item.active .faq-answer { max-height: 300px; }
-        .faq-answer p {
-            padding-bottom: 24px;
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.7;
+        .faq-item.active .faq-answer { max-height: 500px; }
+        .faq-answer p, .faq-answer ul {
+            padding-bottom: 24px; font-size: 14px;
+            color: var(--text-secondary); line-height: 1.7;
         }
+        .faq-answer ul { padding-left: 20px; }
 
         /* ===== CTA SECTION ===== */
         .cta-section {
-            padding: 100px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 100px 0; text-align: center; position: relative; overflow: hidden;
         }
         .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px; height: 600px;
+            content: ''; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); width: 600px; height: 600px;
             background: radial-gradient(circle, rgba(108,92,231,0.15) 0%, transparent 70%);
             pointer-events: none;
         }
         .cta-section h2 {
-            font-size: clamp(28px, 4vw, 44px);
-            font-weight: 900;
-            margin-bottom: 16px;
-            position: relative;
+            font-size: clamp(28px, 4vw, 44px); font-weight: 900;
+            margin-bottom: 16px; position: relative;
         }
         .cta-section p {
-            font-size: 17px;
-            color: var(--text-secondary);
-            margin-bottom: 36px;
-            position: relative;
+            font-size: 17px; color: var(--text-secondary);
+            margin-bottom: 36px; position: relative;
         }
-        .cta-section .btn { position: relative; }
+
+        /* ===== SECTION DIVIDERS ===== */
+        .section-divider {
+            height: 1px; position: relative; overflow: hidden;
+        }
+        .section-divider::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(90deg, transparent, var(--accent), var(--accent-light), transparent);
+            animation: dividerGlow 4s ease infinite;
+        }
+        @keyframes dividerGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
 
         /* ===== FOOTER ===== */
-        .footer {
-            padding: 60px 0 32px;
-            border-top: 1px solid var(--border);
-        }
+        .footer { padding: 60px 0 32px; border-top: 1px solid var(--border); }
         .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 48px;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px; margin-bottom: 48px;
         }
         .footer-brand .logo { margin-bottom: 12px; }
-        .footer-brand p {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-        .social-links {
-            display: flex;
-            gap: 12px;
-        }
+        .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
+        .social-links { display: flex; gap: 12px; }
         .social-link {
-            width: 40px; height: 40px;
-            border-radius: 10px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            transition: all 0.3s;
+            width: 40px; height: 40px; border-radius: 10px;
+            background: var(--glass); border: 1px solid var(--glass-border);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-secondary); font-size: 16px;
+            transition: all 0.3s ease;
         }
-        .social-link:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-        }
+        .social-link:hover { background: var(--accent); border-color: var(--accent); color: white; }
         .footer-col h5 {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 14px; font-weight: 700; margin-bottom: 16px;
+            text-transform: uppercase; letter-spacing: 1px;
         }
         .footer-col ul { list-style: none; }
         .footer-col li { margin-bottom: 10px; }
-        .footer-col a {
-            font-size: 14px;
-            color: var(--text-muted);
-            transition: color 0.2s;
-        }
+        .footer-col a { font-size: 14px; color: var(--text-muted); transition: color 0.2s; }
         .footer-col a:hover { color: var(--text-primary); }
         .footer-bottom {
-            border-top: 1px solid var(--border);
-            padding-top: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
+            border-top: 1px solid var(--border); padding-top: 24px;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 12px;
         }
-        .footer-bottom p {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-        .footer-legal {
-            display: flex;
-            gap: 24px;
-        }
-        .footer-legal a {
-            font-size: 13px;
-            color: var(--text-muted);
-            transition: color 0.2s;
-        }
+        .footer-bottom p { font-size: 13px; color: var(--text-muted); }
+        .footer-legal { display: flex; gap: 24px; }
+        .footer-legal a { font-size: 13px; color: var(--text-muted); transition: color 0.2s; }
         .footer-legal a:hover { color: var(--text-primary); }
-
-        /* ===== ANIMATED COUNTERS ===== */
-        .count-up { transition: none; }
-
-        /* ===== ANIMATIONS ===== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
@@ -1000,29 +784,26 @@
             .video-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
         }
-
         @media (max-width: 768px) {
             .section { padding: 70px 0; }
             .nav-links { display: none; }
             .mobile-toggle { display: block; }
-            .stats-bar .container {
-                grid-template-columns: repeat(2, 1fr);
-                padding: 28px;
-                gap: 24px;
-            }
+            .stats-bar .container { grid-template-columns: repeat(2, 1fr); padding: 28px; gap: 24px; }
             .diff-grid { grid-template-columns: repeat(2, 1fr); }
             .steps-grid { grid-template-columns: 1fr; gap: 20px; }
             .advantages-grid { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: 1fr; }
-            .pricing-objectives { grid-template-columns: 1fr; }
             .testimonials-grid { grid-template-columns: 1fr; }
             .video-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 32px; }
             .pricing-card { padding: 28px; }
             .press-logos { gap: 28px; }
             .hero-trust { flex-direction: column; gap: 12px; }
+            .mode-tabs { gap: 4px; }
+            .mode-tab { padding: 8px 14px; font-size: 12px; }
+            .plan-pills { gap: 4px; }
+            .plan-pill { padding: 8px 16px; font-size: 13px; }
         }
-
         @media (max-width: 480px) {
             .stats-bar .container { grid-template-columns: 1fr 1fr; gap: 16px; padding: 20px; }
             .diff-grid { grid-template-columns: 1fr; }
@@ -1030,37 +811,36 @@
             .rank-connector { width: 30px; }
             .hero h1 { font-size: 32px; }
         }
-
         /* Mobile nav */
         .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(10,10,15,0.98);
-            z-index: 999;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 32px;
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10,10,15,0.98); z-index: 999;
+            flex-direction: column; align-items: center; justify-content: center; gap: 32px;
         }
         .mobile-nav.active { display: flex; }
-        .mobile-nav a {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
+        .mobile-nav a { font-size: 20px; font-weight: 600; color: var(--text-secondary); }
         .mobile-nav .close-btn {
-            position: absolute;
-            top: 20px; right: 24px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 28px;
-            cursor: pointer;
+            position: absolute; top: 20px; right: 24px;
+            background: none; border: none; color: white; font-size: 28px; cursor: pointer;
+        }
+
+        /* ===== FLOATING DECORATIONS ===== */
+        .float-decor {
+            position: absolute; border-radius: 50%; pointer-events: none;
+            animation: floatBreath 6s ease-in-out infinite;
+        }
+        @keyframes floatBreath {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-15px) scale(1.05); opacity: 0.8; }
         }
     </style>
 </head>
 <body>
+
+<!-- ===== LOADING SCREEN ===== -->
+<div class="page-loader" id="pageLoader">
+    <div class="loader-ring"></div>
+</div>
 
 <!-- ===== HEADER ===== -->
 <header class="header" id="header">
@@ -1095,17 +875,23 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
     <div class="container">
         <div class="hero-badge">
             <span class="pulse"></span>
-            <!-- PLACEHOLDER: Update trader count with real number -->
             Join 2,400+ traders already funded
         </div>
-        <h1>Where Performance<br>Meets <span class="gradient-text">Opportunity</span></h1>
-        <p>Trade crypto with up to $100K in funded capital. Single-phase challenge, no daily drawdown, no time limits. Prove your skills and earn up to 90% profit split.</p>
+        <h1>
+            <span class="word">Where</span> <span class="word">Performance</span><br>
+            <span class="word">Meets</span> <span class="word gradient-text">Opportunity</span>
+        </h1>
+        <p>Trade crypto with up to $200K in funded capital. Single-phase challenge, no time limits. Prove your skills and earn up to 90% profit split.</p>
         <div class="hero-ctas">
-            <a href="https://fundedxyz.com/#pricing" class="btn btn-primary">
-                Start Challenge — From $79
+            <a href="https://fundedxyz.com/#pricing" class="btn btn-hero-primary">
+                Start Challenge — From $20
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </a>
             <a href="#how-it-works" class="btn btn-secondary">Learn How It Works</a>
@@ -1127,12 +913,11 @@
     </div>
 </section>
 
-<!-- ===== SOCIAL PROOF STATS BAR ===== -->
-<section class="stats-bar fade-in">
+<!-- ===== STATS BAR ===== -->
+<section class="stats-bar reveal">
     <div class="container">
-        <!-- PLACEHOLDER: Update all numbers below with real data -->
         <div class="stat-item">
-            <div class="stat-number"><span class="accent">$</span><span class="count-up" data-target="1250000" data-prefix="$">0</span><span class="accent">+</span></div>
+            <div class="stat-number"><span class="accent">$</span><span class="count-up" data-target="1250000">0</span><span class="accent">+</span></div>
             <div class="stat-label">Paid Out to Traders</div>
         </div>
         <div class="stat-item">
@@ -1150,57 +935,55 @@
     </div>
 </section>
 
-<!-- ===== TRUSTPILOT-STYLE RATING ===== -->
-<section class="trustpilot-bar fade-in">
+<!-- ===== TRUSTPILOT ===== -->
+<section class="trustpilot-bar reveal">
     <div class="trustpilot-inner">
         <div class="tp-stars">
             <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star half"></div>
         </div>
         <span class="tp-rating">4.8 / 5.0</span>
-        <!-- PLACEHOLDER: Update review count -->
         <span class="tp-count">Based on 320+ reviews</span>
-        <span class="tp-label"><i class="fas fa-star fa-icon-gold"></i> Excellent</span>
+        <span class="tp-label">⭐ Excellent</span>
     </div>
 </section>
 
-<!-- ===== LIVE PAYOUT FEED ===== -->
+<!-- ===== PAYOUT FEED ===== -->
 <section class="payout-feed">
     <h3><span class="live-dot"></span> Recent Payouts</h3>
-    <div class="payout-ticker" id="payoutTicker">
-        <!-- PLACEHOLDER: Replace with real payout data -->
-        <!-- Duplicate set for seamless looping -->
-    </div>
+    <div class="payout-ticker" id="payoutTicker"></div>
 </section>
 
+<div class="section-divider"></div>
+
 <!-- ===== KEY DIFFERENTIATORS ===== -->
-<section class="differentiators section fade-in">
+<section class="differentiators section">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <div class="section-label">Why FundedXYZ</div>
             <h2 class="section-title">Built Different</h2>
             <p class="section-subtitle">See how FundedXYZ compares to other prop firms</p>
         </div>
         <div class="diff-grid">
-            <div class="glass-card diff-card">
-                <div class="diff-icon"><i class="fas fa-ban fa-icon"></i></div>
+            <div class="glass-card diff-card reveal reveal-delay-1">
+                <div class="diff-icon"><i class="fas fa-ban"></i></div>
                 <h4>No Daily Drawdown</h4>
                 <p>Trade without daily loss restrictions cramping your style</p>
                 <span class="compare">Others enforce 5% daily</span>
             </div>
-            <div class="glass-card diff-card">
-                <div class="diff-icon"><i class="fas fa-1 fa-icon"></i></div>
+            <div class="glass-card diff-card reveal reveal-delay-2">
+                <div class="diff-icon"><i class="fas fa-1"></i></div>
                 <h4>Single Phase Challenge</h4>
                 <p>One challenge, one step to getting funded — no multi-phase hassle</p>
                 <span class="compare">Others require 2 phases</span>
             </div>
-            <div class="glass-card diff-card">
-                <div class="diff-icon"><i class="fas fa-coins fa-icon-gold"></i></div>
-                <h4>From Just $79</h4>
+            <div class="glass-card diff-card reveal reveal-delay-3">
+                <div class="diff-icon"><i class="fas fa-coins"></i></div>
+                <h4>From Just $20</h4>
                 <p>Get started with the most affordable challenge in the market</p>
                 <span class="compare">Competitors start at $150+</span>
             </div>
-            <div class="glass-card diff-card">
-                <div class="diff-icon"><i class="fas fa-bolt fa-icon-gold"></i></div>
+            <div class="glass-card diff-card reveal reveal-delay-4">
+                <div class="diff-icon"><i class="fas fa-bolt"></i></div>
                 <h4>USDT Payouts in 3 Days</h4>
                 <p>Fast, reliable payouts directly to your crypto wallet</p>
                 <span class="compare">Others take 7-14 days</span>
@@ -1210,25 +993,25 @@
 </section>
 
 <!-- ===== HOW IT WORKS ===== -->
-<section class="how-it-works section fade-in" id="how-it-works">
+<section class="how-it-works section" id="how-it-works">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <div class="section-label">Getting Started</div>
             <h2 class="section-title">How to Become a FundedXYZ Trader</h2>
             <p class="section-subtitle">Our evaluation process is designed to identify serious traders. Prove your skills and join the ranks of professional funded traders.</p>
         </div>
         <div class="steps-grid">
-            <div class="glass-card step-card">
+            <div class="glass-card step-card reveal reveal-delay-1">
                 <div class="step-number">1</div>
                 <h4>Choose Your Challenge</h4>
-                <p>Select your account size from $5K to $100K. Our single-phase challenge is designed to be fair and achievable for skilled traders.</p>
+                <p>Select your mode and account size from $2K to $200K. Our single-phase challenge is designed to be fair and achievable for skilled traders.</p>
             </div>
-            <div class="glass-card step-card">
+            <div class="glass-card step-card reveal reveal-delay-2">
                 <div class="step-number">2</div>
                 <h4>Prove Your Skills</h4>
-                <p>Hit the 8% profit target while staying within the 10% max loss limit. No time pressure — take as long as you need.</p>
+                <p>Hit your profit target while staying within loss limits. No time pressure — take as long as you need. We care about strategy and discipline, not speed.</p>
             </div>
-            <div class="glass-card step-card">
+            <div class="glass-card step-card reveal reveal-delay-3">
                 <div class="step-number">3</div>
                 <h4>Get Funded & Earn</h4>
                 <p>Pass the challenge and receive your funded account. Trade with our capital and keep up to 90% of the profits you generate.</p>
@@ -1237,41 +1020,37 @@
     </div>
 </section>
 
+<div class="section-divider"></div>
+
 <!-- ===== RISE THROUGH THE RANKS ===== -->
-<section class="ranks section fade-in">
+<section class="ranks section">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <div class="section-label">Career Progression</div>
             <h2 class="section-title">Rise Through the Ranks</h2>
             <p class="section-subtitle">True traders thrive under pressure and build on their success. Start as a Junior Trader and climb your way to Aura status.</p>
         </div>
-        <div class="ranks-track">
+        <div class="ranks-track reveal">
             <div class="rank-node">
-                <div class="rank-circle junior"><i class="fas fa-seedling fa-icon-green"></i></div>
+                <div class="rank-circle junior"><i class="fas fa-seedling"></i></div>
                 <div class="rank-name">Junior</div>
                 <div class="rank-size">$25K</div>
             </div>
             <div class="rank-connector"></div>
             <div class="rank-node">
-                <div class="rank-circle senior"><i class="fas fa-chart-line fa-icon"></i></div>
-                <div class="rank-name">Senior</div>
+                <div class="rank-circle senior"><i class="fas fa-chart-line"></i></div>
+                <div class="rank-name">Pro</div>
                 <div class="rank-size">$50K</div>
             </div>
             <div class="rank-connector"></div>
             <div class="rank-node">
-                <div class="rank-circle elite"><i class="fas fa-fire fa-icon-gold"></i></div>
+                <div class="rank-circle elite"><i class="fas fa-fire"></i></div>
                 <div class="rank-name">Elite</div>
-                <div class="rank-size">$75K</div>
-            </div>
-            <div class="rank-connector"></div>
-            <div class="rank-node">
-                <div class="rank-circle master"><i class="fas fa-crown fa-icon-gold"></i></div>
-                <div class="rank-name">Master</div>
                 <div class="rank-size">$100K</div>
             </div>
             <div class="rank-connector"></div>
             <div class="rank-node">
-                <div class="rank-circle aura"><i class="fas fa-sparkles fa-icon"></i></div>
+                <div class="rank-circle aura"><i class="fas fa-crown"></i></div>
                 <div class="rank-name">Aura</div>
                 <div class="rank-size">$200K</div>
             </div>
@@ -1280,37 +1059,37 @@
 </section>
 
 <!-- ===== ADVANTAGES ===== -->
-<section class="section fade-in" id="advantages">
+<section class="section" id="advantages">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <div class="section-label">Platform</div>
             <h2 class="section-title">Advantages of Crypto Trading with FundedXYZ</h2>
-            <p class="section-subtitle">Our path to getting funded is straightforward and transparent.</p>
+            <p class="section-subtitle">Our path to getting funded is straightforward and transparent. Follow these simple steps to start your trading journey with our capital.</p>
         </div>
         <div class="advantages-grid">
-            <div class="glass-card advantage-card">
-                <div class="advantage-icon"><i class="fas fa-bullseye fa-icon"></i></div>
+            <div class="glass-card advantage-card reveal reveal-delay-1">
+                <div class="advantage-icon"><i class="fas fa-bullseye"></i></div>
                 <div>
                     <h4>One-Stop Trading Hub</h4>
                     <p>Access all your trading tools in one place — from strategy simulators to real-time data, all optimized for performance.</p>
                 </div>
             </div>
-            <div class="glass-card advantage-card">
-                <div class="advantage-icon"><i class="fas fa-chart-bar fa-icon"></i></div>
+            <div class="glass-card advantage-card reveal reveal-delay-2">
+                <div class="advantage-icon"><i class="fas fa-chart-bar"></i></div>
                 <div>
                     <h4>Enhance Trading Leverage</h4>
                     <p>Trade crypto with up to 5x leverage to amplify your returns while managing risk effectively.</p>
                 </div>
             </div>
-            <div class="glass-card advantage-card">
-                <div class="advantage-icon"><i class="fas fa-gem fa-icon"></i></div>
+            <div class="glass-card advantage-card reveal reveal-delay-3">
+                <div class="advantage-icon"><i class="fas fa-gem"></i></div>
                 <div>
-                    <h4>Capital up to $100K</h4>
-                    <p>Unlock funding up to $100,000 — no upfront capital needed. Focus on trading; we handle the funding.</p>
+                    <h4>Capital up to $200K</h4>
+                    <p>Unlock funding up to $200,000 — no upfront capital needed. Focus on trading; we handle the funding.</p>
                 </div>
             </div>
-            <div class="glass-card advantage-card">
-                <div class="advantage-icon"><i class="fas fa-bolt fa-icon-gold"></i></div>
+            <div class="glass-card advantage-card reveal reveal-delay-4">
+                <div class="advantage-icon"><i class="fas fa-bolt"></i></div>
                 <div>
                     <h4>Simple Single Challenge</h4>
                     <p>No more complex evaluations. Pass a single-phase challenge to get funded faster and start earning.</p>
@@ -1320,224 +1099,190 @@
     </div>
 </section>
 
+<div class="section-divider"></div>
+
 <!-- ===== WHY TRADE ===== -->
-<section class="why-trade section fade-in">
+<section class="why-trade section">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <div class="section-label">Features</div>
             <h2 class="section-title">Why Trade With FundedXYZ?</h2>
-            <p class="section-subtitle">We provide a feature-rich trading environment designed to help you succeed.</p>
+            <p class="section-subtitle">We provide a feature-rich trading environment designed to help you succeed, with flexible rules and powerful tools at your disposal.</p>
         </div>
         <div class="features-grid">
-            <div class="glass-card feature-card">
-                <div class="feature-icon"><i class="fas fa-clock fa-icon"></i></div>
+            <div class="glass-card feature-card reveal reveal-delay-1">
+                <div class="feature-icon"><i class="fas fa-clock"></i></div>
                 <h4>No Time Limits</h4>
                 <p>Take as long as you need to pass the evaluation. We believe in stress-free trading.</p>
             </div>
-            <div class="glass-card feature-card">
-                <div class="feature-icon"><i class="fas fa-money-bill-wave fa-icon-green"></i></div>
+            <div class="glass-card feature-card reveal reveal-delay-2">
+                <div class="feature-icon"><i class="fas fa-money-bill-wave"></i></div>
                 <h4>Up to 90% Profit Split</h4>
                 <p>You do the work, you earn the reward. Our generous profit share is among the best in the industry.</p>
             </div>
-            <div class="glass-card feature-card">
-                <div class="feature-icon"><i class="fas fa-rocket fa-icon"></i></div>
+            <div class="glass-card feature-card reveal reveal-delay-3">
+                <div class="feature-icon"><i class="fas fa-rocket"></i></div>
                 <h4>Fast Payouts</h4>
-                <p>Request your profits and receive them within 7 days via USDT. No waiting around.</p>
+                <p>Request your profits and receive them within 7 days via USDT.</p>
             </div>
-            <div class="glass-card feature-card">
-                <div class="feature-icon"><i class="fas fa-chart-line fa-icon-green"></i></div>
+            <div class="glass-card feature-card reveal reveal-delay-1">
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
                 <h4>High Leverage</h4>
                 <p>Utilize up to 1:5 leverage to maximize your trading potential on our platform.</p>
             </div>
-            <div class="glass-card feature-card">
-                <div class="feature-icon"><i class="fas fa-shield-halved fa-icon"></i></div>
+            <div class="glass-card feature-card reveal reveal-delay-2">
+                <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
                 <h4>24/7 Support</h4>
                 <p>Our dedicated support team is here to help you around the clock with any questions.</p>
             </div>
-            <div class="glass-card feature-card">
-                <div class="feature-icon"><i class="fas fa-building-columns fa-icon"></i></div>
+            <div class="glass-card feature-card reveal reveal-delay-3">
+                <div class="feature-icon"><i class="fas fa-building-columns"></i></div>
                 <h4>Real Capital</h4>
-                <p>Backed by deep VC and hedge fund capital, ensuring long-term sustainability. Payouts are never a problem for a good trader.</p>
+                <p>We are backed by deep VC and hedge fund capital, ensuring long-term sustainability. We're built to scale with real liquidity — payouts are never a problem for a good trader.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- ===== PRICING TABLE ===== -->
-<section class="pricing section fade-in" id="pricing">
+<section class="pricing section" id="pricing">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <div class="section-label">Pricing</div>
-            <h2 class="section-title">Our Trading Objectives</h2>
-            <p class="section-subtitle">Choose the account size that fits your strategy. All plans feature realistic targets and simple rules.</p>
+            <h2 class="section-title">Our Trading <span class="gradient-text">Objectives</span></h2>
+            <p class="section-subtitle">Choose the account size and challenge difficulty that fits your strategy. All our plans feature realistic targets and simple rules to help you succeed.</p>
         </div>
-        <div class="pricing-tabs">
-            <button class="pricing-tab active" data-tier="5000">$5,000</button>
-            <button class="pricing-tab" data-tier="10000">$10,000</button>
-            <button class="pricing-tab" data-tier="25000">$25,000</button>
-            <button class="pricing-tab" data-tier="50000">$50,000</button>
-            <button class="pricing-tab" data-tier="100000">$100,000</button>
-        </div>
-        <div class="pricing-details">
+        <div class="reveal">
+            <!-- Mode Tabs -->
+            <div class="mode-tabs" id="modeTabs">
+                <button class="mode-tab active" data-mode="standard">Y Mode - Standard</button>
+                <button class="mode-tab" data-mode="hard">Y Mode - Hard</button>
+                <button class="mode-tab" data-mode="zmode">Z Mode</button>
+                <button class="mode-tab" data-mode="zmodehard">Z Mode - Hard</button>
+            </div>
+            <!-- Plan Pills -->
+            <div class="plan-pills" id="planPills"></div>
+            <!-- Details Card -->
             <div class="pricing-card" id="pricingCard">
-                <div class="pricing-amount">
-                    <div class="size" id="pricingSize">$5,000 Account</div>
-                    <div class="price"><span class="currency">$</span><span id="pricingPrice">79</span></div>
-                    <div class="from">One-time challenge fee</div>
+                <div class="pricing-header-row">
+                    <div>Objectives</div>
+                    <div>Single Phase Challenge</div>
                 </div>
-                <div class="pricing-objectives">
-                    <div class="pricing-obj"><span class="label">Profit Target</span><span class="value" id="objTarget">8%</span></div>
-                    <div class="pricing-obj"><span class="label">Max Loss</span><span class="value" id="objMaxLoss">10%</span></div>
-                    <div class="pricing-obj"><span class="label">Max Daily Loss</span><span class="value" id="objDailyLoss">5%</span></div>
-                    <div class="pricing-obj"><span class="label">Daily Max Profit</span><span class="value" id="objDailyProfit">3%</span></div>
-                    <div class="pricing-obj"><span class="label">Trading Period</span><span class="value" id="objPeriod">Unlimited</span></div>
-                    <div class="pricing-obj"><span class="label">Max Leverage</span><span class="value" id="objLeverage">1:5</span></div>
-                    <div class="pricing-obj"><span class="label">Profit Sharing</span><span class="value" id="objSplit">80%</span></div>
-                    <div class="pricing-obj"><span class="label">Payout Method</span><span class="value">USDT</span></div>
+                <div class="plan-rows" id="planRows"></div>
+                <div class="plan-cta">
+                    <p class="cta-note">*To proceed to the next stage, all positions must be closed.</p>
+                    <a href="https://fundedxyz.com/register" class="btn-challenge" id="startChallengeBtn">Start Challenge $30</a>
                 </div>
-                <a href="https://fundedxyz.com/#pricing" class="btn btn-primary">Start This Challenge →</a>
             </div>
         </div>
     </div>
 </section>
 
+<div class="section-divider"></div>
+
 <!-- ===== TESTIMONIALS ===== -->
-<section class="testimonials section fade-in" id="testimonials">
+<section class="testimonials section" id="testimonials">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <div class="section-label">Reviews</div>
             <h2 class="section-title">What Our Traders Say</h2>
             <p class="section-subtitle">Real feedback from funded traders around the world</p>
         </div>
         <div class="testimonials-grid">
-            <!-- PLACEHOLDER: Replace all testimonials below with real trader reviews -->
-
-            <div class="glass-card testimonial-card">
+            <div class="glass-card testimonial-card reveal reveal-delay-1">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">GD</div>
-                    <div>
-                        <div class="testimonial-name">Gabriel D.</div>
-                        <div class="testimonial-country">🇺🇸 United States</div>
-                    </div>
-                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
+                    <div><div class="testimonial-name">Gabriel D.</div><div class="testimonial-country">🇺🇸 United States</div></div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check" style="color:var(--green)"></i> Verified</div>
                 </div>
                 <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
                 <p class="testimonial-text">The single-phase challenge is a game changer. No daily drawdown pressure means I can actually trade my strategy properly. Got my first payout in under a week. Highly recommend.</p>
-                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $4,250</div>
+                <div class="testimonial-payout"><i class="fas fa-wallet" style="color:var(--green)"></i> Payout: $4,250</div>
             </div>
-
-            <div class="glass-card testimonial-card">
+            <div class="glass-card testimonial-card reveal reveal-delay-2">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">SM</div>
-                    <div>
-                        <div class="testimonial-name">Selin M.</div>
-                        <div class="testimonial-country">🇹🇷 Turkey</div>
-                    </div>
-                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
+                    <div><div class="testimonial-name">Selin M.</div><div class="testimonial-country">🇹🇷 Turkey</div></div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check" style="color:var(--green)"></i> Verified</div>
                 </div>
                 <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
                 <p class="testimonial-text">I've tried 3 other prop firms before. FundedXYZ is the first one with rules that actually make sense for crypto traders. No time limit is everything.</p>
-                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $3,180</div>
+                <div class="testimonial-payout"><i class="fas fa-wallet" style="color:var(--green)"></i> Payout: $3,180</div>
             </div>
-
-            <div class="glass-card testimonial-card">
+            <div class="glass-card testimonial-card reveal reveal-delay-3">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">AR</div>
-                    <div>
-                        <div class="testimonial-name">Arjun R.</div>
-                        <div class="testimonial-country">🇮🇳 India</div>
-                    </div>
-                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
+                    <div><div class="testimonial-name">Arjun R.</div><div class="testimonial-country">🇮🇳 India</div></div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check" style="color:var(--green)"></i> Verified</div>
                 </div>
                 <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
-                <p class="testimonial-text">Passed the $25K challenge and scaled up to Senior. Support team responded to my payout request within hours. USDT hit my wallet in 3 days. These guys are legit.</p>
-                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $6,800</div>
+                <p class="testimonial-text">Passed the $25K challenge and scaled up to Pro. Support team responded to my payout request within hours. USDT hit my wallet in 3 days. These guys are legit.</p>
+                <div class="testimonial-payout"><i class="fas fa-wallet" style="color:var(--green)"></i> Payout: $6,800</div>
             </div>
-
-            <div class="glass-card testimonial-card">
+            <div class="glass-card testimonial-card reveal reveal-delay-1">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">LC</div>
-                    <div>
-                        <div class="testimonial-name">Lucie C.</div>
-                        <div class="testimonial-country">🇫🇷 France</div>
-                    </div>
-                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
+                    <div><div class="testimonial-name">Lucie C.</div><div class="testimonial-country">🇫🇷 France</div></div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check" style="color:var(--green)"></i> Verified</div>
                 </div>
                 <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
-                <p class="testimonial-text">Started with the $5K challenge just to test the waters. The platform is solid, rules are transparent, and the 90% profit split is hard to beat anywhere else.</p>
-                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $1,920</div>
+                <p class="testimonial-text">Started with the $2K challenge just to test the waters. The platform is solid, rules are transparent, and the profit split is hard to beat anywhere else.</p>
+                <div class="testimonial-payout"><i class="fas fa-wallet" style="color:var(--green)"></i> Payout: $1,920</div>
             </div>
-
-            <div class="glass-card testimonial-card">
+            <div class="glass-card testimonial-card reveal reveal-delay-2">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">HO</div>
-                    <div>
-                        <div class="testimonial-name">Henrik O.</div>
-                        <div class="testimonial-country">🇸🇪 Sweden</div>
-                    </div>
-                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
+                    <div><div class="testimonial-name">Henrik O.</div><div class="testimonial-country">🇸🇪 Sweden</div></div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check" style="color:var(--green)"></i> Verified</div>
                 </div>
                 <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
                 <p class="testimonial-text">Clean interface, fair rules, and fast payouts. The rank system keeps me motivated. Currently working my way to Elite. Best crypto prop firm I've used.</p>
-                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $5,400</div>
+                <div class="testimonial-payout"><i class="fas fa-wallet" style="color:var(--green)"></i> Payout: $5,400</div>
             </div>
-
-            <div class="glass-card testimonial-card">
+            <div class="glass-card testimonial-card reveal reveal-delay-3">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">AK</div>
-                    <div>
-                        <div class="testimonial-name">Aisha K.</div>
-                        <div class="testimonial-country">🇳🇬 Nigeria</div>
-                    </div>
-                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
+                    <div><div class="testimonial-name">Aisha K.</div><div class="testimonial-country">🇳🇬 Nigeria</div></div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check" style="color:var(--green)"></i> Verified</div>
                 </div>
                 <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
                 <p class="testimonial-text">As a female trader in crypto, finding a reliable prop firm was tough. FundedXYZ's single challenge and USDT payouts made it simple. Already on my second funded account!</p>
-                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $2,750</div>
+                <div class="testimonial-payout"><i class="fas fa-wallet" style="color:var(--green)"></i> Payout: $2,750</div>
             </div>
-
-            <div class="glass-card testimonial-card">
+            <div class="glass-card testimonial-card reveal reveal-delay-1">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">RP</div>
-                    <div>
-                        <div class="testimonial-name">Rafael P.</div>
-                        <div class="testimonial-country">🇧🇷 Brazil</div>
-                    </div>
-                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
+                    <div><div class="testimonial-name">Rafael P.</div><div class="testimonial-country">🇧🇷 Brazil</div></div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check" style="color:var(--green)"></i> Verified</div>
                 </div>
                 <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
-                <p class="testimonial-text">$79 to start a $5K challenge? That's incredible value. Passed in 2 weeks, got funded, and made my first profit withdrawal. The support team on Telegram is super responsive.</p>
-                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $1,580</div>
+                <p class="testimonial-text">$20 to start a $2K challenge? That's incredible value. Passed in 2 weeks, got funded, and made my first profit withdrawal. The support team on Telegram is super responsive.</p>
+                <div class="testimonial-payout"><i class="fas fa-wallet" style="color:var(--green)"></i> Payout: $1,580</div>
             </div>
-
-            <div class="glass-card testimonial-card">
+            <div class="glass-card testimonial-card reveal reveal-delay-2">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">MW</div>
-                    <div>
-                        <div class="testimonial-name">Michael W.</div>
-                        <div class="testimonial-country">🇬🇧 United Kingdom</div>
-                    </div>
-                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
+                    <div><div class="testimonial-name">Michael W.</div><div class="testimonial-country">🇬🇧 United Kingdom</div></div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check" style="color:var(--green)"></i> Verified</div>
                 </div>
                 <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
                 <p class="testimonial-text">Moved from a forex prop firm to FundedXYZ for crypto. The no-time-limit policy and high leverage make this the best option for crypto traders, hands down.</p>
-                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $8,200</div>
+                <div class="testimonial-payout"><i class="fas fa-wallet" style="color:var(--green)"></i> Payout: $8,200</div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- ===== VIDEO TESTIMONIALS ===== -->
-<section class="video-testimonials section fade-in">
+<section class="section">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <div class="section-label">Video Reviews</div>
             <h2 class="section-title">Hear From Our Traders</h2>
             <p class="section-subtitle">Watch funded traders share their experience with FundedXYZ</p>
         </div>
         <div class="video-grid">
-            <!-- PLACEHOLDER: Replace with actual YouTube video embeds or real thumbnails -->
-            <div class="video-card" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+            <div class="video-card reveal reveal-delay-1" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
                 <div class="video-overlay">
                     <div class="video-play"></div>
                     <div class="video-info">
@@ -1546,16 +1291,16 @@
                     </div>
                 </div>
             </div>
-            <div class="video-card" style="background: linear-gradient(135deg, #1a1a2e, #0f3460);">
+            <div class="video-card reveal reveal-delay-2" style="background: linear-gradient(135deg, #1a1a2e, #0f3460);">
                 <div class="video-overlay">
                     <div class="video-play"></div>
                     <div class="video-info">
-                        <div class="video-name">🇮🇳 Arjun R. — Scaling to Senior Trader</div>
+                        <div class="video-name">🇮🇳 Arjun R. — Scaling to Pro Trader</div>
                         <div class="video-earnings">Earned: $6,800</div>
                     </div>
                 </div>
             </div>
-            <div class="video-card" style="background: linear-gradient(135deg, #1a1a2e, #1a0a2e);">
+            <div class="video-card reveal reveal-delay-3" style="background: linear-gradient(135deg, #1a1a2e, #1a0a2e);">
                 <div class="video-overlay">
                     <div class="video-play"></div>
                     <div class="video-info">
@@ -1568,12 +1313,11 @@
     </div>
 </section>
 
-<!-- ===== PRESS / AS SEEN ON ===== -->
-<section class="press fade-in">
+<!-- ===== PRESS ===== -->
+<section class="press reveal">
     <div class="container">
         <h4>As Featured In</h4>
         <div class="press-logos">
-            <!-- PLACEHOLDER: Replace with actual press/media logo images -->
             <span class="press-logo">CoinGape</span>
             <span class="press-logo">Benzinga</span>
             <span class="press-logo">CryptoSlate</span>
@@ -1584,57 +1328,64 @@
 </section>
 
 <!-- ===== FAQ ===== -->
-<section class="faq section fade-in" id="faq">
+<section class="faq section" id="faq">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
             <div class="section-label">Support</div>
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Have questions? We have answers.</p>
+            <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+            <p class="section-subtitle">Have questions? We have answers. Find information about our profit splits, trading rules, and payout process below.</p>
         </div>
-        <div class="faq-list">
+        <div class="faq-list reveal">
             <div class="faq-item">
-                <button class="faq-question">What is FundedXYZ? <span class="icon">+</span></button>
-                <div class="faq-answer"><p>FundedXYZ is a crypto prop trading firm that provides funded accounts to skilled traders. Pass our single-phase challenge and trade with up to $100,000 in capital while keeping up to 90% of your profits.</p></div>
+                <button class="faq-question">How does FundedXYZ work? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>FundedXYZ is a crypto-only prop trading platform. You start by taking a trading challenge using simulated capital. If you meet the profit targets and stay within the rules, you'll qualify for a larger simulated account where you can earn up to 80% of your simulated profits. No real capital is required upfront, and no hidden fees — just your performance.</p></div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">How does the challenge work? <span class="icon">+</span></button>
-                <div class="faq-answer"><p>Purchase a challenge, hit the 8% profit target without exceeding the 10% max loss limit. There's no time limit — take as long as you need. Once you pass, you receive your funded account and can start earning real profits.</p></div>
+                <button class="faq-question">What assets can I trade on FundedXYZ? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>We focus exclusively on crypto. That means you can trade BTC, ETH perpetual contracts trading pairs. No forex, no stocks — just the digital assets you know best.</p></div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">What is the profit split? <span class="icon">+</span></button>
-                <div class="faq-answer"><p>Our standard profit split starts at 80% and can go up to 90% as you progress through the ranks. You trade, you earn — it's that simple.</p></div>
+                <button class="faq-question">What are the trading rules I need to follow? <span class="icon">+</span></button>
+                <div class="faq-answer">
+                    <p>To pass the challenge, you must:</p>
+                    <ul>
+                        <li>Reach the required profit target</li>
+                        <li>Stay within the daily loss and max drawdown</li>
+                        <li>Follow basic risk management (no copy trading, no API trading, no EAs that violate rules)</li>
+                    </ul>
+                    <p>Full rules are clearly stated before you begin, with no surprises.</p>
+                </div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">How fast are payouts? <span class="icon">+</span></button>
-                <div class="faq-answer"><p>Payouts are processed within 3-7 business days via USDT directly to your crypto wallet. We believe in fast, hassle-free withdrawals.</p></div>
+                <button class="faq-question">How much can I earn? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>Once funded, you can earn up to <strong>80% of your simulated profits</strong>. Our profit-sharing model rewards consistent performance.</p></div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">Is there a daily drawdown limit? <span class="icon">+</span></button>
-                <div class="faq-answer"><p>We have a daily max loss of 5% and a total max loss of 10%. However, unlike many competitors, we don't enforce a daily drawdown based on equity — giving you more flexibility in your trading approach.</p></div>
+                <button class="faq-question">How long do I have to complete the challenge? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>Unlike traditional firms, FundedXYZ Challenge Y offers flexible timing. There's <strong>no strict time limit</strong> to complete your evaluation — you trade at your own pace. We care about your strategy and discipline, not speed.</p></div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">What markets can I trade? <span class="icon">+</span></button>
-                <div class="faq-answer"><p>FundedXYZ is focused on cryptocurrency markets. Trade major crypto pairs with up to 1:5 leverage on our advanced trading platform.</p></div>
+                <button class="faq-question">Can I retake the challenge if I fail? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>Yes. If you don't pass the first time, you're welcome to try again. We offer affordable retry options for returning traders. Many top performers didn't pass on their first attempt — consistency is what counts.</p></div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">Is this legit? How do I know my profits are safe? <span class="icon">+</span></button>
-                <div class="faq-answer"><p>FundedXYZ is operated by BIO LC PTE LTD, registered in Singapore. We are backed by deep VC and hedge fund capital, ensuring long-term sustainability. Our payout track record speaks for itself — check our trader testimonials and payout proofs.</p></div>
+                <button class="faq-question">Is copy trading allowed? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>No, copy trading is not allowed during the evaluation and funded phases. FundedXYZ is focused on identifying independent and skilled traders.</p></div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">What's the minimum to get started? <span class="icon">+</span></button>
-                <div class="faq-answer"><p>Our most affordable challenge starts at just $79 for a $5,000 account. We believe talented traders shouldn't be blocked by high entry fees.</p></div>
+                <button class="faq-question">How long does it take to become a FundedXYZ trader? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>FundedXYZ does not impose a minimum number of trading days. As soon as you hit the required profit target while following all the rules, your account will automatically be submitted for review. The review process typically takes around 5 to 7 business days. Once approved, you will be officially onboarded as a FundedXYZ trader.</p></div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- ===== FINAL CTA ===== -->
-<section class="cta-section fade-in">
+<section class="cta-section reveal">
     <div class="container">
-        <!-- PLACEHOLDER: Update trader count -->
-        <h2>Ready to Get Funded?</h2>
-        <p>Join 2,400+ traders who trust FundedXYZ with their trading career. Start from just $79.</p>
-        <a href="https://fundedxyz.com/#pricing" class="btn btn-primary">Start Your Challenge Now →</a>
+        <h2>Ready to Get <span class="gradient-text">Funded</span>?</h2>
+        <p>Join 2,400+ traders who trust FundedXYZ with their trading career. Start from just $20.</p>
+        <a href="https://fundedxyz.com/#pricing" class="btn btn-hero-primary">Start Your Challenge Now →</a>
     </div>
 </section>
 
@@ -1647,7 +1398,6 @@
                 <p>Where performance meets opportunity. Trade crypto with funded capital and keep up to 90% of your profits.</p>
                 <p style="font-size:12px; color: var(--text-muted);">Operated by BIO LC PTE LTD, Singapore</p>
                 <div class="social-links" style="margin-top:12px;">
-                    <!-- PLACEHOLDER: Update with actual social media URLs -->
                     <a href="https://twitter.com/fundedxyz" class="social-link" title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
                     <a href="https://discord.gg/fundedxyz" class="social-link" title="Discord"><i class="fab fa-discord"></i></a>
                     <a href="https://t.me/fundedxyz" class="social-link" title="Telegram"><i class="fab fa-telegram"></i></a>
@@ -1675,26 +1425,30 @@
             <div class="footer-col">
                 <h5>Legal</h5>
                 <ul>
-                    <!-- PLACEHOLDER: Update with actual legal page URLs -->
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Risk Disclosure</a></li>
-                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="https://fundedxyz.com/terms">Terms of Service</a></li>
+                    <li><a href="https://fundedxyz.com/privacy">Privacy Policy</a></li>
+                    <li><a href="https://fundedxyz.com/risk">Risk Disclosure</a></li>
+                    <li><a href="https://fundedxyz.com/refund">Refund Policy</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2024-2026 FundedXYZ. All rights reserved. BIO LC PTE LTD, Singapore.</p>
+            <p>&copy; 2024-2026 FundedXYZ. All rights reserved. BIO LC PTE LTD, Singapore.</p>
             <div class="footer-legal">
-                <a href="#">Terms</a>
-                <a href="#">Privacy</a>
-                <a href="#">Risk Disclosure</a>
+                <a href="https://fundedxyz.com/terms">Terms</a>
+                <a href="https://fundedxyz.com/privacy">Privacy</a>
+                <a href="https://fundedxyz.com/risk">Risk Disclosure</a>
             </div>
         </div>
     </div>
 </footer>
 
 <script>
+// ===== LOADING SCREEN =====
+window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('pageLoader').classList.add('hidden'), 400);
+});
+
 // ===== STICKY HEADER =====
 const header = document.getElementById('header');
 const headerCta = document.getElementById('headerCta');
@@ -1709,7 +1463,6 @@ window.addEventListener('scroll', () => {
 });
 
 // ===== PAYOUT FEED =====
-// PLACEHOLDER: Replace with real payout data
 const payoutData = [
     { name: 'Gabriel D.', flag: '🇺🇸', amount: '$4,250', time: '3 days ago', initials: 'GD' },
     { name: 'Selin M.', flag: '🇹🇷', amount: '$3,180', time: '3 days ago', initials: 'SM' },
@@ -1725,7 +1478,7 @@ const payoutData = [
     { name: 'Carlos M.', flag: '🇲🇽', amount: '$1,780', time: '4 days ago', initials: 'CM' },
 ];
 const ticker = document.getElementById('payoutTicker');
-const allPayouts = [...payoutData, ...payoutData]; // duplicate for seamless loop
+const allPayouts = [...payoutData, ...payoutData];
 ticker.innerHTML = allPayouts.map(p => `
     <div class="payout-item">
         <div class="payout-avatar">${p.initials}</div>
@@ -1735,30 +1488,171 @@ ticker.innerHTML = allPayouts.map(p => `
     </div>
 `).join('');
 
-// ===== PRICING TABS =====
-const pricingData = {
-    5000:   { size: '$5,000 Account',   price: '79',  target: '8%', maxLoss: '10%', dailyLoss: '5%', dailyProfit: '3%', period: 'Unlimited', leverage: '1:5', split: '80%' },
-    10000:  { size: '$10,000 Account',  price: '129', target: '8%', maxLoss: '10%', dailyLoss: '5%', dailyProfit: '3%', period: 'Unlimited', leverage: '1:5', split: '80%' },
-    25000:  { size: '$25,000 Account',  price: '249', target: '8%', maxLoss: '10%', dailyLoss: '5%', dailyProfit: '3%', period: 'Unlimited', leverage: '1:5', split: '80%' },
-    50000:  { size: '$50,000 Account',  price: '399', target: '8%', maxLoss: '10%', dailyLoss: '5%', dailyProfit: '3%', period: 'Unlimited', leverage: '1:5', split: '85%' },
-    100000: { size: '$100,000 Account', price: '599', target: '8%', maxLoss: '10%', dailyLoss: '5%', dailyProfit: '3%', period: 'Unlimited', leverage: '1:5', split: '90%' },
+// ===== PRICING DATA (from fundedxyz.com API) =====
+const pricingConfig = {
+    standard: {
+        // Y Mode - Standard
+        plans: [
+            { wallet: 2000, price: 30, label: '$2,000' },
+            { wallet: 5000, price: 80, label: '$5,000' },
+            { wallet: 25000, price: 350, label: '$25,000' },
+            { wallet: 50000, price: 650, label: '$50,000' },
+            { wallet: 100000, price: 1200, label: '$100,000' }
+        ],
+        // Same objectives for all sizes in this mode
+        getObjectives: (idx) => ({
+            profitTarget: '15%',
+            dailyMaxProfit: '3%',
+            maxLoss: '9%',
+            maxDailyLoss: '5%',
+            tradingPeriod: 'Unlimited',
+            maxLeverage: '1:5',
+            sharingLabel: 'Profit Sharing',
+            sharingValue: '70%'
+        })
+    },
+    hard: {
+        // Y Mode - Hard
+        plans: [
+            { wallet: 10000, price: 150, label: '$10,000' },
+            { wallet: 25000, price: 300, label: '$25,000' },
+            { wallet: 50000, price: 550, label: '$50,000' },
+            { wallet: 100000, price: 1000, label: '$100,000' },
+            { wallet: 200000, price: 1800, label: '$200,000' }
+        ],
+        getObjectives: (idx) => ({
+            profitTarget: '16%',
+            dailyMaxProfit: '3%',
+            maxLoss: '6%',
+            maxDailyLoss: '5%',
+            tradingPeriod: 'Unlimited',
+            maxLeverage: '1:5',
+            sharingLabel: 'Profit Sharing',
+            sharingValue: '70%'
+        })
+    },
+    zmode: {
+        // Z Mode
+        plans: [
+            { wallet: 2000, price: 40, label: '$2,000', scholarship: 120 },
+            { wallet: 5000, price: 80, label: '$5,000', scholarship: 240 },
+            { wallet: 25000, price: 380, label: '$25,000', scholarship: 1100 },
+            { wallet: 50000, price: 680, label: '$50,000', scholarship: 2000 },
+            { wallet: 100000, price: 1200, label: '$100,000', scholarship: 3600 }
+        ],
+        perPlan: [
+            { profitTarget: '15%', dailyMaxProfit: '3%', maxLoss: '9%', maxDailyLoss: '5%' },
+            { profitTarget: '15%', dailyMaxProfit: '3%', maxLoss: '9%', maxDailyLoss: '5%' },
+            { profitTarget: '15%', dailyMaxProfit: '3%', maxLoss: '9%', maxDailyLoss: '5%' },
+            { profitTarget: '15%', dailyMaxProfit: '3%', maxLoss: '9%', maxDailyLoss: '5%' },
+            { profitTarget: '15%', dailyMaxProfit: '3%', maxLoss: '9%', maxDailyLoss: '5%' }
+        ],
+        getObjectives: function(idx) {
+            const p = this.perPlan[idx];
+            return {
+                profitTarget: p.profitTarget,
+                dailyMaxProfit: p.dailyMaxProfit,
+                maxLoss: p.maxLoss,
+                maxDailyLoss: p.maxDailyLoss,
+                tradingPeriod: 'Unlimited',
+                maxLeverage: '1:5',
+                sharingLabel: 'Profit Scholarship',
+                sharingValue: '$' + this.plans[idx].scholarship.toLocaleString()
+            };
+        }
+    },
+    zmodehard: {
+        // Z Mode - Hard
+        plans: [
+            { wallet: 2000, price: 20, label: '$2,000', scholarship: 80 },
+            { wallet: 5000, price: 40, label: '$5,000', scholarship: 160 },
+            { wallet: 25000, price: 190, label: '$25,000', scholarship: 800 },
+            { wallet: 50000, price: 340, label: '$50,000', scholarship: 1400 },
+            { wallet: 100000, price: 600, label: '$100,000', scholarship: 2800 }
+        ],
+        perPlan: [
+            { profitTarget: '13%', dailyMaxProfit: '3%', maxLoss: '4.5%', maxDailyLoss: '4.5%' },
+            { profitTarget: '13%', dailyMaxProfit: '3%', maxLoss: '4.5%', maxDailyLoss: '4.5%' },
+            { profitTarget: '13%', dailyMaxProfit: '3%', maxLoss: '4.5%', maxDailyLoss: '4.5%' },
+            { profitTarget: '13%', dailyMaxProfit: '3%', maxLoss: '4.5%', maxDailyLoss: '5%' },
+            { profitTarget: '13%', dailyMaxProfit: '3%', maxLoss: '4.5%', maxDailyLoss: '5%' }
+        ],
+        getObjectives: function(idx) {
+            const p = this.perPlan[idx];
+            return {
+                profitTarget: p.profitTarget,
+                dailyMaxProfit: p.dailyMaxProfit,
+                maxLoss: p.maxLoss,
+                maxDailyLoss: p.maxDailyLoss,
+                tradingPeriod: 'Unlimited',
+                maxLeverage: '1:5',
+                sharingLabel: 'Profit Scholarship',
+                sharingValue: '$' + this.plans[idx].scholarship.toLocaleString()
+            };
+        }
+    }
 };
-document.querySelectorAll('.pricing-tab').forEach(tab => {
+
+// State
+let currentMode = 'standard';
+let currentPlanIdx = 0;
+
+function renderPills() {
+    const pills = document.getElementById('planPills');
+    const plans = pricingConfig[currentMode].plans;
+    pills.innerHTML = plans.map((p, i) =>
+        `<button class="plan-pill${i === currentPlanIdx ? ' active' : ''}" data-idx="${i}">${p.label}</button>`
+    ).join('');
+    pills.querySelectorAll('.plan-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentPlanIdx = parseInt(btn.dataset.idx);
+            renderPricing();
+        });
+    });
+}
+
+function renderPricing() {
+    const config = pricingConfig[currentMode];
+    const plan = config.plans[currentPlanIdx];
+    const obj = config.getObjectives(currentPlanIdx);
+
+    // Update active pills
+    document.querySelectorAll('.plan-pill').forEach((p, i) => {
+        p.classList.toggle('active', i === currentPlanIdx);
+    });
+
+    // Render rows with stagger animation
+    const rows = document.getElementById('planRows');
+    rows.innerHTML = `
+        <div class="plan-row" style="animation-delay:0.05s"><div class="label"><i class="fas fa-bullseye"></i> Profit Target</div><div class="value">${obj.profitTarget}</div></div>
+        <div class="plan-row" style="animation-delay:0.1s"><div class="label"><i class="fas fa-calendar-day"></i> Daily Max Profit</div><div class="value">${obj.dailyMaxProfit}</div></div>
+        <div class="plan-row" style="animation-delay:0.15s"><div class="label"><i class="fas fa-shield-halved"></i> Max Loss</div><div class="value">${obj.maxLoss}</div></div>
+        <div class="plan-row" style="animation-delay:0.2s"><div class="label"><i class="fas fa-arrow-trend-down"></i> Max Daily Loss</div><div class="value">${obj.maxDailyLoss}</div></div>
+        <div class="plan-row" style="animation-delay:0.25s"><div class="label"><i class="fas fa-infinity"></i> Trading Period</div><div class="value">${obj.tradingPeriod}</div></div>
+        <div class="plan-row" style="animation-delay:0.3s"><div class="label"><i class="fas fa-gauge-high"></i> Max Leverage</div><div class="value">${obj.maxLeverage}</div></div>
+        <div class="plan-row" style="animation-delay:0.35s"><div class="label"><i class="fas fa-trophy"></i> ${obj.sharingLabel}</div><div class="value">${obj.sharingValue}</div></div>
+    `;
+
+    // Update CTA
+    const btn = document.getElementById('startChallengeBtn');
+    btn.textContent = 'Start Challenge $' + plan.price.toLocaleString();
+}
+
+// Mode tabs
+document.querySelectorAll('.mode-tab').forEach(tab => {
     tab.addEventListener('click', () => {
-        document.querySelectorAll('.pricing-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
-        const d = pricingData[tab.dataset.tier];
-        document.getElementById('pricingSize').textContent = d.size;
-        document.getElementById('pricingPrice').textContent = d.price;
-        document.getElementById('objTarget').textContent = d.target;
-        document.getElementById('objMaxLoss').textContent = d.maxLoss;
-        document.getElementById('objDailyLoss').textContent = d.dailyLoss;
-        document.getElementById('objDailyProfit').textContent = d.dailyProfit;
-        document.getElementById('objPeriod').textContent = d.period;
-        document.getElementById('objLeverage').textContent = d.leverage;
-        document.getElementById('objSplit').textContent = d.split;
+        currentMode = tab.dataset.mode;
+        currentPlanIdx = 0;
+        renderPills();
+        renderPricing();
     });
 });
+
+// Init pricing
+renderPills();
+renderPricing();
 
 // ===== FAQ ACCORDION =====
 document.querySelectorAll('.faq-question').forEach(btn => {
@@ -1770,30 +1664,29 @@ document.querySelectorAll('.faq-question').forEach(btn => {
     });
 });
 
-// ===== SCROLL ANIMATIONS =====
-const observer = new IntersectionObserver((entries) => {
+// ===== SCROLL REVEAL (Intersection Observer) =====
+const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
         }
     });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// ===== COUNTER ANIMATION =====
+// ===== COUNTER ANIMATION (easeOutCubic) =====
 const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const el = entry.target;
             const target = parseInt(el.dataset.target);
-            const prefix = el.dataset.prefix || '';
-            const duration = 2000;
+            const duration = 2500;
             const start = performance.now();
             const animate = (now) => {
                 const progress = Math.min((now - start) / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3);
+                const eased = 1 - Math.pow(1 - progress, 4); // easeOutQuart
                 const current = Math.floor(eased * target);
-                el.textContent = prefix ? current.toLocaleString() : current.toLocaleString();
+                el.textContent = current.toLocaleString();
                 if (progress < 1) requestAnimationFrame(animate);
                 else el.textContent = target.toLocaleString();
             };
@@ -1803,6 +1696,26 @@ const counterObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.5 });
 document.querySelectorAll('.count-up').forEach(el => counterObserver.observe(el));
+
+// ===== ANIMATED CARD BORDER ANGLE (follow mouse) =====
+document.querySelectorAll('.glass-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const angle = Math.atan2(y, x) * (180 / Math.PI) + 180;
+        card.style.setProperty('--card-angle', angle + 'deg');
+    });
+});
+
+// ===== PARALLAX ON HERO ORBS =====
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const orb1 = document.querySelector('.hero-orb-1');
+    const orb2 = document.querySelector('.hero-orb-2');
+    if (orb1) orb1.style.transform = `translateX(-50%) translateY(${scrollY * 0.15}px)`;
+    if (orb2) orb2.style.transform = `translateY(${scrollY * -0.1}px)`;
+});
 </script>
 
 </body>
