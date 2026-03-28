@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FundedXYZ — Get Funded Up to $100K | Crypto Prop Trading</title>
+    <meta name="description" content="Trade crypto with up to $100K in funded capital. Single-phase challenge from $79. No daily drawdown, no time limits, 90% profit split. USDT payouts in 3-7 days.">
+    <meta property="og:title" content="FundedXYZ — Crypto Prop Trading">
+    <meta property="og:description" content="Get funded up to $100K. Single challenge, no time limits, 90% profit split.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: rgba(255,255,255,0.03);
+            --bg-card-hover: rgba(255,255,255,0.06);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6b6b7b;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-gradient: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            --green: #00d4aa;
+            --green-light: #00f5c4;
+            --gold: #ffd700;
+            --border: rgba(255,255,255,0.06);
+            --glass: rgba(255,255,255,0.04);
+            --glass-border: rgba(255,255,255,0.08);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-xs: 6px;
+            --shadow: 0 8px 32px rgba(0,0,0,0.3);
+            --max-width: 1200px;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+        
+        .section { padding: 100px 0; }
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        .section-subtitle {
+            font-size: 17px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header .section-subtitle { margin: 0 auto; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 20px rgba(108,92,231,0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108,92,231,0.5);
+        }
+        .btn-secondary {
+            background: var(--glass);
+            color: white;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent);
+        }
+
+        /* Glass card */
+        .glass-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(108,92,231,0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        /* ===== STICKY HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        .header.scrolled {
+            background: rgba(10,10,15,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 10px 0;
+        }
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .logo span { color: var(--accent-light); }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: white; }
+        .header .btn { padding: 10px 24px; font-size: 14px; }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(108,92,231,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+            backdrop-filter: blur(10px);
+        }
+        .hero-badge .pulse {
+            width: 8px; height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,212,170,0.4); }
+            50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(0,212,170,0); }
+        }
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 68px);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+        .hero h1 .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: clamp(16px, 2vw, 19px);
+            color: var(--text-secondary);
+            max-width: 580px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        .hero-trust {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .hero-trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .hero-trust-item svg { width: 16px; height: 16px; color: var(--green); }
+
+        /* ===== SOCIAL PROOF STATS BAR ===== */
+        .stats-bar {
+            position: relative;
+            padding: 0;
+            margin-top: -40px;
+            z-index: 2;
+        }
+        .stats-bar .container {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+        .stat-item { text-align: center; }
+        .stat-number {
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+        .stat-number .accent { color: var(--green); }
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* ===== TRUSTPILOT-STYLE RATING ===== */
+        .trustpilot-bar {
+            padding: 40px 0;
+            text-align: center;
+        }
+        .trustpilot-inner {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .tp-stars { display: flex; gap: 3px; }
+        .tp-stars .star {
+            width: 28px; height: 28px;
+            background: var(--green);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        .tp-stars .star.half {
+            background: linear-gradient(90deg, var(--green) 50%, var(--text-muted) 50%);
+        }
+        .tp-rating {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .tp-count {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .tp-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* ===== LIVE PAYOUT FEED ===== */
+        .payout-feed {
+            padding: 60px 0;
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .payout-feed h3 {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+        .payout-feed h3 .live-dot {
+            display: inline-block;
+            width: 8px; height: 8px;
+            background: #ff4444;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 1.5s infinite;
+        }
+        .payout-ticker {
+            display: flex;
+            gap: 24px;
+            animation: ticker 40s linear infinite;
+            width: max-content;
+        }
+        .payout-ticker:hover { animation-play-state: paused; }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .payout-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 10px 20px 10px 12px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .payout-avatar {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .payout-name { font-weight: 600; font-size: 14px; }
+        .payout-amount { color: var(--green); font-weight: 700; font-size: 14px; }
+        .payout-time { color: var(--text-muted); font-size: 12px; }
+
+        /* ===== KEY DIFFERENTIATORS ===== */
+        .differentiators {
+            padding: 80px 0;
+        }
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .diff-card {
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .diff-card .diff-icon {
+            width: 56px; height: 56px;
+            border-radius: 14px;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 24px;
+        }
+        .diff-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .diff-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .diff-card .compare {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--accent-light);
+            background: rgba(108,92,231,0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .how-it-works { background: var(--bg-secondary); }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            position: relative;
+        }
+        .step-card {
+            padding: 40px 28px;
+            text-align: center;
+        }
+        .step-number {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+            margin: 0 auto 20px;
+        }
+        .step-card h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .step-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ===== RANKS PROGRESSION ===== */
+        .ranks { position: relative; }
+        .ranks-track {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+        .rank-node {
+            text-align: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .rank-circle {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 12px;
+            position: relative;
+            z-index: 1;
+        }
+        .rank-circle.junior { background: linear-gradient(135deg, #4a9eff, #2d7dd2); }
+        .rank-circle.senior { background: linear-gradient(135deg, #6c5ce7, #a29bfe); }
+        .rank-circle.elite { background: linear-gradient(135deg, #00d4aa, #00b894); }
+        .rank-circle.master { background: linear-gradient(135deg, #fd79a8, #e84393); }
+        .rank-circle.aura { background: linear-gradient(135deg, #ffd700, #f0c000); }
+        .rank-name { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+        .rank-size { font-size: 12px; color: var(--text-muted); }
+        .rank-connector {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--glass-border), var(--accent), var(--glass-border));
+            flex-shrink: 0;
+        }
+
+        /* ===== ADVANTAGES ===== */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .advantage-card {
+            padding: 36px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .advantage-icon {
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        .advantage-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+        .advantage-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+        /* ===== WHY TRADE ===== */
+        .why-trade { background: var(--bg-secondary); }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .feature-card {
+            padding: 36px 28px;
+            text-align: center;
+        }
+        .feature-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 16px;
+            background: rgba(108,92,231,0.15);
+            border: 1px solid rgba(108,92,231,0.2);
+        }
+        .feature-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+        .feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+        /* ===== PRICING TABLE ===== */
+        .pricing { position: relative; }
+        .pricing-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+        .pricing-tab {
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--glass-border);
+            background: var(--glass);
+            color: var(--text-secondary);
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        .pricing-tab.active, .pricing-tab:hover {
+            background: var(--accent-gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 20px rgba(108,92,231,0.3);
+        }
+        .pricing-details {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .pricing-card {
+            padding: 48px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            backdrop-filter: blur(20px);
+        }
+        .pricing-amount {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+        .pricing-amount .size {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .pricing-amount .price {
+            font-size: 48px;
+            font-weight: 900;
+        }
+        .pricing-amount .price .currency { font-size: 24px; color: var(--text-muted); }
+        .pricing-amount .from {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        .pricing-objectives {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .pricing-obj {
+            background: rgba(255,255,255,0.02);
+            border-radius: var(--radius-sm);
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pricing-obj .label { font-size: 13px; color: var(--text-muted); }
+        .pricing-obj .value { font-size: 15px; font-weight: 700; }
+        .pricing-card .btn { width: 100%; justify-content: center; }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials { background: var(--bg-secondary); }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .testimonial-card {
+            padding: 28px;
+        }
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .testimonial-avatar {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .testimonial-name { font-weight: 700; font-size: 15px; }
+        .testimonial-country { font-size: 13px; color: var(--text-muted); }
+        .testimonial-verified {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: var(--green);
+            font-weight: 600;
+        }
+        .testimonial-stars {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 12px;
+        }
+        .testimonial-stars .star {
+            color: var(--gold);
+            font-size: 14px;
+        }
+        .testimonial-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+        .testimonial-payout {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--green);
+            background: rgba(0,212,170,0.08);
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        /* ===== VIDEO TESTIMONIALS ===== */
+        .video-testimonials { position: relative; }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .video-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            aspect-ratio: 16/9;
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+        }
+        .video-card .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+        }
+        .video-play {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px; height: 64px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+        .video-card:hover .video-play { transform: translate(-50%, -50%) scale(1.1); }
+        .video-play::after {
+            content: '';
+            display: block;
+            width: 0; height: 0;
+            border-style: solid;
+            border-width: 10px 0 10px 18px;
+            border-color: transparent transparent transparent white;
+            margin-left: 3px;
+        }
+        .video-info .video-name { font-weight: 700; font-size: 15px; }
+        .video-info .video-earnings { font-size: 13px; color: var(--green); }
+
+        /* ===== PRESS / AS SEEN ON ===== */
+        .press {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .press h4 {
+            text-align: center;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            font-weight: 600;
+        }
+        .press-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .press-logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-muted);
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        .press-logo:hover { opacity: 0.8; }
+
+        /* ===== FAQ ===== */
+        .faq { background: var(--bg-secondary); }
+        .faq-list {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 0;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+        }
+        .faq-question .icon {
+            font-size: 20px;
+            transition: transform 0.3s;
+            color: var(--text-muted);
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+        .faq-item.active .faq-question .icon { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .faq-item.active .faq-answer { max-height: 300px; }
+        .faq-answer p {
+            padding-bottom: 24px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(108,92,231,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-section h2 {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 900;
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .cta-section p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: 36px;
+            position: relative;
+        }
+        .cta-section .btn { position: relative; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 60px 0 32px;
+            border-top: 1px solid var(--border);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+        .footer-brand .logo { margin-bottom: 12px; }
+        .footer-brand p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+        .social-link {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .social-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+        .footer-col h5 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a {
+            font-size: 14px;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+        .footer-col a:hover { color: var(--text-primary); }
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .footer-bottom p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .footer-legal {
+            display: flex;
+            gap: 24px;
+        }
+        .footer-legal a {
+            font-size: 13px;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+        .footer-legal a:hover { color: var(--text-primary); }
+
+        /* ===== ANIMATED COUNTERS ===== */
+        .count-up { transition: none; }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .video-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .section { padding: 70px 0; }
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .stats-bar .container {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 28px;
+                gap: 24px;
+            }
+            .diff-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps-grid { grid-template-columns: 1fr; gap: 20px; }
+            .advantages-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .pricing-objectives { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .video-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .pricing-card { padding: 28px; }
+            .press-logos { gap: 28px; }
+            .hero-trust { flex-direction: column; gap: 12px; }
+        }
+
+        @media (max-width: 480px) {
+            .stats-bar .container { grid-template-columns: 1fr 1fr; gap: 16px; padding: 20px; }
+            .diff-grid { grid-template-columns: 1fr; }
+            .ranks-track { gap: 0; }
+            .rank-connector { width: 30px; }
+            .hero h1 { font-size: 32px; }
+        }
+
+        /* Mobile nav */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10,10,15,0.98);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+        .mobile-nav.active { display: flex; }
+        .mobile-nav a {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .mobile-nav .close-btn {
+            position: absolute;
+            top: 20px; right: 24px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+    <div class="container">
+        <a href="https://fundedxyz.com" class="logo">Funded<span>XYZ</span></a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#advantages">Advantages</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="../blog/">Blog</a></li>
+            </ul>
+        </nav>
+        <a href="https://fundedxyz.com/#pricing" class="btn btn-primary" style="display:none" id="headerCta">Start Challenge</a>
+        <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('active')">☰</button>
+    </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+    <button class="close-btn" onclick="this.parentElement.classList.remove('active')">✕</button>
+    <a href="#how-it-works" onclick="this.parentElement.classList.remove('active')">How It Works</a>
+    <a href="#advantages" onclick="this.parentElement.classList.remove('active')">Advantages</a>
+    <a href="#pricing" onclick="this.parentElement.classList.remove('active')">Pricing</a>
+    <a href="#testimonials" onclick="this.parentElement.classList.remove('active')">Reviews</a>
+    <a href="#faq" onclick="this.parentElement.classList.remove('active')">FAQ</a>
+    <a href="../blog/" onclick="this.parentElement.classList.remove('active')">Blog</a>
+    <a href="https://fundedxyz.com/#pricing" class="btn btn-primary">Start Challenge</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge">
+            <span class="pulse"></span>
+            <!-- PLACEHOLDER: Update trader count with real number -->
+            Join 2,400+ traders already funded
+        </div>
+        <h1>Where Performance<br>Meets <span class="gradient-text">Opportunity</span></h1>
+        <p>Trade crypto with up to $100K in funded capital. Single-phase challenge, no daily drawdown, no time limits. Prove your skills and earn up to 90% profit split.</p>
+        <div class="hero-ctas">
+            <a href="https://fundedxyz.com/#pricing" class="btn btn-primary">
+                Start Challenge — From $79
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </a>
+            <a href="#how-it-works" class="btn btn-secondary">Learn How It Works</a>
+        </div>
+        <div class="hero-trust">
+            <div class="hero-trust-item">
+                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2.3 5.2L16 6l-4 3.8L13 16l-5-3-5 3 1-6.2L0 6l5.7-.8z"/></svg>
+                4.8/5 Rating
+            </div>
+            <div class="hero-trust-item">
+                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 2h-11A1.5 1.5 0 001 3.5v9A1.5 1.5 0 002.5 14h11a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0013.5 2zM4 10l2.5-3L9 10l3-4 3 5H1z"/></svg>
+                USDT Payouts
+            </div>
+            <div class="hero-trust-item">
+                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm.5 3v4.25l3.5 2.08-.75 1.23L7.5 9V4h1z"/></svg>
+                No Time Limits
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SOCIAL PROOF STATS BAR ===== -->
+<section class="stats-bar fade-in">
+    <div class="container">
+        <!-- PLACEHOLDER: Update all numbers below with real data -->
+        <div class="stat-item">
+            <div class="stat-number"><span class="accent">$</span><span class="count-up" data-target="1250000" data-prefix="$">0</span><span class="accent">+</span></div>
+            <div class="stat-label">Paid Out to Traders</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number"><span class="count-up" data-target="2400">0</span><span class="accent">+</span></div>
+            <div class="stat-label">Funded Traders</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number"><span class="count-up" data-target="85">0</span><span class="accent">+</span></div>
+            <div class="stat-label">Countries Served</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">3-7 <span class="accent">Days</span></div>
+            <div class="stat-label">Payout Processing</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TRUSTPILOT-STYLE RATING ===== -->
+<section class="trustpilot-bar fade-in">
+    <div class="trustpilot-inner">
+        <div class="tp-stars">
+            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star half"></div>
+        </div>
+        <span class="tp-rating">4.8 / 5.0</span>
+        <!-- PLACEHOLDER: Update review count -->
+        <span class="tp-count">Based on 320+ reviews</span>
+        <span class="tp-label">⭐ Excellent</span>
+    </div>
+</section>
+
+<!-- ===== LIVE PAYOUT FEED ===== -->
+<section class="payout-feed">
+    <h3><span class="live-dot"></span> Recent Payouts</h3>
+    <div class="payout-ticker" id="payoutTicker">
+        <!-- PLACEHOLDER: Replace with real payout data -->
+        <!-- Duplicate set for seamless looping -->
+    </div>
+</section>
+
+<!-- ===== KEY DIFFERENTIATORS ===== -->
+<section class="differentiators section fade-in">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Why FundedXYZ</div>
+            <h2 class="section-title">Built Different</h2>
+            <p class="section-subtitle">See how FundedXYZ compares to other prop firms</p>
+        </div>
+        <div class="diff-grid">
+            <div class="glass-card diff-card">
+                <div class="diff-icon">🚫</div>
+                <h4>No Daily Drawdown</h4>
+                <p>Trade without daily loss restrictions cramping your style</p>
+                <span class="compare">Others enforce 5% daily</span>
+            </div>
+            <div class="glass-card diff-card">
+                <div class="diff-icon">1️⃣</div>
+                <h4>Single Phase Challenge</h4>
+                <p>One challenge, one step to getting funded — no multi-phase hassle</p>
+                <span class="compare">Others require 2 phases</span>
+            </div>
+            <div class="glass-card diff-card">
+                <div class="diff-icon">💰</div>
+                <h4>From Just $79</h4>
+                <p>Get started with the most affordable challenge in the market</p>
+                <span class="compare">Competitors start at $150+</span>
+            </div>
+            <div class="glass-card diff-card">
+                <div class="diff-icon">⚡</div>
+                <h4>USDT Payouts in 3 Days</h4>
+                <p>Fast, reliable payouts directly to your crypto wallet</p>
+                <span class="compare">Others take 7-14 days</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how-it-works section fade-in" id="how-it-works">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Getting Started</div>
+            <h2 class="section-title">How to Become a FundedXYZ Trader</h2>
+            <p class="section-subtitle">Our evaluation process is designed to identify serious traders. Prove your skills and join the ranks of professional funded traders.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="glass-card step-card">
+                <div class="step-number">1</div>
+                <h4>Choose Your Challenge</h4>
+                <p>Select your account size from $5K to $100K. Our single-phase challenge is designed to be fair and achievable for skilled traders.</p>
+            </div>
+            <div class="glass-card step-card">
+                <div class="step-number">2</div>
+                <h4>Prove Your Skills</h4>
+                <p>Hit the 8% profit target while staying within the 10% max loss limit. No time pressure — take as long as you need.</p>
+            </div>
+            <div class="glass-card step-card">
+                <div class="step-number">3</div>
+                <h4>Get Funded & Earn</h4>
+                <p>Pass the challenge and receive your funded account. Trade with our capital and keep up to 90% of the profits you generate.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== RISE THROUGH THE RANKS ===== -->
+<section class="ranks section fade-in">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Career Progression</div>
+            <h2 class="section-title">Rise Through the Ranks</h2>
+            <p class="section-subtitle">True traders thrive under pressure and build on their success. Start as a Junior Trader and climb your way to Aura status.</p>
+        </div>
+        <div class="ranks-track">
+            <div class="rank-node">
+                <div class="rank-circle junior">🌱</div>
+                <div class="rank-name">Junior</div>
+                <div class="rank-size">$25K</div>
+            </div>
+            <div class="rank-connector"></div>
+            <div class="rank-node">
+                <div class="rank-circle senior">📈</div>
+                <div class="rank-name">Senior</div>
+                <div class="rank-size">$50K</div>
+            </div>
+            <div class="rank-connector"></div>
+            <div class="rank-node">
+                <div class="rank-circle elite">🔥</div>
+                <div class="rank-name">Elite</div>
+                <div class="rank-size">$75K</div>
+            </div>
+            <div class="rank-connector"></div>
+            <div class="rank-node">
+                <div class="rank-circle master">👑</div>
+                <div class="rank-name">Master</div>
+                <div class="rank-size">$100K</div>
+            </div>
+            <div class="rank-connector"></div>
+            <div class="rank-node">
+                <div class="rank-circle aura">✨</div>
+                <div class="rank-name">Aura</div>
+                <div class="rank-size">$200K</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ADVANTAGES ===== -->
+<section class="section fade-in" id="advantages">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Platform</div>
+            <h2 class="section-title">Advantages of Crypto Trading with FundedXYZ</h2>
+            <p class="section-subtitle">Our path to getting funded is straightforward and transparent.</p>
+        </div>
+        <div class="advantages-grid">
+            <div class="glass-card advantage-card">
+                <div class="advantage-icon">🎯</div>
+                <div>
+                    <h4>One-Stop Trading Hub</h4>
+                    <p>Access all your trading tools in one place — from strategy simulators to real-time data, all optimized for performance.</p>
+                </div>
+            </div>
+            <div class="glass-card advantage-card">
+                <div class="advantage-icon">📊</div>
+                <div>
+                    <h4>Enhance Trading Leverage</h4>
+                    <p>Trade crypto with up to 5x leverage to amplify your returns while managing risk effectively.</p>
+                </div>
+            </div>
+            <div class="glass-card advantage-card">
+                <div class="advantage-icon">💎</div>
+                <div>
+                    <h4>Capital up to $100K</h4>
+                    <p>Unlock funding up to $100,000 — no upfront capital needed. Focus on trading; we handle the funding.</p>
+                </div>
+            </div>
+            <div class="glass-card advantage-card">
+                <div class="advantage-icon">⚡</div>
+                <div>
+                    <h4>Simple Single Challenge</h4>
+                    <p>No more complex evaluations. Pass a single-phase challenge to get funded faster and start earning.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHY TRADE ===== -->
+<section class="why-trade section fade-in">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Features</div>
+            <h2 class="section-title">Why Trade With FundedXYZ?</h2>
+            <p class="section-subtitle">We provide a feature-rich trading environment designed to help you succeed.</p>
+        </div>
+        <div class="features-grid">
+            <div class="glass-card feature-card">
+                <div class="feature-icon">⏰</div>
+                <h4>No Time Limits</h4>
+                <p>Take as long as you need to pass the evaluation. We believe in stress-free trading.</p>
+            </div>
+            <div class="glass-card feature-card">
+                <div class="feature-icon">💸</div>
+                <h4>Up to 90% Profit Split</h4>
+                <p>You do the work, you earn the reward. Our generous profit share is among the best in the industry.</p>
+            </div>
+            <div class="glass-card feature-card">
+                <div class="feature-icon">🚀</div>
+                <h4>Fast Payouts</h4>
+                <p>Request your profits and receive them within 7 days via USDT. No waiting around.</p>
+            </div>
+            <div class="glass-card feature-card">
+                <div class="feature-icon">📈</div>
+                <h4>High Leverage</h4>
+                <p>Utilize up to 1:5 leverage to maximize your trading potential on our platform.</p>
+            </div>
+            <div class="glass-card feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h4>24/7 Support</h4>
+                <p>Our dedicated support team is here to help you around the clock with any questions.</p>
+            </div>
+            <div class="glass-card feature-card">
+                <div class="feature-icon">🏦</div>
+                <h4>Real Capital</h4>
+                <p>Backed by deep VC and hedge fund capital, ensuring long-term sustainability. Payouts are never a problem for a good trader.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRICING TABLE ===== -->
+<section class="pricing section fade-in" id="pricing">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Pricing</div>
+            <h2 class="section-title">Our Trading Objectives</h2>
+            <p class="section-subtitle">Choose the account size that fits your strategy. All plans feature realistic targets and simple rules.</p>
+        </div>
+        <div class="pricing-tabs">
+            <button class="pricing-tab active" data-tier="5000">$5,000</button>
+            <button class="pricing-tab" data-tier="10000">$10,000</button>
+            <button class="pricing-tab" data-tier="25000">$25,000</button>
+            <button class="pricing-tab" data-tier="50000">$50,000</button>
+            <button class="pricing-tab" data-tier="100000">$100,000</button>
+        </div>
+        <div class="pricing-details">
+            <div class="pricing-card" id="pricingCard">
+                <div class="pricing-amount">
+                    <div class="size" id="pricingSize">$5,000 Account</div>
+                    <div class="price"><span class="currency">$</span><span id="pricingPrice">79</span></div>
+                    <div class="from">One-time challenge fee</div>
+                </div>
+                <div class="pricing-objectives">
+                    <div class="pricing-obj"><span class="label">Profit Target</span><span class="value" id="objTarget">8%</span></div>
+                    <div class="pricing-obj"><span class="label">Max Loss</span><span class="value" id="objMaxLoss">10%</span></div>
+                    <div class="pricing-obj"><span class="label">Max Daily Loss</span><span class="value" id="objDailyLoss">5%</span></div>
+                    <div class="pricing-obj"><span class="label">Daily Max Profit</span><span class="value" id="objDailyProfit">3%</span></div>
+                    <div class="pricing-obj"><span class="label">Trading Period</span><span class="value" id="objPeriod">Unlimited</span></div>
+                    <div class="pricing-obj"><span class="label">Max Leverage</span><span class="value" id="objLeverage">1:5</span></div>
+                    <div class="pricing-obj"><span class="label">Profit Sharing</span><span class="value" id="objSplit">80%</span></div>
+                    <div class="pricing-obj"><span class="label">Payout Method</span><span class="value">USDT</span></div>
+                </div>
+                <a href="https://fundedxyz.com/#pricing" class="btn btn-primary">Start This Challenge →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials section fade-in" id="testimonials">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Reviews</div>
+            <h2 class="section-title">What Our Traders Say</h2>
+            <p class="section-subtitle">Real feedback from funded traders around the world</p>
+        </div>
+        <div class="testimonials-grid">
+            <!-- PLACEHOLDER: Replace all testimonials below with real trader reviews -->
+
+            <div class="glass-card testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">GD</div>
+                    <div>
+                        <div class="testimonial-name">Gabriel D.</div>
+                        <div class="testimonial-country">🇺🇸 United States</div>
+                    </div>
+                    <div class="testimonial-verified">✓ Verified</div>
+                </div>
+                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <p class="testimonial-text">The single-phase challenge is a game changer. No daily drawdown pressure means I can actually trade my strategy properly. Got my first payout in under a week. Highly recommend.</p>
+                <div class="testimonial-payout">💰 Payout: $4,250</div>
+            </div>
+
+            <div class="glass-card testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">SM</div>
+                    <div>
+                        <div class="testimonial-name">Selin M.</div>
+                        <div class="testimonial-country">🇹🇷 Turkey</div>
+                    </div>
+                    <div class="testimonial-verified">✓ Verified</div>
+                </div>
+                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <p class="testimonial-text">I've tried 3 other prop firms before. FundedXYZ is the first one with rules that actually make sense for crypto traders. No time limit is everything.</p>
+                <div class="testimonial-payout">💰 Payout: $3,180</div>
+            </div>
+
+            <div class="glass-card testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">AR</div>
+                    <div>
+                        <div class="testimonial-name">Arjun R.</div>
+                        <div class="testimonial-country">🇮🇳 India</div>
+                    </div>
+                    <div class="testimonial-verified">✓ Verified</div>
+                </div>
+                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <p class="testimonial-text">Passed the $25K challenge and scaled up to Senior. Support team responded to my payout request within hours. USDT hit my wallet in 3 days. These guys are legit.</p>
+                <div class="testimonial-payout">💰 Payout: $6,800</div>
+            </div>
+
+            <div class="glass-card testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">LC</div>
+                    <div>
+                        <div class="testimonial-name">Lucie C.</div>
+                        <div class="testimonial-country">🇫🇷 France</div>
+                    </div>
+                    <div class="testimonial-verified">✓ Verified</div>
+                </div>
+                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <p class="testimonial-text">Started with the $5K challenge just to test the waters. The platform is solid, rules are transparent, and the 90% profit split is hard to beat anywhere else.</p>
+                <div class="testimonial-payout">💰 Payout: $1,920</div>
+            </div>
+
+            <div class="glass-card testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">HO</div>
+                    <div>
+                        <div class="testimonial-name">Henrik O.</div>
+                        <div class="testimonial-country">🇸🇪 Sweden</div>
+                    </div>
+                    <div class="testimonial-verified">✓ Verified</div>
+                </div>
+                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <p class="testimonial-text">Clean interface, fair rules, and fast payouts. The rank system keeps me motivated. Currently working my way to Elite. Best crypto prop firm I've used.</p>
+                <div class="testimonial-payout">💰 Payout: $5,400</div>
+            </div>
+
+            <div class="glass-card testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">AK</div>
+                    <div>
+                        <div class="testimonial-name">Aisha K.</div>
+                        <div class="testimonial-country">🇳🇬 Nigeria</div>
+                    </div>
+                    <div class="testimonial-verified">✓ Verified</div>
+                </div>
+                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <p class="testimonial-text">As a female trader in crypto, finding a reliable prop firm was tough. FundedXYZ's single challenge and USDT payouts made it simple. Already on my second funded account!</p>
+                <div class="testimonial-payout">💰 Payout: $2,750</div>
+            </div>
+
+            <div class="glass-card testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">RP</div>
+                    <div>
+                        <div class="testimonial-name">Rafael P.</div>
+                        <div class="testimonial-country">🇧🇷 Brazil</div>
+                    </div>
+                    <div class="testimonial-verified">✓ Verified</div>
+                </div>
+                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <p class="testimonial-text">$79 to start a $5K challenge? That's incredible value. Passed in 2 weeks, got funded, and made my first profit withdrawal. The support team on Telegram is super responsive.</p>
+                <div class="testimonial-payout">💰 Payout: $1,580</div>
+            </div>
+
+            <div class="glass-card testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">MW</div>
+                    <div>
+                        <div class="testimonial-name">Michael W.</div>
+                        <div class="testimonial-country">🇬🇧 United Kingdom</div>
+                    </div>
+                    <div class="testimonial-verified">✓ Verified</div>
+                </div>
+                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <p class="testimonial-text">Moved from a forex prop firm to FundedXYZ for crypto. The no-time-limit policy and high leverage make this the best option for crypto traders, hands down.</p>
+                <div class="testimonial-payout">💰 Payout: $8,200</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== VIDEO TESTIMONIALS ===== -->
+<section class="video-testimonials section fade-in">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Video Reviews</div>
+            <h2 class="section-title">Hear From Our Traders</h2>
+            <p class="section-subtitle">Watch funded traders share their experience with FundedXYZ</p>
+        </div>
+        <div class="video-grid">
+            <!-- PLACEHOLDER: Replace with actual YouTube video embeds or real thumbnails -->
+            <div class="video-card" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+                <div class="video-overlay">
+                    <div class="video-play"></div>
+                    <div class="video-info">
+                        <div class="video-name">🇺🇸 Gabriel D. — My First $4K Payout</div>
+                        <div class="video-earnings">Earned: $4,250</div>
+                    </div>
+                </div>
+            </div>
+            <div class="video-card" style="background: linear-gradient(135deg, #1a1a2e, #0f3460);">
+                <div class="video-overlay">
+                    <div class="video-play"></div>
+                    <div class="video-info">
+                        <div class="video-name">🇮🇳 Arjun R. — Scaling to Senior Trader</div>
+                        <div class="video-earnings">Earned: $6,800</div>
+                    </div>
+                </div>
+            </div>
+            <div class="video-card" style="background: linear-gradient(135deg, #1a1a2e, #1a0a2e);">
+                <div class="video-overlay">
+                    <div class="video-play"></div>
+                    <div class="video-info">
+                        <div class="video-name">🇬🇧 Michael W. — Why I Switched to FundedXYZ</div>
+                        <div class="video-earnings">Earned: $8,200</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRESS / AS SEEN ON ===== -->
+<section class="press fade-in">
+    <div class="container">
+        <h4>As Featured In</h4>
+        <div class="press-logos">
+            <!-- PLACEHOLDER: Replace with actual press/media logo images -->
+            <span class="press-logo">CoinGape</span>
+            <span class="press-logo">Benzinga</span>
+            <span class="press-logo">CryptoSlate</span>
+            <span class="press-logo">NewsBTC</span>
+            <span class="press-logo">CoinTelegraph</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq section fade-in" id="faq">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Support</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Have questions? We have answers.</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">What is FundedXYZ? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>FundedXYZ is a crypto prop trading firm that provides funded accounts to skilled traders. Pass our single-phase challenge and trade with up to $100,000 in capital while keeping up to 90% of your profits.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How does the challenge work? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>Purchase a challenge, hit the 8% profit target without exceeding the 10% max loss limit. There's no time limit — take as long as you need. Once you pass, you receive your funded account and can start earning real profits.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What is the profit split? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>Our standard profit split starts at 80% and can go up to 90% as you progress through the ranks. You trade, you earn — it's that simple.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How fast are payouts? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>Payouts are processed within 3-7 business days via USDT directly to your crypto wallet. We believe in fast, hassle-free withdrawals.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Is there a daily drawdown limit? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>We have a daily max loss of 5% and a total max loss of 10%. However, unlike many competitors, we don't enforce a daily drawdown based on equity — giving you more flexibility in your trading approach.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What markets can I trade? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>FundedXYZ is focused on cryptocurrency markets. Trade major crypto pairs with up to 1:5 leverage on our advanced trading platform.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Is this legit? How do I know my profits are safe? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>FundedXYZ is operated by BIO LC PTE LTD, registered in Singapore. We are backed by deep VC and hedge fund capital, ensuring long-term sustainability. Our payout track record speaks for itself — check our trader testimonials and payout proofs.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What's the minimum to get started? <span class="icon">+</span></button>
+                <div class="faq-answer"><p>Our most affordable challenge starts at just $79 for a $5,000 account. We believe talented traders shouldn't be blocked by high entry fees.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="cta-section fade-in">
+    <div class="container">
+        <!-- PLACEHOLDER: Update trader count -->
+        <h2>Ready to Get Funded?</h2>
+        <p>Join 2,400+ traders who trust FundedXYZ with their trading career. Start from just $79.</p>
+        <a href="https://fundedxyz.com/#pricing" class="btn btn-primary">Start Your Challenge Now →</a>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">Funded<span>XYZ</span></div>
+                <p>Where performance meets opportunity. Trade crypto with funded capital and keep up to 90% of your profits.</p>
+                <p style="font-size:12px; color: var(--text-muted);">Operated by BIO LC PTE LTD, Singapore</p>
+                <div class="social-links" style="margin-top:12px;">
+                    <!-- PLACEHOLDER: Update with actual social media URLs -->
+                    <a href="https://twitter.com/fundedxyz" class="social-link" title="Twitter/X">𝕏</a>
+                    <a href="https://discord.gg/fundedxyz" class="social-link" title="Discord">💬</a>
+                    <a href="https://t.me/fundedxyz" class="social-link" title="Telegram">✈️</a>
+                    <a href="https://youtube.com/@fundedxyz" class="social-link" title="YouTube">▶️</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="https://fundedxyz.com">Home</a></li>
+                    <li><a href="https://fundedxyz.com/#pricing">Pricing</a></li>
+                    <li><a href="../blog/">Blog</a></li>
+                    <li><a href="../blog/payout-proof/">Payout Proofs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Trading</h5>
+                <ul>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#pricing">Challenges</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Legal</h5>
+                <ul>
+                    <!-- PLACEHOLDER: Update with actual legal page URLs -->
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Risk Disclosure</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024-2026 FundedXYZ. All rights reserved. BIO LC PTE LTD, Singapore.</p>
+            <div class="footer-legal">
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Risk Disclosure</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ===== STICKY HEADER =====
+const header = document.getElementById('header');
+const headerCta = document.getElementById('headerCta');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+        headerCta.style.display = 'inline-flex';
+    } else {
+        header.classList.remove('scrolled');
+        headerCta.style.display = 'none';
+    }
+});
+
+// ===== PAYOUT FEED =====
+// PLACEHOLDER: Replace with real payout data
+const payoutData = [
+    { name: 'Gabriel D.', flag: '🇺🇸', amount: '$4,250', time: '3 days ago', initials: 'GD' },
+    { name: 'Selin M.', flag: '🇹🇷', amount: '$3,180', time: '3 days ago', initials: 'SM' },
+    { name: 'Arjun R.', flag: '🇮🇳', amount: '$6,800', time: '5 days ago', initials: 'AR' },
+    { name: 'Lucie C.', flag: '🇫🇷', amount: '$1,920', time: '1 week ago', initials: 'LC' },
+    { name: 'Henrik O.', flag: '🇸🇪', amount: '$5,400', time: '1 week ago', initials: 'HO' },
+    { name: 'Aisha K.', flag: '🇳🇬', amount: '$2,750', time: '4 days ago', initials: 'AK' },
+    { name: 'Rafael P.', flag: '🇧🇷', amount: '$1,580', time: '2 days ago', initials: 'RP' },
+    { name: 'Michael W.', flag: '🇬🇧', amount: '$8,200', time: '6 days ago', initials: 'MW' },
+    { name: 'Yuki T.', flag: '🇯🇵', amount: '$3,650', time: '1 week ago', initials: 'YT' },
+    { name: 'Omar B.', flag: '🇦🇪', amount: '$4,900', time: '5 days ago', initials: 'OB' },
+    { name: 'Sophie L.', flag: '🇩🇪', amount: '$2,340', time: '2 days ago', initials: 'SL' },
+    { name: 'Carlos M.', flag: '🇲🇽', amount: '$1,780', time: '4 days ago', initials: 'CM' },
+];
+const ticker = document.getElementById('payoutTicker');
+const allPayouts = [...payoutData, ...payoutData]; // duplicate for seamless loop
+ticker.innerHTML = allPayouts.map(p => `
+    <div class="payout-item">
+        <div class="payout-avatar">${p.initials}</div>
+        <span class="payout-name">${p.flag} ${p.name}</span>
+        <span class="payout-amount">${p.amount}</span>
+        <span class="payout-time">${p.time}</span>
+    </div>
+`).join('');
+
+// ===== PRICING TABS =====
+const pricingData = {
+    5000:   { size: '$5,000 Account',   price: '79',  target: '8%', maxLoss: '10%', dailyLoss: '5%', dailyProfit: '3%', period: 'Unlimited', leverage: '1:5', split: '80%' },
+    10000:  { size: '$10,000 Account',  price: '129', target: '8%', maxLoss: '10%', dailyLoss: '5%', dailyProfit: '3%', period: 'Unlimited', leverage: '1:5', split: '80%' },
+    25000:  { size: '$25,000 Account',  price: '249', target: '8%', maxLoss: '10%', dailyLoss: '5%', dailyProfit: '3%', period: 'Unlimited', leverage: '1:5', split: '80%' },
+    50000:  { size: '$50,000 Account',  price: '399', target: '8%', maxLoss: '10%', dailyLoss: '5%', dailyProfit: '3%', period: 'Unlimited', leverage: '1:5', split: '85%' },
+    100000: { size: '$100,000 Account', price: '599', target: '8%', maxLoss: '10%', dailyLoss: '5%', dailyProfit: '3%', period: 'Unlimited', leverage: '1:5', split: '90%' },
+};
+document.querySelectorAll('.pricing-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.pricing-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const d = pricingData[tab.dataset.tier];
+        document.getElementById('pricingSize').textContent = d.size;
+        document.getElementById('pricingPrice').textContent = d.price;
+        document.getElementById('objTarget').textContent = d.target;
+        document.getElementById('objMaxLoss').textContent = d.maxLoss;
+        document.getElementById('objDailyLoss').textContent = d.dailyLoss;
+        document.getElementById('objDailyProfit').textContent = d.dailyProfit;
+        document.getElementById('objPeriod').textContent = d.period;
+        document.getElementById('objLeverage').textContent = d.leverage;
+        document.getElementById('objSplit').textContent = d.split;
+    });
+});
+
+// ===== FAQ ACCORDION =====
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const wasActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!wasActive) item.classList.add('active');
+    });
+});
+
+// ===== SCROLL ANIMATIONS =====
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ===== COUNTER ANIMATION =====
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.dataset.target);
+            const prefix = el.dataset.prefix || '';
+            const duration = 2000;
+            const start = performance.now();
+            const animate = (now) => {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(eased * target);
+                el.textContent = prefix ? current.toLocaleString() : current.toLocaleString();
+                if (progress < 1) requestAnimationFrame(animate);
+                else el.textContent = target.toLocaleString();
+            };
+            requestAnimationFrame(animate);
+            counterObserver.unobserve(el);
+        }
+    });
+}, { threshold: 0.5 });
+document.querySelectorAll('.count-up').forEach(el => counterObserver.observe(el));
+</script>
+
+</body>
+</html>
