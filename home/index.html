@@ -622,10 +622,16 @@
         .testimonial-card { padding: 28px; }
         .testimonial-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
         .testimonial-avatar {
-            width: 44px; height: 44px; border-radius: 50%;
-            background: var(--accent-gradient);
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 700; font-size: 16px;
+            width: 52px; height: 52px; border-radius: 50%;
+            border: 2px solid transparent;
+            background-image: linear-gradient(var(--bg-primary), var(--bg-primary)), var(--accent-gradient);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            overflow: hidden; flex-shrink: 0;
+        }
+        .testimonial-avatar img {
+            width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
         }
         .testimonial-name { font-weight: 700; font-size: 15px; }
         .testimonial-country { font-size: 13px; color: var(--text-muted); }
@@ -651,7 +657,7 @@
             border-radius: var(--radius); overflow: hidden; cursor: pointer;
             position: relative; aspect-ratio: 16/9;
             background: var(--bg-secondary); border: 1px solid var(--glass-border);
-            transition: all 0.4s ease;
+            transition: all 0.4s ease; background-size: cover; background-position: center top;
         }
         .video-card:hover { transform: scale(1.03); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
         .video-card .video-overlay {
@@ -1434,7 +1440,7 @@
         <div class="testimonials-grid">
             <div class="glass-card testimonial-card reveal reveal-delay-1">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">GD</div>
+                    <div class="testimonial-avatar"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Gabriel D." loading="lazy"></div>
                     <div><div class="testimonial-name">Gabriel D.</div><div class="testimonial-country">🇺🇸 United States</div></div>
                     <div class="testimonial-verified"><svg viewBox="0 0 16 16" fill="#00d4aa"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.6 6.4l-4 4a.8.8 0 01-1.1 0l-2-2a.8.8 0 111.1-1.1L7 8.7l3.4-3.4a.8.8 0 111.1 1.1z"/></svg> Verified</div>
                 </div>
@@ -1444,7 +1450,7 @@
             </div>
             <div class="glass-card testimonial-card reveal reveal-delay-2">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">SM</div>
+                    <div class="testimonial-avatar"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Selin M." loading="lazy"></div>
                     <div><div class="testimonial-name">Selin M.</div><div class="testimonial-country">🇹🇷 Turkey</div></div>
                     <div class="testimonial-verified"><svg viewBox="0 0 16 16" fill="#00d4aa"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.6 6.4l-4 4a.8.8 0 01-1.1 0l-2-2a.8.8 0 111.1-1.1L7 8.7l3.4-3.4a.8.8 0 111.1 1.1z"/></svg> Verified</div>
                 </div>
@@ -1454,7 +1460,7 @@
             </div>
             <div class="glass-card testimonial-card reveal reveal-delay-3">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">AR</div>
+                    <div class="testimonial-avatar"><img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Arjun R." loading="lazy"></div>
                     <div><div class="testimonial-name">Arjun R.</div><div class="testimonial-country">🇮🇳 India</div></div>
                     <div class="testimonial-verified"><svg viewBox="0 0 16 16" fill="#00d4aa"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.6 6.4l-4 4a.8.8 0 01-1.1 0l-2-2a.8.8 0 111.1-1.1L7 8.7l3.4-3.4a.8.8 0 111.1 1.1z"/></svg> Verified</div>
                 </div>
@@ -1464,7 +1470,7 @@
             </div>
             <div class="glass-card testimonial-card reveal reveal-delay-1">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">LC</div>
+                    <div class="testimonial-avatar"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Lucie C." loading="lazy"></div>
                     <div><div class="testimonial-name">Lucie C.</div><div class="testimonial-country">🇫🇷 France</div></div>
                     <div class="testimonial-verified"><svg viewBox="0 0 16 16" fill="#00d4aa"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.6 6.4l-4 4a.8.8 0 01-1.1 0l-2-2a.8.8 0 111.1-1.1L7 8.7l3.4-3.4a.8.8 0 111.1 1.1z"/></svg> Verified</div>
                 </div>
@@ -1474,7 +1480,7 @@
             </div>
             <div class="glass-card testimonial-card reveal reveal-delay-2">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">HO</div>
+                    <div class="testimonial-avatar"><img src="https://randomuser.me/api/portraits/men/71.jpg" alt="Henrik O." loading="lazy"></div>
                     <div><div class="testimonial-name">Henrik O.</div><div class="testimonial-country">🇸🇪 Sweden</div></div>
                     <div class="testimonial-verified"><svg viewBox="0 0 16 16" fill="#00d4aa"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.6 6.4l-4 4a.8.8 0 01-1.1 0l-2-2a.8.8 0 111.1-1.1L7 8.7l3.4-3.4a.8.8 0 111.1 1.1z"/></svg> Verified</div>
                 </div>
@@ -1484,7 +1490,7 @@
             </div>
             <div class="glass-card testimonial-card reveal reveal-delay-3">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">AK</div>
+                    <div class="testimonial-avatar"><img src="https://randomuser.me/api/portraits/women/88.jpg" alt="Aisha K." loading="lazy"></div>
                     <div><div class="testimonial-name">Aisha K.</div><div class="testimonial-country">🇳🇬 Nigeria</div></div>
                     <div class="testimonial-verified"><svg viewBox="0 0 16 16" fill="#00d4aa"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.6 6.4l-4 4a.8.8 0 01-1.1 0l-2-2a.8.8 0 111.1-1.1L7 8.7l3.4-3.4a.8.8 0 111.1 1.1z"/></svg> Verified</div>
                 </div>
@@ -1494,7 +1500,7 @@
             </div>
             <div class="glass-card testimonial-card reveal reveal-delay-1">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">RP</div>
+                    <div class="testimonial-avatar"><img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Rafael P." loading="lazy"></div>
                     <div><div class="testimonial-name">Rafael P.</div><div class="testimonial-country">🇧🇷 Brazil</div></div>
                     <div class="testimonial-verified"><svg viewBox="0 0 16 16" fill="#00d4aa"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.6 6.4l-4 4a.8.8 0 01-1.1 0l-2-2a.8.8 0 111.1-1.1L7 8.7l3.4-3.4a.8.8 0 111.1 1.1z"/></svg> Verified</div>
                 </div>
@@ -1504,7 +1510,7 @@
             </div>
             <div class="glass-card testimonial-card reveal reveal-delay-2">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar">MW</div>
+                    <div class="testimonial-avatar"><img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Michael W." loading="lazy"></div>
                     <div><div class="testimonial-name">Michael W.</div><div class="testimonial-country">🇬🇧 United Kingdom</div></div>
                     <div class="testimonial-verified"><svg viewBox="0 0 16 16" fill="#00d4aa"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.6 6.4l-4 4a.8.8 0 01-1.1 0l-2-2a.8.8 0 111.1-1.1L7 8.7l3.4-3.4a.8.8 0 111.1 1.1z"/></svg> Verified</div>
                 </div>
@@ -1525,7 +1531,7 @@
             <p class="section-subtitle">Watch funded traders share their experience with FundedXYZ</p>
         </div>
         <div class="video-grid">
-            <div class="video-card reveal reveal-delay-1" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+            <div class="video-card reveal reveal-delay-1" style="background: linear-gradient(135deg, rgba(26,26,46,0.5), rgba(22,33,62,0.5)), url('https://randomuser.me/api/portraits/men/75.jpg') center/cover;">
                 <div class="video-overlay">
                     <div class="video-play"></div>
                     <div class="video-info">
@@ -1534,7 +1540,7 @@
                     </div>
                 </div>
             </div>
-            <div class="video-card reveal reveal-delay-2" style="background: linear-gradient(135deg, #1a1a2e, #0f3460);">
+            <div class="video-card reveal reveal-delay-2" style="background: linear-gradient(135deg, rgba(26,26,46,0.5), rgba(15,52,96,0.5)), url('https://randomuser.me/api/portraits/men/22.jpg') center/cover;">
                 <div class="video-overlay">
                     <div class="video-play"></div>
                     <div class="video-info">
@@ -1543,7 +1549,7 @@
                     </div>
                 </div>
             </div>
-            <div class="video-card reveal reveal-delay-3" style="background: linear-gradient(135deg, #1a1a2e, #1a0a2e);">
+            <div class="video-card reveal reveal-delay-3" style="background: linear-gradient(135deg, rgba(26,26,46,0.5), rgba(26,10,46,0.5)), url('https://randomuser.me/api/portraits/men/36.jpg') center/cover;">
                 <div class="video-overlay">
                     <div class="video-play"></div>
                     <div class="video-info">
