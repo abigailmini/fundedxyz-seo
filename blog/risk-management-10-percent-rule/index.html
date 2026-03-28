@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Prop Trading Risk Management: The 10% Rule Explained | FundedXYZ</title>
+    <meta name="description" content="Master the 10% max drawdown rule in crypto prop trading. Learn position sizing, stop-loss strategies, risk per trade calculations, and how to protect your funded account.">
+    <link rel="canonical" href="https://blog.fundedxyz.com/blog/risk-management-10-percent-rule/">
+    <meta property="og:title" content="Crypto Prop Trading Risk Management: The 10% Rule Explained">
+    <meta property="og:description" content="Complete guide to the 10% max drawdown rule, position sizing, and risk management for funded crypto traders.">
+    <meta property="og:url" content="https://blog.fundedxyz.com/blog/risk-management-10-percent-rule/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://fundedxyz.com/images/logo_square.png">
+    <meta property="og:site_name" content="FundedXYZ Blog">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Crypto Prop Trading Risk Management: The 10% Rule">
+    <meta name="twitter:description" content="Master the 10% rule for crypto prop trading.">
+    <meta name="twitter:image" content="https://fundedxyz.com/images/logo_square.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://fundedxyz.com/images/logo-favicon.png">
+    <link rel="stylesheet" href="/css/blog.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Crypto Prop Trading Risk Management: The 10% Rule Explained",
+        "author": {"@type": "Person", "name": "David Justin"},
+        "publisher": {"@type": "Organization", "name": "FundedXYZ", "logo": {"@type": "ImageObject", "url": "https://fundedxyz.com/images/logo_square.png"}},
+        "datePublished": "2026-03-19",
+        "dateModified": "2026-03-28",
+        "mainEntityOfPage": "https://blog.fundedxyz.com/blog/risk-management-10-percent-rule/"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What is the 10% rule in crypto prop trading?", "acceptedAnswer": {"@type": "Answer", "text": "The 10% rule means your funded trading account cannot lose more than 10% of its starting balance (or highest watermark). For a $100,000 account, if your equity drops to $90,000 or below, the account is terminated. This is the maximum drawdown limit used by most prop firms including FundedXYZ."}},
+            {"@type": "Question", "name": "How much should I risk per trade on a prop firm account?", "acceptedAnswer": {"@type": "Answer", "text": "Risk 1-2% of your account balance per trade. With a 10% max drawdown, risking 1% gives you 10 consecutive losses before breach. Risking 2% gives you 5. Most successful funded traders use 1% risk per trade for the optimal balance of safety and profit potential."}},
+            {"@type": "Question", "name": "How do I calculate position size for a prop firm challenge?", "acceptedAnswer": {"@type": "Answer", "text": "Position Size = (Account Balance × Risk Percentage) ÷ (Entry Price − Stop Loss Price). For example, on a $50,000 account risking 1% ($500), with BTC entry at $65,000 and stop at $64,000: Position Size = $500 ÷ $1,000 = 0.5 BTC."}}
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="https://fundedxyz.com" class="logo">Funded<span>XYZ</span></a>
+            <button class="menu-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+            <ul class="nav-menu">
+                <li><a href="https://fundedxyz.com">Home</a></li>
+                <li><a href="https://fundedxyz.com/#pricing">Challenge</a></li>
+                <li class="active"><a href="/blog/">Blog</a></li>
+                <li><a href="https://fundedxyz.com/#faq">FAQ</a></li>
+                <li><a href="https://fundedxyz.com/#contact">Contact</a></li>
+                <li><a href="https://fundedxyz.com" class="btn btn-primary">Start Challenge</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="article-header">
+        <div class="article-container">
+            <nav class="breadcrumb"><a href="/blog/">Blog</a> <span class="sep">›</span> <span>Education</span></nav>
+            <span class="article-category">Education</span>
+            <h1>Crypto Prop Trading Risk Management: The 10% Rule Explained</h1>
+            <div class="article-meta">
+                <span class="author-name">David Justin</span>
+                <span class="separator">|</span>
+                <span>Founder of FundedXYZ & Guinness World Record holder</span>
+                <span class="separator">|</span>
+                <span>Last Updated: March 2026</span>
+                <span class="separator">|</span>
+                <span>10 min read</span>
+            </div>
+        </div>
+    </div>
+
+    <article class="article-content">
+        <div class="article-container">
+
+            <p><strong>The 10% rule in crypto prop trading means your account cannot lose more than 10% from its starting balance — ever. At FundedXYZ, if your $100,000 funded account drops to $90,000 or below, the account is terminated.</strong> This single rule governs everything about how you should size positions, set stop-losses, and manage your overall portfolio risk. Master it, and you'll never blow a funded account. Ignore it, and no amount of trading skill will save you.</p>
+
+            <nav class="toc">
+                <h4>📋 Table of Contents</h4>
+                <ul>
+                    <li><a href="#what-is">What Is the 10% Maximum Drawdown Rule?</a></li>
+                    <li><a href="#how-calculated">How Max Drawdown Is Calculated</a></li>
+                    <li><a href="#position-sizing">Position Sizing: The Foundation of Risk Management</a></li>
+                    <li><a href="#stop-losses">Stop-Loss Strategies for Funded Accounts</a></li>
+                    <li><a href="#correlation">Managing Correlation Risk</a></li>
+                    <li><a href="#scenarios">Risk Scenarios: How Losses Compound</a></li>
+                    <li><a href="#recovery">Recovery Math: Why Prevention Beats Recovery</a></li>
+                    <li><a href="#rules">The 7 Rules of Prop Trading Risk Management</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <h2 id="what-is">What Is the 10% Maximum Drawdown Rule?</h2>
+
+            <p>The maximum drawdown (max DD) is the most you can lose before your funded account is terminated. At FundedXYZ and most crypto prop firms, this is set at <strong>10% of the starting account balance</strong>.</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr><th>Account Size</th><th>10% Max Drawdown</th><th>Termination Level</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>$5,000</td><td>$500</td><td>$4,500</td></tr>
+                    <tr><td>$10,000</td><td>$1,000</td><td>$9,000</td></tr>
+                    <tr><td>$25,000</td><td>$2,500</td><td>$22,500</td></tr>
+                    <tr><td>$50,000</td><td>$5,000</td><td>$45,000</td></tr>
+                    <tr><td>$100,000</td><td>$10,000</td><td>$90,000</td></tr>
+                </tbody>
+            </table>
+
+            <p>The drawdown is your <strong>risk budget</strong>. Every trade you take spends a portion of this budget. Your job is to spend it wisely — taking calculated risks that generate profits while never depleting your budget entirely.</p>
+
+            <h2 id="how-calculated">How Max Drawdown Is Calculated</h2>
+
+            <p>There are two common methods for calculating max drawdown. Understanding which one your firm uses is critical:</p>
+
+            <h3>Static Drawdown (Balance-Based)</h3>
+            <p>The drawdown is measured from the <strong>starting balance</strong>. If you start with $100,000, the floor is always $90,000 regardless of how high your account grows. This is the simpler and more trader-friendly method.</p>
+
+            <h3>Trailing Drawdown (Equity-Based)</h3>
+            <p>The drawdown "trails" your highest equity point. If your account grows to $108,000, the new floor becomes $97,200 (10% below the new high). This method is more punitive because your floor keeps rising as you make money.</p>
+
+            <p><strong>FundedXYZ uses a 10% max loss from the initial balance</strong>, which gives traders clear, predictable risk parameters.</p>
+
+            <h2 id="position-sizing">Position Sizing: The Foundation of Risk Management</h2>
+
+            <p>Position sizing determines how much capital you allocate to each trade. Get this right, and the rest of risk management falls into place.</p>
+
+            <h3>The 1% Risk Rule</h3>
+
+            <p><strong>Risk no more than 1% of your account balance on any single trade.</strong> This is the gold standard for prop trading risk management.</p>
+
+            <div class="info-box">
+                <h4>📐 Position Size Formula</h4>
+                <p><strong>Position Size = (Account Balance × Risk %) ÷ (Entry Price − Stop Loss Price)</strong></p>
+                <p><strong>Example:</strong> $50,000 account, 1% risk ($500), BTC long at $65,000, stop at $63,700 (2% stop):</p>
+                <p>Position Size = $500 ÷ ($65,000 − $63,700) = $500 ÷ $1,300 = 0.385 BTC</p>
+                <p>Position value: 0.385 × $65,000 = <strong>$25,000</strong> (50% of account, but only 1% at risk)</p>
+            </div>
+
+            <h3>Why 1% and Not 2% or 3%?</h3>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr><th>Risk Per Trade</th><th>Consecutive Losses to 10% DD</th><th>Probability of 10 Losing Streak*</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>0.5%</td><td>20 trades</td><td>0.001%</td></tr>
+                    <tr><td><strong>1%</strong></td><td><strong>10 trades</strong></td><td><strong>0.1%</strong></td></tr>
+                    <tr><td>2%</td><td>5 trades</td><td>3.1%</td></tr>
+                    <tr><td>3%</td><td>~3.3 trades</td><td>12.5%</td></tr>
+                    <tr><td>5%</td><td>2 trades</td><td>25%</td></tr>
+                </tbody>
+            </table>
+            <p><em>*Based on 50% win rate</em></p>
+
+            <p>At 1% risk, you need 10 consecutive losses to breach the drawdown limit. At a 50% win rate, the probability of 10 straight losses is 0.1% — essentially impossible in normal conditions. At 3% risk, you need only 3–4 consecutive losses, which happens regularly.</p>
+
+            <h2 id="stop-losses">Stop-Loss Strategies for Funded Accounts</h2>
+
+            <p>Every trade on a funded account <strong>must</strong> have a stop-loss. No exceptions. Here are the three most effective stop-loss approaches:</p>
+
+            <h3>1. Technical Stop-Loss</h3>
+            <p>Place your stop below/above a meaningful technical level — a previous swing low, support/resistance, or moving average. This is the most reliable method because the stop is placed where the trade thesis is invalidated.</p>
+
+            <h3>2. ATR-Based Stop-Loss</h3>
+            <p>Use the Average True Range (ATR) indicator to set stops based on current volatility. A common approach: 1.5× ATR below entry for longs. This automatically adjusts stop distance when volatility changes.</p>
+
+            <h3>3. Percentage-Based Stop-Loss</h3>
+            <p>Set a fixed percentage stop (e.g., 2% below entry). Simple but less adaptive to market conditions. Best used as a maximum stop distance combined with one of the above methods.</p>
+
+            <div class="info-box">
+                <h4>⚠️ Never Do These</h4>
+                <p><strong>Never trade without a stop-loss.</strong> "Mental stops" don't work — emotions override logic when your P&L is red.</p>
+                <p><strong>Never widen your stop after entering.</strong> If the trade hits your stop, accept the loss. Moving stops is how 1% losses become 5% losses.</p>
+            </div>
+
+            <h2 id="correlation">Managing Correlation Risk</h2>
+
+            <p>One of the biggest hidden risks in crypto trading: <strong>correlation</strong>. When BTC drops, ETH drops, SOL drops, and most altcoins drop. If you're long BTC, ETH, and SOL simultaneously, you effectively have one giant position — not three separate trades.</p>
+
+            <p>Rules for managing correlation:</p>
+            <ul>
+                <li><strong>Total risk across all correlated positions ≤ 3%</strong> — If BTC, ETH, and SOL are all in the same direction, treat them as one risk bucket</li>
+                <li><strong>Diversify direction</strong> — If you're long BTC, consider only shorting altcoins (if at all) to reduce correlation risk</li>
+                <li><strong>Count your total exposure</strong> — Before opening a new position, calculate your total portfolio risk, not just the individual trade risk</li>
+            </ul>
+
+            <h2 id="scenarios">Risk Scenarios: How Losses Compound</h2>
+
+            <p>Let's model three traders with different risk approaches on a $50,000 account (10% max DD = $5,000 budget):</p>
+
+            <h3>Trader A: 1% Risk (Conservative)</h3>
+            <p>Loses 4 trades in a row: -$500 × 4 = -$2,000 (4% drawdown, 60% of budget used). Still has plenty of room to recover. Takes 3 winning trades at 2:1 R:R: +$1,000 × 3 = +$3,000. Net: +$1,000. Account healthy.</p>
+
+            <h3>Trader B: 3% Risk (Aggressive)</h3>
+            <p>Loses 2 trades in a row: -$1,500 × 2 = -$3,000 (6% drawdown, 60% of budget used). Panic sets in. Takes one more losing trade: -$1,500. Now at -$4,500 (9% drawdown). One more loss terminates the account. Fear prevents any further trades.</p>
+
+            <h3>Trader C: 5% Risk (Reckless)</h3>
+            <p>First trade: loss. -$2,500 (5% drawdown, 50% of budget gone in one trade). Second trade: loss. -$2,500. Account terminated at -$5,000 (10%). Two trades. Done.</p>
+
+            <p>Same market conditions. Same win rate. Dramatically different outcomes — all because of position sizing.</p>
+
+            <h2 id="recovery">Recovery Math: Why Prevention Beats Recovery</h2>
+
+            <p>Drawdowns are asymmetric — it takes a larger gain to recover from a loss:</p>
+
+            <table class="comparison-table">
+                <thead><tr><th>Drawdown</th><th>Gain Needed to Recover</th></tr></thead>
+                <tbody>
+                    <tr><td>5%</td><td>5.3%</td></tr>
+                    <tr><td>10%</td><td>11.1%</td></tr>
+                    <tr><td>20%</td><td>25%</td></tr>
+                    <tr><td>30%</td><td>42.9%</td></tr>
+                    <tr><td>50%</td><td>100%</td></tr>
+                </tbody>
+            </table>
+
+            <p>At 5% drawdown, recovery is straightforward. At 8–9% (approaching the 10% limit), you need 8–10% returns just to get back to even — while only being allowed to lose 1–2% more. This is why <strong>staying small</strong> and <strong>preventing deep drawdowns</strong> is more important than maximizing profits.</p>
+
+            <h2 id="rules">The 7 Rules of Prop Trading Risk Management</h2>
+
+            <ol>
+                <li><strong>Risk 1% per trade, maximum</strong> — Non-negotiable. This is the foundation.</li>
+                <li><strong>Always use stop-losses</strong> — Set them before you enter. Never move them against you.</li>
+                <li><strong>Limit correlated exposure to 3%</strong> — Multiple crypto longs = one big trade.</li>
+                <li><strong>Stop trading after 2 consecutive losses</strong> — Walk away. Come back tomorrow with a clear head.</li>
+                <li><strong>Reduce size after 5% drawdown</strong> — Drop to 0.5% risk per trade until you recover to 3% drawdown.</li>
+                <li><strong>No trading during major news events</strong> — CPI, FOMC, unexpected events create uncontrollable risk.</li>
+                <li><strong>Review risk metrics weekly</strong> — Track your actual risk per trade, max drawdown, and correlation exposure.</li>
+            </ol>
+
+            <div class="cta-box">
+                <h3>Trade with Proper Risk Management</h3>
+                <p>FundedXYZ gives you the time to trade properly — no rush, no daily drawdown traps. Start from $79.</p>
+                <a href="https://fundedxyz.com" class="btn btn-primary btn-large">Start Your Challenge →</a>
+            </div>
+
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question">What is the 10% rule in crypto prop trading?</div>
+                    <div class="faq-answer"><p>The 10% rule means your funded account cannot lose more than 10% from its starting balance. For a $100,000 account, if equity drops to $90,000 or below, the account is terminated. This is the maximum drawdown limit used by most prop firms including FundedXYZ.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How much should I risk per trade on a prop firm account?</div>
+                    <div class="faq-answer"><p>Risk 1–2% of your account balance per trade. With a 10% max drawdown, 1% risk gives you 10 consecutive losses before breach. Most successful funded traders use 1% risk per trade.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I calculate position size for a prop firm challenge?</div>
+                    <div class="faq-answer"><p>Position Size = (Account Balance × Risk %) ÷ (Entry Price − Stop Loss Price). Example: $50,000 account, 1% risk ($500), BTC entry at $65,000, stop at $64,000: Position = $500 ÷ $1,000 = 0.5 BTC.</p></div>
+                </div>
+            </div>
+
+            <div class="related-posts">
+                <h2>Related Articles</h2>
+                <div class="related-grid">
+                    <article class="blog-card"><div class="blog-card-body"><span class="blog-card-category">Guide</span><h3><a href="/blog/how-to-pass-crypto-prop-firm-challenge/">How to Pass a Prop Firm Challenge</a></h3><p>Step-by-step guide including risk strategies.</p></div></article>
+                    <article class="blog-card"><div class="blog-card-body"><span class="blog-card-category">Product</span><h3><a href="/blog/no-daily-drawdown-no-time-limit/">No Time Limits, No Daily Drawdown</a></h3><p>Why FundedXYZ's rules favor traders.</p></div></article>
+                    <article class="blog-card"><div class="blog-card-body"><span class="blog-card-category">Product</span><h3><a href="/blog/from-79-to-200k-scaling-path/">From $79 to $200K: The Scaling Path</a></h3><p>How to scale your funded account safely.</p></div></article>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about"><a href="https://fundedxyz.com" class="logo">Funded<span>XYZ</span></a><p>Crypto-native prop trading firm operated by BIO LC PTE LTD (Singapore). Backed by VC and hedge fund capital.</p><div class="footer-social"><a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a><a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a><a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a></div></div>
+                <div class="footer-column"><h4>Platform</h4><ul><li><a href="https://fundedxyz.com/#pricing">Challenge Pricing</a></li><li><a href="https://fundedxyz.com/#how-it-works">How It Works</a></li><li><a href="https://fundedxyz.com/#faq">FAQ</a></li><li><a href="https://fundedxyz.com/#contact">Contact</a></li></ul></div>
+                <div class="footer-column"><h4>Resources</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/blog/what-is-crypto-prop-trading/">What Is Prop Trading?</a></li><li><a href="/blog/beginners-guide-funded-crypto-trader/">Beginner's Guide</a></li><li><a href="/blog/risk-management-10-percent-rule/">Risk Management</a></li></ul></div>
+                <div class="footer-column"><h4>Compare</h4><ul><li><a href="/blog/fundedxyz-vs-ftmo-vs-hyrotrader/">FundedXYZ vs FTMO</a></li><li><a href="/blog/crypto-vs-forex-prop-firms/">Crypto vs Forex Prop</a></li><li><a href="/blog/is-crypto-prop-trading-legit/">Is Prop Trading Legit?</a></li><li><a href="/blog/payout-proof/">Payout Proof</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><span>© 2026 FundedXYZ. Operated by BIO LC PTE LTD, Singapore.</span><div class="footer-bottom-links"><a href="https://fundedxyz.com/terms">Terms</a><a href="https://fundedxyz.com/privacy">Privacy</a></div></div>
+        </div>
+    </footer>
+    <script src="/js/blog.js"></script>
+</body>
+</html>
