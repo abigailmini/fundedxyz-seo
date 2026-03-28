@@ -11,7 +11,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ===== FONT AWESOME ICON STYLING ===== */
+        .fa-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 6px rgba(108, 92, 231, 0.4));
+        }
+        .fa-icon-green {
+            background: linear-gradient(135deg, #00d4aa, #00f5c4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 6px rgba(0, 212, 170, 0.4));
+        }
+        .fa-icon-gold {
+            background: linear-gradient(135deg, #ffd700, #ffed4a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4));
+        }
+        .diff-icon i, .advantage-icon i, .feature-icon i, .rank-circle i {
+            font-size: inherit;
+        }
+        .social-link i {
+            font-size: 18px;
+            -webkit-text-fill-color: currentColor;
+        }
         /* ===== RESET & BASE ===== */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -1044,13 +1077,13 @@
             </ul>
         </nav>
         <a href="https://fundedxyz.com/#pricing" class="btn btn-primary" style="display:none" id="headerCta">Start Challenge</a>
-        <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('active')">☰</button>
+        <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('active')"><i class="fas fa-bars"></i></button>
     </div>
 </header>
 
 <!-- Mobile Nav -->
 <div class="mobile-nav" id="mobileNav">
-    <button class="close-btn" onclick="this.parentElement.classList.remove('active')">✕</button>
+    <button class="close-btn" onclick="this.parentElement.classList.remove('active')"><i class="fas fa-xmark"></i></button>
     <a href="#how-it-works" onclick="this.parentElement.classList.remove('active')">How It Works</a>
     <a href="#advantages" onclick="this.parentElement.classList.remove('active')">Advantages</a>
     <a href="#pricing" onclick="this.parentElement.classList.remove('active')">Pricing</a>
@@ -1126,7 +1159,7 @@
         <span class="tp-rating">4.8 / 5.0</span>
         <!-- PLACEHOLDER: Update review count -->
         <span class="tp-count">Based on 320+ reviews</span>
-        <span class="tp-label">⭐ Excellent</span>
+        <span class="tp-label"><i class="fas fa-star fa-icon-gold"></i> Excellent</span>
     </div>
 </section>
 
@@ -1149,25 +1182,25 @@
         </div>
         <div class="diff-grid">
             <div class="glass-card diff-card">
-                <div class="diff-icon">🚫</div>
+                <div class="diff-icon"><i class="fas fa-ban fa-icon"></i></div>
                 <h4>No Daily Drawdown</h4>
                 <p>Trade without daily loss restrictions cramping your style</p>
                 <span class="compare">Others enforce 5% daily</span>
             </div>
             <div class="glass-card diff-card">
-                <div class="diff-icon">1️⃣</div>
+                <div class="diff-icon"><i class="fas fa-1 fa-icon"></i></div>
                 <h4>Single Phase Challenge</h4>
                 <p>One challenge, one step to getting funded — no multi-phase hassle</p>
                 <span class="compare">Others require 2 phases</span>
             </div>
             <div class="glass-card diff-card">
-                <div class="diff-icon">💰</div>
+                <div class="diff-icon"><i class="fas fa-coins fa-icon-gold"></i></div>
                 <h4>From Just $79</h4>
                 <p>Get started with the most affordable challenge in the market</p>
                 <span class="compare">Competitors start at $150+</span>
             </div>
             <div class="glass-card diff-card">
-                <div class="diff-icon">⚡</div>
+                <div class="diff-icon"><i class="fas fa-bolt fa-icon-gold"></i></div>
                 <h4>USDT Payouts in 3 Days</h4>
                 <p>Fast, reliable payouts directly to your crypto wallet</p>
                 <span class="compare">Others take 7-14 days</span>
@@ -1214,31 +1247,31 @@
         </div>
         <div class="ranks-track">
             <div class="rank-node">
-                <div class="rank-circle junior">🌱</div>
+                <div class="rank-circle junior"><i class="fas fa-seedling fa-icon-green"></i></div>
                 <div class="rank-name">Junior</div>
                 <div class="rank-size">$25K</div>
             </div>
             <div class="rank-connector"></div>
             <div class="rank-node">
-                <div class="rank-circle senior">📈</div>
+                <div class="rank-circle senior"><i class="fas fa-chart-line fa-icon"></i></div>
                 <div class="rank-name">Senior</div>
                 <div class="rank-size">$50K</div>
             </div>
             <div class="rank-connector"></div>
             <div class="rank-node">
-                <div class="rank-circle elite">🔥</div>
+                <div class="rank-circle elite"><i class="fas fa-fire fa-icon-gold"></i></div>
                 <div class="rank-name">Elite</div>
                 <div class="rank-size">$75K</div>
             </div>
             <div class="rank-connector"></div>
             <div class="rank-node">
-                <div class="rank-circle master">👑</div>
+                <div class="rank-circle master"><i class="fas fa-crown fa-icon-gold"></i></div>
                 <div class="rank-name">Master</div>
                 <div class="rank-size">$100K</div>
             </div>
             <div class="rank-connector"></div>
             <div class="rank-node">
-                <div class="rank-circle aura">✨</div>
+                <div class="rank-circle aura"><i class="fas fa-sparkles fa-icon"></i></div>
                 <div class="rank-name">Aura</div>
                 <div class="rank-size">$200K</div>
             </div>
@@ -1256,28 +1289,28 @@
         </div>
         <div class="advantages-grid">
             <div class="glass-card advantage-card">
-                <div class="advantage-icon">🎯</div>
+                <div class="advantage-icon"><i class="fas fa-bullseye fa-icon"></i></div>
                 <div>
                     <h4>One-Stop Trading Hub</h4>
                     <p>Access all your trading tools in one place — from strategy simulators to real-time data, all optimized for performance.</p>
                 </div>
             </div>
             <div class="glass-card advantage-card">
-                <div class="advantage-icon">📊</div>
+                <div class="advantage-icon"><i class="fas fa-chart-bar fa-icon"></i></div>
                 <div>
                     <h4>Enhance Trading Leverage</h4>
                     <p>Trade crypto with up to 5x leverage to amplify your returns while managing risk effectively.</p>
                 </div>
             </div>
             <div class="glass-card advantage-card">
-                <div class="advantage-icon">💎</div>
+                <div class="advantage-icon"><i class="fas fa-gem fa-icon"></i></div>
                 <div>
                     <h4>Capital up to $100K</h4>
                     <p>Unlock funding up to $100,000 — no upfront capital needed. Focus on trading; we handle the funding.</p>
                 </div>
             </div>
             <div class="glass-card advantage-card">
-                <div class="advantage-icon">⚡</div>
+                <div class="advantage-icon"><i class="fas fa-bolt fa-icon-gold"></i></div>
                 <div>
                     <h4>Simple Single Challenge</h4>
                     <p>No more complex evaluations. Pass a single-phase challenge to get funded faster and start earning.</p>
@@ -1297,32 +1330,32 @@
         </div>
         <div class="features-grid">
             <div class="glass-card feature-card">
-                <div class="feature-icon">⏰</div>
+                <div class="feature-icon"><i class="fas fa-clock fa-icon"></i></div>
                 <h4>No Time Limits</h4>
                 <p>Take as long as you need to pass the evaluation. We believe in stress-free trading.</p>
             </div>
             <div class="glass-card feature-card">
-                <div class="feature-icon">💸</div>
+                <div class="feature-icon"><i class="fas fa-money-bill-wave fa-icon-green"></i></div>
                 <h4>Up to 90% Profit Split</h4>
                 <p>You do the work, you earn the reward. Our generous profit share is among the best in the industry.</p>
             </div>
             <div class="glass-card feature-card">
-                <div class="feature-icon">🚀</div>
+                <div class="feature-icon"><i class="fas fa-rocket fa-icon"></i></div>
                 <h4>Fast Payouts</h4>
                 <p>Request your profits and receive them within 7 days via USDT. No waiting around.</p>
             </div>
             <div class="glass-card feature-card">
-                <div class="feature-icon">📈</div>
+                <div class="feature-icon"><i class="fas fa-chart-line fa-icon-green"></i></div>
                 <h4>High Leverage</h4>
                 <p>Utilize up to 1:5 leverage to maximize your trading potential on our platform.</p>
             </div>
             <div class="glass-card feature-card">
-                <div class="feature-icon">🛡️</div>
+                <div class="feature-icon"><i class="fas fa-shield-halved fa-icon"></i></div>
                 <h4>24/7 Support</h4>
                 <p>Our dedicated support team is here to help you around the clock with any questions.</p>
             </div>
             <div class="glass-card feature-card">
-                <div class="feature-icon">🏦</div>
+                <div class="feature-icon"><i class="fas fa-building-columns fa-icon"></i></div>
                 <h4>Real Capital</h4>
                 <p>Backed by deep VC and hedge fund capital, ensuring long-term sustainability. Payouts are never a problem for a good trader.</p>
             </div>
@@ -1386,11 +1419,11 @@
                         <div class="testimonial-name">Gabriel D.</div>
                         <div class="testimonial-country">🇺🇸 United States</div>
                     </div>
-                    <div class="testimonial-verified">✓ Verified</div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
                 </div>
-                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
                 <p class="testimonial-text">The single-phase challenge is a game changer. No daily drawdown pressure means I can actually trade my strategy properly. Got my first payout in under a week. Highly recommend.</p>
-                <div class="testimonial-payout">💰 Payout: $4,250</div>
+                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $4,250</div>
             </div>
 
             <div class="glass-card testimonial-card">
@@ -1400,11 +1433,11 @@
                         <div class="testimonial-name">Selin M.</div>
                         <div class="testimonial-country">🇹🇷 Turkey</div>
                     </div>
-                    <div class="testimonial-verified">✓ Verified</div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
                 </div>
-                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
                 <p class="testimonial-text">I've tried 3 other prop firms before. FundedXYZ is the first one with rules that actually make sense for crypto traders. No time limit is everything.</p>
-                <div class="testimonial-payout">💰 Payout: $3,180</div>
+                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $3,180</div>
             </div>
 
             <div class="glass-card testimonial-card">
@@ -1414,11 +1447,11 @@
                         <div class="testimonial-name">Arjun R.</div>
                         <div class="testimonial-country">🇮🇳 India</div>
                     </div>
-                    <div class="testimonial-verified">✓ Verified</div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
                 </div>
-                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
                 <p class="testimonial-text">Passed the $25K challenge and scaled up to Senior. Support team responded to my payout request within hours. USDT hit my wallet in 3 days. These guys are legit.</p>
-                <div class="testimonial-payout">💰 Payout: $6,800</div>
+                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $6,800</div>
             </div>
 
             <div class="glass-card testimonial-card">
@@ -1428,11 +1461,11 @@
                         <div class="testimonial-name">Lucie C.</div>
                         <div class="testimonial-country">🇫🇷 France</div>
                     </div>
-                    <div class="testimonial-verified">✓ Verified</div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
                 </div>
-                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
                 <p class="testimonial-text">Started with the $5K challenge just to test the waters. The platform is solid, rules are transparent, and the 90% profit split is hard to beat anywhere else.</p>
-                <div class="testimonial-payout">💰 Payout: $1,920</div>
+                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $1,920</div>
             </div>
 
             <div class="glass-card testimonial-card">
@@ -1442,11 +1475,11 @@
                         <div class="testimonial-name">Henrik O.</div>
                         <div class="testimonial-country">🇸🇪 Sweden</div>
                     </div>
-                    <div class="testimonial-verified">✓ Verified</div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
                 </div>
-                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
                 <p class="testimonial-text">Clean interface, fair rules, and fast payouts. The rank system keeps me motivated. Currently working my way to Elite. Best crypto prop firm I've used.</p>
-                <div class="testimonial-payout">💰 Payout: $5,400</div>
+                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $5,400</div>
             </div>
 
             <div class="glass-card testimonial-card">
@@ -1456,11 +1489,11 @@
                         <div class="testimonial-name">Aisha K.</div>
                         <div class="testimonial-country">🇳🇬 Nigeria</div>
                     </div>
-                    <div class="testimonial-verified">✓ Verified</div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
                 </div>
-                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
                 <p class="testimonial-text">As a female trader in crypto, finding a reliable prop firm was tough. FundedXYZ's single challenge and USDT payouts made it simple. Already on my second funded account!</p>
-                <div class="testimonial-payout">💰 Payout: $2,750</div>
+                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $2,750</div>
             </div>
 
             <div class="glass-card testimonial-card">
@@ -1470,11 +1503,11 @@
                         <div class="testimonial-name">Rafael P.</div>
                         <div class="testimonial-country">🇧🇷 Brazil</div>
                     </div>
-                    <div class="testimonial-verified">✓ Verified</div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
                 </div>
-                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
                 <p class="testimonial-text">$79 to start a $5K challenge? That's incredible value. Passed in 2 weeks, got funded, and made my first profit withdrawal. The support team on Telegram is super responsive.</p>
-                <div class="testimonial-payout">💰 Payout: $1,580</div>
+                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $1,580</div>
             </div>
 
             <div class="glass-card testimonial-card">
@@ -1484,11 +1517,11 @@
                         <div class="testimonial-name">Michael W.</div>
                         <div class="testimonial-country">🇬🇧 United Kingdom</div>
                     </div>
-                    <div class="testimonial-verified">✓ Verified</div>
+                    <div class="testimonial-verified"><i class="fas fa-circle-check fa-icon-green"></i> Verified</div>
                 </div>
-                <div class="testimonial-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                <div class="testimonial-stars"><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span><span class="star"><i class="fas fa-star"></i></span></div>
                 <p class="testimonial-text">Moved from a forex prop firm to FundedXYZ for crypto. The no-time-limit policy and high leverage make this the best option for crypto traders, hands down.</p>
-                <div class="testimonial-payout">💰 Payout: $8,200</div>
+                <div class="testimonial-payout"><i class="fas fa-wallet fa-icon-green"></i> Payout: $8,200</div>
             </div>
         </div>
     </div>
@@ -1615,10 +1648,10 @@
                 <p style="font-size:12px; color: var(--text-muted);">Operated by BIO LC PTE LTD, Singapore</p>
                 <div class="social-links" style="margin-top:12px;">
                     <!-- PLACEHOLDER: Update with actual social media URLs -->
-                    <a href="https://twitter.com/fundedxyz" class="social-link" title="Twitter/X">𝕏</a>
-                    <a href="https://discord.gg/fundedxyz" class="social-link" title="Discord">💬</a>
-                    <a href="https://t.me/fundedxyz" class="social-link" title="Telegram">✈️</a>
-                    <a href="https://youtube.com/@fundedxyz" class="social-link" title="YouTube">▶️</a>
+                    <a href="https://twitter.com/fundedxyz" class="social-link" title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://discord.gg/fundedxyz" class="social-link" title="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="https://t.me/fundedxyz" class="social-link" title="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://youtube.com/@fundedxyz" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <div class="footer-col">
