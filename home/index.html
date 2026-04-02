@@ -1031,6 +1031,167 @@
             .hero-stat { padding: 10px 14px; }
             .hero-stat-num { font-size: 22px; }
         }
+
+        /* ===== WHATSAPP FLOATING WIDGET ===== */
+        .whatsapp-widget {
+            position: fixed; bottom: 28px; right: 28px; z-index: 9998;
+        }
+        .whatsapp-widget a {
+            display: flex; align-items: center; justify-content: center;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: #25D366; color: white;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.4);
+            transition: all 0.3s ease; position: relative;
+            animation: whatsappPulse 2.5s ease-in-out infinite;
+        }
+        .whatsapp-widget a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37,211,102,0.6);
+        }
+        .whatsapp-widget a svg { width: 32px; height: 32px; }
+        .whatsapp-widget .wa-tooltip {
+            position: absolute; right: 72px; top: 50%; transform: translateY(-50%);
+            background: #fff; color: #333; font-size: 13px; font-weight: 600;
+            padding: 8px 16px; border-radius: 8px; white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .whatsapp-widget .wa-tooltip::after {
+            content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
+            border: 6px solid transparent; border-left-color: #fff;
+        }
+        .whatsapp-widget a:hover + .wa-tooltip,
+        .whatsapp-widget a:hover ~ .wa-tooltip { opacity: 1; }
+        /* Fix: tooltip inside the link's parent */
+        .whatsapp-widget:hover .wa-tooltip { opacity: 1; }
+        @keyframes whatsappPulse {
+            0% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.35); }
+            50% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 14px rgba(37,211,102,0); }
+            100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0); }
+        }
+
+        /* ===== FOUNDER SECTION ===== */
+        .founder-section {
+            padding: 100px 0; position: relative; overflow: hidden;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(108,92,231,0.04) 50%, var(--bg-primary) 100%);
+        }
+        .founder-section::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.3;
+        }
+        .founder-inner {
+            display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px;
+            align-items: center;
+        }
+        .founder-photo-wrapper {
+            position: relative;
+        }
+        .founder-photo-wrapper::before {
+            content: ''; position: absolute; inset: -4px; border-radius: 24px;
+            background: var(--accent-gradient); opacity: 0.3; filter: blur(20px);
+        }
+        .founder-photo {
+            width: 100%; border-radius: 20px; position: relative; z-index: 1;
+            border: 2px solid var(--glass-border);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .founder-badge {
+            position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
+            background: var(--accent-gradient); color: white; font-size: 12px;
+            font-weight: 700; padding: 8px 20px; border-radius: 50px; z-index: 2;
+            white-space: nowrap; letter-spacing: 0.5px;
+        }
+        .founder-content .section-label { text-align: left; }
+        .founder-content .section-title { text-align: left; }
+        .founder-quote {
+            font-size: 20px; font-style: italic; color: var(--text-secondary);
+            line-height: 1.8; margin: 24px 0; position: relative;
+            padding-left: 24px; border-left: 3px solid var(--accent);
+        }
+        .founder-bio {
+            font-size: 15px; color: var(--text-muted); line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        .founder-signature {
+            display: flex; align-items: center; gap: 16px; margin-top: 24px;
+        }
+        .founder-sig-name { font-weight: 700; font-size: 16px; }
+        .founder-sig-role { font-size: 13px; color: var(--text-muted); }
+
+        /* ===== COMMUNITY SECTION ===== */
+        .community-section {
+            padding: 80px 0; position: relative;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+        }
+        .community-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+            margin-top: 48px;
+        }
+        .community-card {
+            padding: 36px 28px; text-align: center; position: relative;
+        }
+        .community-card-icon {
+            width: 64px; height: 64px; border-radius: 16px; margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px;
+        }
+        .community-card-icon.discord { background: rgba(88,101,242,0.15); border: 1px solid rgba(88,101,242,0.25); }
+        .community-card-icon.telegram { background: rgba(0,136,204,0.15); border: 1px solid rgba(0,136,204,0.25); }
+        .community-card-icon.twitter { background: rgba(29,161,242,0.15); border: 1px solid rgba(29,161,242,0.25); }
+        .community-card-count {
+            font-size: 36px; font-weight: 900; margin-bottom: 4px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .community-card-label { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
+        .community-card-btn {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 10px 20px; border-radius: 50px; font-size: 13px; font-weight: 600;
+            border: 1px solid var(--glass-border); color: var(--text-secondary);
+            background: var(--glass); transition: all 0.3s;
+        }
+        .community-card-btn:hover { border-color: var(--accent); color: white; transform: translateY(-2px); }
+
+        /* ===== EXTRA TESTIMONIALS ROW ===== */
+        .testimonials-extra-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+            margin-top: 32px;
+        }
+        .mini-testimonial {
+            padding: 24px; position: relative;
+        }
+        .mini-testimonial-header {
+            display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+        }
+        .mini-avatar {
+            width: 42px; height: 42px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 15px; color: white; flex-shrink: 0;
+        }
+        .mini-avatar.av1 { background: linear-gradient(135deg, #6c5ce7, #a29bfe); }
+        .mini-avatar.av2 { background: linear-gradient(135deg, #00d4aa, #00b894); }
+        .mini-avatar.av3 { background: linear-gradient(135deg, #fd79a8, #e84393); }
+        .mini-avatar.av4 { background: linear-gradient(135deg, #fdcb6e, #e17055); }
+        .mini-avatar.av5 { background: linear-gradient(135deg, #0984e3, #74b9ff); }
+        .mini-avatar.av6 { background: linear-gradient(135deg, #00cec9, #81ecec); }
+        .mini-test-name { font-weight: 600; font-size: 14px; }
+        .mini-test-country { font-size: 12px; color: var(--text-muted); }
+        .mini-test-text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .mini-test-payout { font-size: 13px; color: var(--green); font-weight: 700; margin-top: 12px; }
+
+        @media (max-width: 768px) {
+            .founder-inner { grid-template-columns: 1fr; text-align: center; }
+            .founder-content .section-label, .founder-content .section-title { text-align: center; }
+            .founder-quote { border-left: none; padding-left: 0; padding: 20px; border: 1px solid var(--glass-border); border-radius: 12px; }
+            .founder-signature { justify-content: center; }
+            .community-grid { grid-template-columns: 1fr; }
+            .testimonials-extra-grid { grid-template-columns: 1fr; }
+            .whatsapp-widget { bottom: 18px; right: 18px; }
+            .whatsapp-widget a { width: 54px; height: 54px; }
+            .whatsapp-widget .wa-tooltip { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -1230,6 +1391,39 @@
             <span class="trust-brand">CoinTelegraph</span>
             <div class="trust-badge"><span class="dot green"></span> 4.8/5.0 — 320+ Reviews</div>
             <div class="trust-badge"><span class="dot gold"></span> BIO LC PTE LTD · Singapore</div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== MEET THE FOUNDER ===== -->
+<section class="founder-section">
+    <div class="container">
+        <div class="founder-inner">
+            <div class="founder-photo-wrapper reveal-left">
+                <img src="../assets/matt-founder.png" alt="Matt — Founder of FundedXYZ" class="founder-photo" loading="lazy">
+                <div class="founder-badge">👋 Founder & CEO</div>
+            </div>
+            <div class="founder-content reveal-right">
+                <div class="section-label">Built by Traders, for Traders</div>
+                <h2 class="section-title">Meet the Founder</h2>
+                <div class="founder-quote">
+                    "I built FundedXYZ because I was tired of prop firms designed for forex and shoehorned into crypto. We deserve a platform that understands our market — the 24/7 volatility, the opportunity, and the freedom. No time limits, no daily drawdowns, just pure skill."
+                </div>
+                <p class="founder-bio">
+                    Matt is a crypto trader and entrepreneur who saw an opportunity to build a prop firm that actually respects how crypto markets work. After trading for years and experiencing the frustrations of legacy prop firms, he founded FundedXYZ with a simple mission: give talented traders the capital they deserve, with rules that make sense.
+                </p>
+                <p class="founder-bio">
+                    Today, FundedXYZ has funded over 5,000 traders across 13+ countries and paid out over $5 million in profits — and we're just getting started.
+                </p>
+                <div class="founder-signature">
+                    <div>
+                        <div class="founder-sig-name">Matt</div>
+                        <div class="founder-sig-role">Founder & CEO, FundedXYZ</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1842,6 +2036,76 @@
             </div>
         </div>
 
+        <!-- Extra mini testimonials for social proof density -->
+        <div class="testimonials-extra-grid">
+            <div class="glass-card mini-testimonial reveal reveal-delay-1">
+                <div class="mini-testimonial-header">
+                    <div class="mini-avatar av1">KT</div>
+                    <div>
+                        <div class="mini-test-name">Kevin T.</div>
+                        <div class="mini-test-country">🇦🇺 Australia</div>
+                    </div>
+                </div>
+                <p class="mini-test-text">"Withdrew $3.2K on my first payout cycle. The process was smooth and hit my wallet within 48 hours. Scaling to $100K next."</p>
+                <div class="mini-test-payout">💰 Payout: $3,200</div>
+            </div>
+            <div class="glass-card mini-testimonial reveal reveal-delay-2">
+                <div class="mini-testimonial-header">
+                    <div class="mini-avatar av2">MR</div>
+                    <div>
+                        <div class="mini-test-name">Maria R.</div>
+                        <div class="mini-test-country">🇧🇷 Brazil</div>
+                    </div>
+                </div>
+                <p class="mini-test-text">"No time limit is a lifesaver. I trade part-time and still passed the challenge in 3 weeks at my own pace. Other firms would've expired me."</p>
+                <div class="mini-test-payout">💰 Payout: $2,750</div>
+            </div>
+            <div class="glass-card mini-testimonial reveal reveal-delay-3">
+                <div class="mini-testimonial-header">
+                    <div class="mini-avatar av3">JH</div>
+                    <div>
+                        <div class="mini-test-name">James H.</div>
+                        <div class="mini-test-country">🇳🇬 Nigeria</div>
+                    </div>
+                </div>
+                <p class="mini-test-text">"Finally a prop firm that pays in USDT. No bank hassles, no conversion fees. Pure crypto, the way it should be. 10/10."</p>
+                <div class="mini-test-payout">💰 Payout: $4,100</div>
+            </div>
+            <div class="glass-card mini-testimonial reveal reveal-delay-1">
+                <div class="mini-testimonial-header">
+                    <div class="mini-avatar av4">DP</div>
+                    <div>
+                        <div class="mini-test-name">Daniil P.</div>
+                        <div class="mini-test-country">🇺🇦 Ukraine</div>
+                    </div>
+                </div>
+                <p class="mini-test-text">"The rank system keeps me motivated. Just hit Rising Star — aiming for Elite next month. The profit split at higher ranks is insane."</p>
+                <div class="mini-test-payout">💰 Payout: $5,600</div>
+            </div>
+            <div class="glass-card mini-testimonial reveal reveal-delay-2">
+                <div class="mini-testimonial-header">
+                    <div class="mini-avatar av5">SA</div>
+                    <div>
+                        <div class="mini-test-name">Sofia A.</div>
+                        <div class="mini-test-country">🇲🇽 Mexico</div>
+                    </div>
+                </div>
+                <p class="mini-test-text">"Support replied to my ticket in under 2 hours on a Sunday. That tells you everything about how this team operates."</p>
+                <div class="mini-test-payout">💰 Payout: $1,800</div>
+            </div>
+            <div class="glass-card mini-testimonial reveal reveal-delay-3">
+                <div class="mini-testimonial-header">
+                    <div class="mini-avatar av6">TK</div>
+                    <div>
+                        <div class="mini-test-name">Takeshi K.</div>
+                        <div class="mini-test-country">🇯🇵 Japan</div>
+                    </div>
+                </div>
+                <p class="mini-test-text">"I run bots on the $50K account. The API works great, and no restrictions on trading style. This is the future of prop trading."</p>
+                <div class="mini-test-payout">💰 Payout: $7,400</div>
+            </div>
+        </div>
+
         <div style="text-align:center; margin-top:48px;" class="reveal">
             <a href="../testimonials.html" class="btn btn-secondary" style="padding:14px 32px;">View All Reviews →</a>
         </div>
@@ -1883,6 +2147,43 @@
                         <div class="video-earnings">Earned: $8,200 USDT</div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== LIVE TRADING COMMUNITY ===== -->
+<section class="community-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Join the Community</div>
+            <h2 class="section-title">Trade Alongside <span class="gradient-text">5,000+ Traders</span></h2>
+            <p class="section-subtitle">Our community is active 24/7 — just like the crypto markets. Get signals, share strategies, and celebrate payouts together.</p>
+        </div>
+        <div class="community-grid">
+            <div class="glass-card community-card reveal reveal-delay-1">
+                <div class="community-card-icon discord">
+                    <svg viewBox="0 0 24 24" fill="#5865F2" width="28" height="28"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                </div>
+                <div class="community-card-count">2,800+</div>
+                <div class="community-card-label">Discord Members</div>
+                <a href="https://discord.gg/fundedxyz" class="community-card-btn">Join Discord →</a>
+            </div>
+            <div class="glass-card community-card reveal reveal-delay-2">
+                <div class="community-card-icon telegram">
+                    <svg viewBox="0 0 24 24" fill="#0088cc" width="28" height="28"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                </div>
+                <div class="community-card-count">3,200+</div>
+                <div class="community-card-label">Telegram Members</div>
+                <a href="https://t.me/fundedxyz" class="community-card-btn">Join Telegram →</a>
+            </div>
+            <div class="glass-card community-card reveal reveal-delay-3">
+                <div class="community-card-icon twitter">
+                    <svg viewBox="0 0 24 24" fill="#1DA1F2" width="28" height="28"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </div>
+                <div class="community-card-count">8,500+</div>
+                <div class="community-card-label">X (Twitter) Followers</div>
+                <a href="https://twitter.com/fundedxyz" class="community-card-btn">Follow Us →</a>
             </div>
         </div>
     </div>
@@ -2310,6 +2611,14 @@ window.addEventListener('scroll', () => {
     }
 }, { passive: true });
 </script>
+
+<!-- ===== WHATSAPP FLOATING WIDGET ===== -->
+<div class="whatsapp-widget">
+    <a href="https://wa.me/601153740933" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <svg viewBox="0 0 32 32" fill="white"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.96A15.89 15.89 0 0016.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.31 22.596c-.39 1.1-1.932 2.014-3.164 2.28-.844.18-1.944.322-5.652-1.216-4.746-1.966-7.802-6.78-8.038-7.094-.226-.314-1.9-2.532-1.9-4.83s1.2-3.428 1.628-3.898c.428-.47.934-.588 1.246-.588.312 0 .624.002.896.016.288.014.674-.11 1.054.804.39.938 1.326 3.236 1.442 3.47.116.234.194.508.038.82-.156.314-.234.508-.468.784-.234.274-.492.614-.702.824-.234.234-.478.488-.206.958.274.47 1.216 2.006 2.61 3.25 1.792 1.6 3.302 2.096 3.772 2.33.47.234.744.194 1.018-.118.274-.312 1.17-1.364 1.482-1.834.312-.47.624-.39 1.054-.234.43.156 2.726 1.286 3.196 1.52.47.234.782.352.898.546.116.196.116 1.12-.274 2.22z"/></svg>
+    </a>
+    <div class="wa-tooltip">Chat with us 💬</div>
+</div>
 
 </body>
 </html>
