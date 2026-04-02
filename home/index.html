@@ -996,7 +996,11 @@
             .header .btn-primary.show { display: inline-flex; padding: 9px 18px; font-size: 13px; }
         }
         @media (max-width: 768px) {
-            .section { padding: 72px 0; }
+            .section { padding: 64px 0; }
+            .container { padding: 0 20px; }
+            .section-header { margin-bottom: 48px; }
+            .section-title { font-size: clamp(24px, 6vw, 32px); }
+            .section-subtitle { font-size: 15px; }
             .stats-bar .container { grid-template-columns: repeat(2, 1fr); padding: 28px; gap: 20px; }
             .stat-item + .stat-item { border-left: none; border-top: 1px solid var(--border); }
             .stat-item:nth-child(2) { border-left: 1px solid var(--border); border-top: none; }
@@ -1005,31 +1009,72 @@
             .steps-grid { grid-template-columns: 1fr; }
             .steps-grid::before { display: none; }
             .advantages-grid { grid-template-columns: 1fr; }
+            .advantage-card { padding: 24px; }
             .features-grid { grid-template-columns: 1fr; }
             .testimonials-grid { grid-template-columns: 1fr; }
             .video-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; gap: 36px; }
-            .pricing-card { padding: 28px 20px; }
-            .hero-stats-row { gap: 0; }
-            .hero-stat { padding: 12px 20px; }
-            .hero-stat:nth-child(3), .hero-stat:nth-child(4) { border-top: 1px solid var(--border); }
-            .hero-stat:nth-child(1), .hero-stat:nth-child(3) { border-right: 1px solid var(--border); }
-            .hero-stat:nth-child(2), .hero-stat:nth-child(4) { border-right: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+            .footer-legal-links { justify-content: center; }
+            .pricing-card { padding: 24px 16px; max-width: 100%; }
+            .pricing-header-row { padding: 14px 16px; flex-direction: column; gap: 8px; text-align: center; }
+            .plan-row { padding: 12px 16px; }
+            .plan-row .label { font-size: 13px; }
+            .plan-row .value { font-size: 14px; }
+            .hero-stats-row { grid-template-columns: repeat(2, 1fr) !important; gap: 0; }
+            .hero-stat { padding: 14px 16px; border-right: none !important; }
+            .hero-stat:nth-child(1), .hero-stat:nth-child(2) { border-bottom: 1px solid var(--border); }
+            .hero-stat:nth-child(1), .hero-stat:nth-child(3) { border-right: 1px solid var(--border) !important; }
+            .hero .container { padding-top: 24px; padding-bottom: 40px; }
+            .hero { min-height: auto; padding-top: 80px; padding-bottom: 20px; }
+            .hero p { font-size: 15px; padding: 0 8px; }
+            .hero-ctas { flex-direction: column; gap: 12px; align-items: center; }
+            .hero-ctas .btn { width: 100%; justify-content: center; max-width: 320px; }
+            .hero-trust { gap: 16px; }
+            .hero-trust-item { font-size: 12px; }
             .mid-cta-content { flex-direction: column; text-align: center; }
             .mid-cta-text p { margin: 0 auto; }
-            .mid-cta-actions { justify-content: center; }
+            .mid-cta-actions { justify-content: center; flex-direction: column; align-items: center; }
+            .mid-cta-actions .btn { width: 100%; max-width: 300px; justify-content: center; }
+            .mode-tabs { gap: 4px; }
+            .mode-tab { padding: 10px 16px; font-size: 13px; }
+            .plan-pills { gap: 6px; }
+            .plan-pill { padding: 8px 14px; font-size: 12px; }
+            .comp-table th, .comp-table td { padding: 14px 12px; font-size: 13px; }
+            .diff-grid { grid-template-columns: 1fr; }
+            .diff-card { padding: 24px; }
+            .testimonial-card { padding: 24px 20px; }
+            .press-logos { gap: 20px; }
+            .cta-section h2 { font-size: clamp(26px, 6vw, 36px); }
+            .cta-section p { font-size: 15px; }
+            .newsletter-form { flex-direction: column; }
+            .newsletter-form input { width: 100%; }
+            .newsletter-form button { width: 100%; padding: 13px 20px; }
+            .trust-bar-inner { gap: 24px; }
+            .trust-bar-label { font-size: 11px; letter-spacing: 1.5px; }
+            .faq-question { font-size: 15px; padding: 16px; }
+            .faq-answer { padding: 0 16px 16px; }
         }
         @media (max-width: 480px) {
-            .diff-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 36px; letter-spacing: -1px; }
-            .hero-ctas .btn { width: 100%; justify-content: center; }
-            .press-logos { gap: 24px; }
-            .mode-tab { padding: 8px 14px; font-size: 12px; }
-            .plan-pill { padding: 8px 16px; font-size: 12px; }
+            .hero h1 { font-size: 32px; letter-spacing: -1px; }
+            .hero-stat-num { font-size: 24px; }
+            .hero-stat-label { font-size: 11px; }
+            .hero-eyebrow { font-size: 12px; padding: 6px 14px; }
+            .section-label { font-size: 12px; letter-spacing: 1.5px; }
+            .btn { padding: 12px 24px; font-size: 14px; }
+            .btn-hero-primary, .btn-hero-secondary { padding: 14px 28px; font-size: 15px; }
+            .founder-quote { font-size: 17px; }
+            .founder-bio { font-size: 14px; }
+            .community-card { padding: 28px 20px; }
+            .community-card-count { font-size: 30px; }
         }
         @media (max-width: 380px) {
-            .hero-stat { padding: 10px 14px; }
+            .hero h1 { font-size: 28px; }
+            .hero-stat { padding: 10px 12px; }
             .hero-stat-num { font-size: 22px; }
+            .hero-stat-label { font-size: 10px; }
+            .container { padding: 0 16px; }
+            .pricing-card { padding: 20px 14px; }
         }
 
         /* ===== WHATSAPP FLOATING WIDGET ===== */
@@ -1182,14 +1227,20 @@
         .mini-test-payout { font-size: 13px; color: var(--green); font-weight: 700; margin-top: 12px; }
 
         @media (max-width: 768px) {
-            .founder-inner { grid-template-columns: 1fr; text-align: center; }
+            .founder-section { padding: 64px 0; }
+            .founder-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; }
             .founder-content .section-label, .founder-content .section-title { text-align: center; }
-            .founder-quote { border-left: none; padding-left: 0; padding: 20px; border: 1px solid var(--glass-border); border-radius: 12px; }
+            .founder-quote { border-left: none; padding-left: 0; padding: 20px; border: 1px solid var(--glass-border); border-radius: 12px; font-size: 17px; }
+            .founder-bio { font-size: 14px; }
             .founder-signature { justify-content: center; }
-            .community-grid { grid-template-columns: 1fr; }
+            .founder-photo-wrapper { max-width: 280px; margin: 0 auto; }
+            .community-section { padding: 64px 0; }
+            .community-grid { grid-template-columns: 1fr; gap: 16px; }
             .testimonials-extra-grid { grid-template-columns: 1fr; }
-            .whatsapp-widget { bottom: 18px; right: 18px; }
-            .whatsapp-widget a { width: 54px; height: 54px; }
+            .mini-testimonial { padding: 20px; }
+            .whatsapp-widget { bottom: 16px; right: 16px; }
+            .whatsapp-widget a { width: 52px; height: 52px; }
+            .whatsapp-widget a svg { width: 28px; height: 28px; }
             .whatsapp-widget .wa-tooltip { display: none; }
         }
     </style>
@@ -1339,7 +1390,7 @@
         </div>
 
         <!-- Hero stats -->
-        <div class="hero-stats-row" style="border: 1px solid var(--glass-border); border-radius: 16px; background: rgba(14,14,22,0.7); backdrop-filter: blur(20px); display: inline-grid; grid-template-columns: repeat(4, 1fr); max-width: 680px; width: 100%; margin: 0 auto 28px;">
+        <div class="hero-stats-row" style="border: 1px solid var(--glass-border); border-radius: 16px; background: rgba(14,14,22,0.7); backdrop-filter: blur(20px); display: inline-grid; max-width: 680px; width: 100%; margin: 0 auto 28px;">
             <div class="hero-stat">
                 <div class="hero-stat-num"><span class="accent">$</span><span class="count-up" data-target="5000000" data-prefix="$" data-suffix="+">0</span></div>
                 <div class="hero-stat-label">Total Paid Out</div>
@@ -2555,6 +2606,17 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
 
 // ===== COUNTER ANIMATION =====
+function formatCount(n, target) {
+    if (target >= 1000000) {
+        const m = n / 1000000;
+        return m >= 1 ? m.toFixed(m >= 10 ? 0 : 1).replace(/\.0$/, '') + 'M' : Math.floor(n / 1000).toLocaleString() + 'K';
+    }
+    return n.toLocaleString();
+}
+function formatFinal(target) {
+    if (target >= 1000000) return (target / 1000000) + 'M';
+    return target.toLocaleString();
+}
 const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -2566,16 +2628,9 @@ const counterObserver = new IntersectionObserver((entries) => {
                 const progress = Math.min((now - start) / duration, 1);
                 const eased = 1 - Math.pow(1 - progress, 4);
                 const current = Math.floor(eased * target);
-                if (target >= 100000) {
-                    el.textContent = (current / 1000).toFixed(1) + 'K';
-                } else {
-                    el.textContent = current.toLocaleString();
-                }
+                el.textContent = formatCount(current, target);
                 if (progress < 1) requestAnimationFrame(animate);
-                else {
-                    if (target >= 100000) el.textContent = (target / 1000).toFixed(0) + 'K';
-                    else el.textContent = target.toLocaleString();
-                }
+                else el.textContent = formatFinal(target);
             };
             requestAnimationFrame(animate);
             counterObserver.unobserve(el);
