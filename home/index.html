@@ -445,8 +445,43 @@
 
         /* ===== TRUST / PARTNER BAR ===== */
         .trust-bar {
-            padding: 48px 0 40px;
+            padding: 60px 0 52px;
             position: relative;
+        }
+        .trust-bar-entity {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .trust-bar-entity-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(108,92,231,0.08);
+            border: 1px solid rgba(108,92,231,0.25);
+            border-radius: 12px;
+            padding: 14px 28px;
+            backdrop-filter: blur(16px);
+        }
+        .trust-bar-entity-shield {
+            font-size: 20px;
+            filter: drop-shadow(0 0 6px rgba(108,92,231,0.5));
+        }
+        .trust-bar-entity-text {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            color: rgba(255,255,255,0.92);
+            text-shadow: 0 0 20px rgba(108,92,231,0.3);
+        }
+        .trust-bar-entity-sub {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            opacity: 0.7;
+            display: block;
+            margin-top: 3px;
         }
         .trust-bar-label {
             text-align: center;
@@ -454,37 +489,53 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             color: var(--text-muted);
-            margin-bottom: 24px;
-            opacity: 0.6;
+            margin-bottom: 20px;
+            opacity: 0.5;
         }
         .trust-logos {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 48px;
+            gap: 12px;
             flex-wrap: wrap;
         }
         .trust-brand {
-            font-size: 18px;
+            font-size: 13px;
             font-weight: 700;
-            color: rgba(255,255,255,0.4);
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
             white-space: nowrap;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: default;
         }
         .trust-brand:hover {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.85);
+            background: rgba(108,92,231,0.1);
+            border-color: rgba(108,92,231,0.3);
+            text-shadow: 0 0 12px rgba(108,92,231,0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(108,92,231,0.15);
         }
 
         @media (max-width: 768px) {
-            .trust-bar { padding: 36px 0 28px; }
-            .trust-logos { gap: 32px; }
-            .trust-brand { font-size: 15px; }
+            .trust-bar { padding: 44px 0 36px; }
+            .trust-logos { gap: 10px; }
+            .trust-brand { font-size: 11px; padding: 8px 14px; letter-spacing: 0.8px; }
+            .trust-bar-entity-badge { padding: 12px 20px; }
+            .trust-bar-entity-text { font-size: 13px; }
         }
         @media (max-width: 480px) {
-            .trust-logos { gap: 24px; }
-            .trust-brand { font-size: 13px; }
-            .trust-logo img { height: 18px; }
+            .trust-logos { gap: 8px; }
+            .trust-brand { font-size: 10px; padding: 7px 12px; border-radius: 8px; }
+            .trust-bar-entity-badge { padding: 10px 16px; border-radius: 10px; }
+            .trust-bar-entity-text { font-size: 12px; letter-spacing: 0.4px; }
+            .trust-bar-entity-sub { font-size: 9px; letter-spacing: 1.5px; }
         }
 
         /* ===== PAYOUT FEED ===== */
@@ -1732,6 +1783,15 @@
 <!-- ===== TRUST / PARTNER BAR ===== -->
 <section class="trust-bar">
     <div class="container">
+        <div class="trust-bar-entity">
+            <div class="trust-bar-entity-badge">
+                <span class="trust-bar-entity-shield">🛡️</span>
+                <div>
+                    <span class="trust-bar-entity-text">Operated by BIO LC PTE LTD, Singapore</span>
+                    <span class="trust-bar-entity-sub">Registered Entity · Regulated Jurisdiction</span>
+                </div>
+            </div>
+        </div>
         <div class="trust-bar-label">Powered by · Integrated with</div>
         <div class="trust-logos reveal">
             <span class="trust-brand">Bybit</span>
