@@ -1072,8 +1072,7 @@
             .btn-hero-primary, .btn-hero-secondary { padding: 14px 28px; font-size: 15px; }
             .founder-quote { font-size: 17px; }
             .founder-bio { font-size: 14px; }
-            .community-card { padding: 28px 20px; }
-            .community-card-count { font-size: 30px; }
+            /* community cards removed */
         }
         @media (max-width: 380px) {
             .hero h1 { font-size: 28px; }
@@ -1177,34 +1176,7 @@
             background: var(--bg-secondary);
             border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
         }
-        .community-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-            margin-top: 48px;
-        }
-        .community-card {
-            padding: 36px 28px; text-align: center; position: relative;
-        }
-        .community-card-icon {
-            width: 64px; height: 64px; border-radius: 16px; margin: 0 auto 20px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 28px;
-        }
-        .community-card-icon.discord { background: rgba(88,101,242,0.15); border: 1px solid rgba(88,101,242,0.25); }
-        .community-card-icon.telegram { background: rgba(0,136,204,0.15); border: 1px solid rgba(0,136,204,0.25); }
-        .community-card-icon.twitter { background: rgba(29,161,242,0.15); border: 1px solid rgba(29,161,242,0.25); }
-        .community-card-count {
-            font-size: 36px; font-weight: 900; margin-bottom: 4px;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .community-card-label { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
-        .community-card-btn {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 10px 20px; border-radius: 50px; font-size: 13px; font-weight: 600;
-            border: 1px solid var(--glass-border); color: var(--text-secondary);
-            background: var(--glass); transition: all 0.3s;
-        }
-        .community-card-btn:hover { border-color: var(--accent); color: white; transform: translateY(-2px); }
+        /* community cards removed — section simplified to X follow CTA */
 
         /* ===== EXTRA TESTIMONIALS ROW ===== */
         .testimonials-extra-grid {
@@ -1242,7 +1214,7 @@
             .founder-signature { justify-content: center; }
             .founder-photo-wrapper { max-width: 280px; margin: 0 auto; }
             .community-section { padding: 64px 0; }
-            .community-grid { grid-template-columns: 1fr; gap: 16px; }
+            /* community-grid removed */
             .testimonials-extra-grid { grid-template-columns: 1fr; }
             .mini-testimonial { padding: 20px; }
             .whatsapp-widget { bottom: 16px; right: 16px; }
@@ -1373,16 +1345,7 @@
             50% { box-shadow: 0 4px 20px rgba(108,92,231,0.5), 0 0 0 12px rgba(108,92,231,0.15); }
         }
 
-        /* Community count shimmer */
-        .community-card-count {
-            background-size: 200% 100%;
-            animation: countShimmer 3s ease-in-out infinite;
-        }
-        @keyframes countShimmer {
-            0% { background-position: 100% 50%; }
-            50% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
+        /* community shimmer removed */
 
         /* Founder photo hover */
         .founder-photo {
@@ -2516,39 +2479,17 @@
     </div>
 </section>
 
-<!-- ===== LIVE TRADING COMMUNITY ===== -->
+<!-- ===== FOLLOW US ON X ===== -->
 <section class="community-section">
     <div class="container">
-        <div class="section-header reveal">
-            <div class="section-label">Join the Community</div>
-            <h2 class="section-title">Trade Alongside <span class="gradient-text">5,000+ Traders</span></h2>
-            <p class="section-subtitle">Our community is active 24/7 — just like the crypto markets. Get signals, share strategies, and celebrate payouts together.</p>
-        </div>
-        <div class="community-grid">
-            <div class="glass-card community-card reveal reveal-delay-1">
-                <div class="community-card-icon discord">
-                    <svg viewBox="0 0 24 24" fill="#5865F2" width="28" height="28"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-                </div>
-                <div class="community-card-count">2,800+</div>
-                <div class="community-card-label">Discord Members</div>
-                <a href="https://discord.gg/fundedxyz" class="community-card-btn">Join Discord →</a>
-            </div>
-            <div class="glass-card community-card reveal reveal-delay-2">
-                <div class="community-card-icon telegram">
-                    <svg viewBox="0 0 24 24" fill="#0088cc" width="28" height="28"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                </div>
-                <div class="community-card-count">3,200+</div>
-                <div class="community-card-label">Telegram Members</div>
-                <a href="https://t.me/fundedxyz" class="community-card-btn">Join Telegram →</a>
-            </div>
-            <div class="glass-card community-card reveal reveal-delay-3">
-                <div class="community-card-icon twitter">
-                    <svg viewBox="0 0 24 24" fill="#1DA1F2" width="28" height="28"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                </div>
-                <div class="community-card-count">8,500+</div>
-                <div class="community-card-label">X (Twitter) Followers</div>
-                <a href="https://twitter.com/fundedxyz" class="community-card-btn">Follow Us →</a>
-            </div>
+        <div class="section-header reveal" style="text-align:center;">
+            <div class="section-label">Stay Updated</div>
+            <h2 class="section-title">Follow Us on <span class="gradient-text">X</span></h2>
+            <p class="section-subtitle">Stay in the loop — market updates, payout announcements, and trading tips straight from the team.</p>
+            <a href="https://x.com/FundedXyz" target="_blank" rel="noopener noreferrer" class="cta-btn" style="display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:16px 36px;font-size:16px;">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Follow @FundedXyz
+            </a>
         </div>
     </div>
 </section>
