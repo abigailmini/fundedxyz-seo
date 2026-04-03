@@ -59,6 +59,7 @@ img { max-width: 100%; height: auto; }
 .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; }
 .logo span { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .logo em { font-style: normal; color: var(--text-secondary); font-weight: 400; }
+.logo img { height: auto; }
 
 .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
 .nav-links a { color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; }
