@@ -441,34 +441,7 @@
         .stat-label { font-size: 13px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
         .stat-item + .stat-item { border-left: 1px solid var(--border); }
 
-        /* ===== TRUST BRANDS ===== */
-        .trust-bar {
-            padding: 48px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .trust-bar-inner {
-            display: flex; align-items: center; justify-content: center;
-            gap: 48px; flex-wrap: wrap;
-        }
-        .trust-bar-label {
-            font-size: 12px; text-transform: uppercase; letter-spacing: 2px;
-            color: var(--text-muted); font-weight: 600; width: 100%; text-align: center;
-            margin-bottom: 4px;
-        }
-        .trust-brand {
-            font-size: 18px; font-weight: 800; color: var(--text-muted);
-            opacity: 0.35; transition: opacity 0.3s; letter-spacing: -0.5px;
-        }
-        .trust-brand:hover { opacity: 0.65; }
-        .trust-badge {
-            display: flex; align-items: center; gap: 8px;
-            padding: 8px 16px; border-radius: 50px;
-            background: var(--glass); border: 1px solid var(--glass-border);
-            font-size: 13px; color: var(--text-secondary); font-weight: 600;
-        }
-        .trust-badge .dot { width: 8px; height: 8px; border-radius: 50%; }
-        .trust-badge .dot.green { background: var(--green); }
-        .trust-badge .dot.gold { background: var(--gold); }
+
 
         /* ===== PAYOUT FEED ===== */
         .payout-feed {
@@ -1071,8 +1044,7 @@
             .newsletter-form { flex-direction: column; }
             .newsletter-form input { width: 100%; }
             .newsletter-form button { width: 100%; padding: 13px 20px; }
-            .trust-bar-inner { gap: 24px; }
-            .trust-bar-label { font-size: 11px; letter-spacing: 1.5px; }
+
             .faq-question { font-size: 15px; padding: 16px; }
             .faq-answer { padding: 0 16px 16px; }
         }
@@ -1310,10 +1282,7 @@
             text-shadow: 0 0 12px rgba(0,212,170,0.6);
         }
 
-        /* Trust brand hover glow */
-        .trust-brand:hover {
-            text-shadow: 0 0 20px rgba(162,155,254,0.4);
-        }
+
 
         /* FAQ active highlight */
         .faq-item {
@@ -1501,15 +1470,7 @@
             box-shadow: 0 0 30px rgba(108,92,231,0.15);
         }
 
-        /* Trust badge hover */
-        .trust-badge {
-            transition: all 0.3s ease;
-        }
-        .trust-badge:hover {
-            transform: translateY(-2px);
-            border-color: rgba(108,92,231,0.3);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
+
 
         /* Advantage icon glow */
         .advantage-card:hover .advantage-icon {
@@ -1722,23 +1683,7 @@
     <div class="payout-ticker" id="payoutTicker"></div>
 </section>
 
-<!-- ===== TRUST BAR ===== -->
-<section class="trust-bar reveal">
-    <div class="container">
-        <div class="trust-bar-label">Trusted by traders in 13+ countries · Featured in</div>
-        <div class="trust-bar-inner">
-            <span class="trust-brand">CoinGape</span>
-            <span class="trust-brand">Benzinga</span>
-            <span class="trust-brand">CryptoSlate</span>
-            <span class="trust-brand">NewsBTC</span>
-            <span class="trust-brand">CoinTelegraph</span>
-            <div class="trust-badge"><span class="dot green"></span> 4.8/5.0 — 320+ Reviews</div>
-            <div class="trust-badge"><span class="dot gold"></span> BIO LC PTE LTD · Singapore</div>
-        </div>
-    </div>
-</section>
 
-<div class="section-divider"></div>
 
 <!-- ===== MEET THE FOUNDER ===== -->
 <section class="founder-section">
@@ -2992,7 +2937,7 @@ document.querySelectorAll('.btn-hero-primary, .btn-challenge').forEach(btn => {
 const staggerObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            const children = entry.target.querySelectorAll('.glass-card, .rank-node, .stat-item, .trust-brand, .trust-badge, .press-logo');
+            const children = entry.target.querySelectorAll('.glass-card, .rank-node, .stat-item, .press-logo');
             children.forEach((child, i) => {
                 child.style.opacity = '0';
                 child.style.transform = 'translateY(30px)';
@@ -3009,7 +2954,7 @@ const staggerObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.diff-grid, .steps-grid, .advantages-grid, .features-grid, .testimonials-grid, .testimonials-extra-grid, .community-grid, .video-grid, .ranks-track, .trust-bar-inner, .press-logos').forEach(grid => {
+document.querySelectorAll('.diff-grid, .steps-grid, .advantages-grid, .features-grid, .testimonials-grid, .testimonials-extra-grid, .community-grid, .video-grid, .ranks-track, .press-logos').forEach(grid => {
     staggerObserver.observe(grid);
 });
 
