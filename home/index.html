@@ -617,6 +617,18 @@
         .mid-cta-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 
         /* ===== RANKS ===== */
+        .ranks-section {
+            position: relative; overflow: hidden;
+        }
+        .ranks-bg-video {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; z-index: 0; filter: blur(3px); transform: scale(1.05);
+        }
+        .ranks-video-overlay {
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(180deg, rgba(10,10,15,0.75) 0%, rgba(10,10,15,0.6) 50%, rgba(10,10,15,0.8) 100%);
+        }
+        .ranks-section .container { position: relative; z-index: 2; }
         .ranks-track {
             display: flex; align-items: center; justify-content: center;
             gap: 0; overflow-x: auto; padding: 20px 0;
@@ -1894,7 +1906,11 @@
 <div class="section-divider"></div>
 
 <!-- ===== RISE THROUGH THE RANKS ===== -->
-<section class="section">
+<section class="section ranks-section">
+    <video autoplay loop muted playsinline class="ranks-bg-video">
+        <source src="bg-video1.mp4" type="video/mp4">
+    </video>
+    <div class="ranks-video-overlay"></div>
     <div class="container">
         <div class="section-header reveal">
             <div class="section-label">Career Progression</div>
