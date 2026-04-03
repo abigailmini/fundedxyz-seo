@@ -79,8 +79,8 @@
             transition: opacity 0.6s ease, visibility 0.6s ease;
         }
         .page-loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        .loader-logo { font-size: 26px; font-weight: 900; letter-spacing: -0.5px; }
-        .loader-logo span { color: var(--accent-light); }
+        .loader-logo { display: flex; align-items: center; justify-content: center; }
+        .loader-logo img { width: 180px; height: auto; }
         .loader-ring {
             width: 48px; height: 48px; border-radius: 50%;
             border: 3px solid var(--glass-border);
@@ -153,8 +153,8 @@
             box-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
         .header .container { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-        .logo { font-size: 22px; font-weight: 900; letter-spacing: -0.5px; flex-shrink: 0; }
-        .logo span { color: var(--accent-light); }
+        .logo { flex-shrink: 0; display: inline-flex; align-items: center; }
+        .logo img { width: 220px; height: auto; }
 
         /* ===== NAV WITH DROPDOWNS ===== */
         .nav { flex: 1; display: flex; align-items: center; justify-content: center; }
@@ -918,7 +918,8 @@
         /* ===== FOOTER ===== */
         .footer { padding: 72px 0 40px; border-top: 1px solid var(--border); }
         .footer-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
-        .footer-brand .logo { margin-bottom: 14px; font-size: 24px; }
+        .footer-brand .logo { margin-bottom: 14px; }
+        .footer-brand .logo img { width: 200px; height: auto; }
         .footer-brand p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
         .footer-legal-note { font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; opacity: 0.7; }
         .social-links { display: flex; gap: 10px; }
@@ -996,6 +997,8 @@
             .header .btn-primary.show { display: inline-flex; padding: 9px 18px; font-size: 13px; }
         }
         @media (max-width: 768px) {
+            .logo img { width: 180px; }
+            .footer-brand .logo img { width: 170px; }
             .section { padding: 64px 0; }
             .container { padding: 0 20px; }
             .section-header { margin-bottom: 48px; }
@@ -1056,6 +1059,8 @@
             .faq-answer { padding: 0 16px 16px; }
         }
         @media (max-width: 480px) {
+            .logo img { width: 150px; }
+            .loader-logo img { width: 140px; }
             .hero h1 { font-size: 32px; letter-spacing: -1px; }
             .hero-stat-num { font-size: 24px; }
             .hero-stat-label { font-size: 11px; }
@@ -1440,11 +1445,11 @@
         .logo:hover {
             transform: scale(1.05);
         }
-        .logo span {
-            transition: text-shadow 0.3s ease;
+        .logo img {
+            transition: filter 0.3s ease;
         }
-        .logo:hover span {
-            text-shadow: 0 0 20px rgba(162,155,254,0.6);
+        .logo:hover img {
+            filter: drop-shadow(0 0 20px rgba(162,155,254,0.6));
         }
 
         /* Newsletter input glow */
@@ -1569,14 +1574,14 @@
 
 <!-- LOADING SCREEN -->
 <div class="page-loader" id="pageLoader">
-    <div class="loader-logo">Funded<span>XYZ</span></div>
+    <div class="loader-logo"><img src="logo-fundedxyz.png" alt="FundedXyz" width="180"></div>
     <div class="loader-ring"></div>
 </div>
 
 <!-- HEADER -->
 <header class="header" id="header">
     <div class="container">
-        <a href="https://fundedxyz.com" class="logo">Funded<span>XYZ</span></a>
+        <a href="https://fundedxyz.com" class="logo"><img src="logo-fundedxyz.png" alt="FundedXyz" width="220"></a>
 
         <nav class="nav">
             <ul class="nav-links">
@@ -2637,7 +2642,7 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-brand">
-                <div class="logo">Funded<span>XYZ</span></div>
+                <div class="logo"><img src="logo-fundedxyz.png" alt="FundedXyz" width="200"></div>
                 <p>Where performance meets opportunity. Trade crypto with funded capital and keep up to 90% of your profits.</p>
                 <p class="footer-legal-note">Operated by BIO LC PTE LTD, Singapore. FundedXYZ is a simulated trading platform. No real funds are deployed. All profits are derived from simulated trading activity.</p>
                 <div class="social-links">
@@ -3111,11 +3116,11 @@ const compTable = document.querySelector('.comp-table');
 if (compTable) compTableObserver.observe(compTable);
 
 // --- Header logo glow on scroll ---
-const logoSpan = document.querySelector('.header .logo span');
+const logoImg = document.querySelector('.header .logo img');
 window.addEventListener('scroll', () => {
-    if (logoSpan) {
+    if (logoImg) {
         const intensity = Math.min(window.scrollY / 300, 1);
-        logoSpan.style.textShadow = `0 0 ${intensity * 15}px rgba(162,155,254,${intensity * 0.5})`;
+        logoImg.style.filter = `drop-shadow(0 0 ${intensity * 15}px rgba(162,155,254,${intensity * 0.5}))`;
     }
 }, { passive: true });
 
