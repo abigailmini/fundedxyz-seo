@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FundedXYZ Blog — Crypto Prop Trading Insights, Guides & News</title>
     <meta name="description" content="Expert guides on crypto prop trading, funded trading challenges, risk management, and market analysis. Learn how to get funded and trade crypto with up to $200,000 in capital.">
@@ -23,7 +26,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="https://fundedxyz.com/images/logo-favicon.png">
     <link rel="stylesheet" href="../css/blog.css">
     <!-- JSON-LD: WebSite -->
     <script type="application/ld+json">
@@ -80,21 +82,155 @@
     </script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <a href="https://fundedxyz.com" class="logo"><img src="../assets/logo-fundedxyz.png" alt="FundedXyz" width="176" height="30" style="height:auto"></a>
-            <button class="menu-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
-            <ul class="nav-menu">
-                <li><a href="https://fundedxyz.com">Home</a></li>
-                <li><a href="https://fundedxyz.com/#pricing">Challenge</a></li>
-                <li class="active"><a href="./">Blog</a></li>
-                <li><a href="https://fundedxyz.com/#faq">FAQ</a></li>
-                <li><a href="https://fundedxyz.com/#contact">Contact</a></li>
-                <li><a href="https://fundedxyz.com" class="btn btn-primary">Start Challenge</a></li>
+<!-- SVG Gradient Defs for Nav Icons -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <defs>
+        <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#6c5ce7"/>
+            <stop offset="100%" stop-color="#a29bfe"/>
+        </linearGradient>
+    </defs>
+</svg>
+
+    
+    
+
+<header class="header" id="header">
+    <div class="container">
+        <a href="../home/" class="logo"><img src="../assets/logo-fundedxyz.png" alt="FundedXyz" width="176" height="30" style="height:auto"></a>
+
+        <nav class="nav">
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <button class="nav-link">
+                        XYZ Challenge
+                        <svg class="caret" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5l4 4 4-4"/></svg>
+                    </button>
+                    <div class="nav-dropdown">
+                        <a href="../y-mode.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><path d="M8 2L3 5v4c0 3 2 5.5 5 6.5 3-1 5-3.5 5-6.5V5L8 2z"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Y Mode</strong><span>Standard &amp; Hard challenges</span></div>
+                        </a>
+                        <a href="../z-mode.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><path d="M8 2l4 8H4L8 2z"/><line x1="8" y1="10" x2="8" y2="14"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Z Mode</strong><span>Scholarship-based profit</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link">
+                        Trading
+                        <svg class="caret" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5l4 4 4-4"/></svg>
+                    </button>
+                    <div class="nav-dropdown">
+                        <a href="../how-it-works.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Overview</strong><span>How FundedXYZ works</span></div>
+                        </a>
+                        <div class="nav-dropdown-divider"></div>
+                        <a href="../payouts.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="14" height="10" rx="1.5"/><line x1="1" y1="7" x2="15" y2="7"/><circle cx="12" cy="10.5" r="1.5"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Payouts</strong><span>Fast USDT payouts</span></div>
+                        </a>
+                        <a href="../pricing.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M8 5v6M5.5 7.5h5"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Pricing</strong><span>Challenge pricing tiers</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link">
+                        Resources
+                        <svg class="caret" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5l4 4 4-4"/></svg>
+                    </button>
+                    <div class="nav-dropdown">
+                        <a href="../testimonials.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><path d="M2 3h12v8H6l-4 3V3z"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Testimonials</strong><span>Trader success stories</span></div>
+                        </a>
+                        <a href="../leaderboard.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="8" width="4" height="6"/><rect x="6" y="4" width="4" height="10"/><rect x="11" y="6" width="4" height="8"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Leaderboard</strong><span>Top trader rankings</span></div>
+                        </a>
+                        <div class="nav-dropdown-divider"></div>
+                        <a href="../blog/" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="1.5"/><line x1="5" y1="6" x2="11" y2="6"/><line x1="5" y1="9" x2="9" y2="9"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Blog</strong><span>Guides &amp; market insights</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link">
+                        About
+                        <svg class="caret" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5l4 4 4-4"/></svg>
+                    </button>
+                    <div class="nav-dropdown">
+                        <a href="../about.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="5" r="3"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>About Us</strong><span>Our mission &amp; team</span></div>
+                        </a>
+                        <a href="../contact.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 3l7 5 7-5"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Contact</strong><span>Get in touch</span></div>
+                        </a>
+                        <div class="nav-dropdown-divider"></div>
+                        <a href="../careers.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="6" width="12" height="8" rx="1.5"/><path d="M5 6V4a3 3 0 0 1 6 0v2"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Careers</strong><span>Join the team</span></div>
+                        </a>
+                        <a href="affiliate.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/><path d="M4 11l4-3 4 3"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Affiliate Program</strong><span>Earn commissions</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="../faq.html" class="nav-link" style="cursor:pointer; text-decoration:none;">FAQ</a>
+                </li>
             </ul>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="https://app.fundedxyz.com/login" class="nav-login-btn">Log In</a>
+            <a href="https://app.fundedxyz.com/register" class="btn btn-primary show" id="headerCta">Start Challenge</a>
+            <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('active')" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
         </div>
-    </header>
+    </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+    <button class="close-btn" onclick="this.parentElement.classList.remove('active')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="mobile-nav-section-label">XYZ Challenge</div>
+
+
+    <a href="../y-mode.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Y Mode</a>
+    <a href="../z-mode.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Z Mode</a>
+    <div class="mobile-nav-section-label">How It Works</div>
+    <a href="../how-it-works.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Overview</a>
+    <a href="../payouts.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Payouts</a>
+    <a href="../pricing.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Pricing</a>
+    <div class="mobile-nav-section-label">Resources</div>
+    <a href="../testimonials.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Testimonials</a>
+    <a href="../blog/" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Blog</a>
+    <a href="../leaderboard.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Leaderboard</a>
+    <div style="height:4px"></div>
+    <a href="../about.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">About</a>
+    <a href="../contact.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Contact</a>
+    <a href="affiliate.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Affiliate Program</a>
+    <div style="height:8px"></div>
+    <a href="../faq.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">FAQ</a>
+    <div style="height:12px"></div>
+    <a href="https://app.fundedxyz.com/login" class="mobile-nav-link" style="color:var(--text-muted)">Log In</a>
+    <a href="https://app.fundedxyz.com/register" class="btn btn-primary" style="margin-top:8px; padding:15px 40px; font-size:16px;">Start Challenge</a>
+</div>
+
+<!-- Header -->
+    
 
     <!-- Hero -->
     <section class="page-hero">
@@ -119,7 +255,7 @@
         <div class="blog-grid">
             <!-- Article 1 -->
             <article class="blog-card" data-cat="guides">
-                <div class="blog-card-img" style="background: linear-gradient(135deg, #1a1a3e, #3D52D5);display:flex;align-items:center;justify-content:center;font-size:3rem;">📊</div>
+                <div class="blog-card-img" style="background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);"</div>
                 <div class="blog-card-body">
                     <span class="blog-card-category">Guide</span>
                     <h3><a href="./what-is-crypto-prop-trading/">What Is Crypto Prop Trading? The Complete 2026 Guide</a></h3>
@@ -133,7 +269,7 @@
 
             <!-- Article 2 -->
             <article class="blog-card" data-cat="comparison">
-                <div class="blog-card-img" style="background: linear-gradient(135deg, #1a1a3e, #8A2BE2);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚔️</div>
+                <div class="blog-card-img" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);"</div>
                 <div class="blog-card-body">
                     <span class="blog-card-category">Comparison</span>
                     <h3><a href="./fundedxyz-vs-ftmo-vs-hyrotrader/">FundedXYZ vs FTMO vs HyroTrader: Honest Comparison</a></h3>
@@ -147,7 +283,7 @@
 
             <!-- Article 3 -->
             <article class="blog-card" data-cat="guides">
-                <div class="blog-card-img" style="background: linear-gradient(135deg, #121224, #3D52D5);display:flex;align-items:center;justify-content:center;font-size:3rem;">🎯</div>
+                <div class="blog-card-img" style="background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1a1e2e 100%);"</div>
                 <div class="blog-card-body">
                     <span class="blog-card-category">Guide</span>
                     <h3><a href="./how-to-pass-crypto-prop-firm-challenge/">How to Pass a Crypto Prop Firm Challenge (Step-by-Step)</a></h3>
@@ -161,7 +297,7 @@
 
             <!-- Article 4 -->
             <article class="blog-card" data-cat="education">
-                <div class="blog-card-img" style="background: linear-gradient(135deg, #1a1a3e, #28a745);display:flex;align-items:center;justify-content:center;font-size:3rem;">🛡️</div>
+                <div class="blog-card-img" style="background: linear-gradient(135deg, #141e30 0%, #243b55 100%);"</div>
                 <div class="blog-card-body">
                     <span class="blog-card-category">Education</span>
                     <h3><a href="./is-crypto-prop-trading-legit/">Is Crypto Prop Trading Legit? Red Flags vs Green Flags</a></h3>
@@ -175,7 +311,7 @@
 
             <!-- Article 5 -->
             <article class="blog-card" data-cat="comparison">
-                <div class="blog-card-img" style="background: linear-gradient(135deg, #121224, #8A2BE2);display:flex;align-items:center;justify-content:center;font-size:3rem;">🔥</div>
+                <div class="blog-card-img" style="background: linear-gradient(135deg, #0c0c1d 0%, #1b1b3a 50%, #2d1b69 100%);"</div>
                 <div class="blog-card-body">
                     <span class="blog-card-category">Comparison</span>
                     <h3><a href="./crypto-vs-forex-prop-firms/">5 Reasons Crypto Prop Firms Beat Forex Prop Firms in 2026</a></h3>
@@ -189,7 +325,7 @@
 
             <!-- Article 6 -->
             <article class="blog-card" data-cat="product">
-                <div class="blog-card-img" style="background: linear-gradient(135deg, #1a1a3e, #28a745);display:flex;align-items:center;justify-content:center;font-size:3rem;">💰</div>
+                <div class="blog-card-img" style="background: linear-gradient(135deg, #0a1628 0%, #1a2940 50%, #0e2439 100%);"</div>
                 <div class="blog-card-body">
                     <span class="blog-card-category">Product</span>
                     <h3><a href="./payout-proof/">Crypto Prop Firm Payout Proof: Real Traders, Real Money</a></h3>
@@ -203,7 +339,7 @@
 
             <!-- Article 7 -->
             <article class="blog-card" data-cat="guides">
-                <div class="blog-card-img" style="background: linear-gradient(135deg, #121224, #3D52D5);display:flex;align-items:center;justify-content:center;font-size:3rem;">🚀</div>
+                <div class="blog-card-img" style="background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #0f0c29 100%);"</div>
                 <div class="blog-card-body">
                     <span class="blog-card-category">Guide</span>
                     <h3><a href="./beginners-guide-funded-crypto-trader/">The Beginner's Guide to Getting Funded as a Crypto Trader</a></h3>
@@ -217,7 +353,7 @@
 
             <!-- Article 8 -->
             <article class="blog-card" data-cat="product">
-                <div class="blog-card-img" style="background: linear-gradient(135deg, #1a1a3e, #8A2BE2);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚡</div>
+                <div class="blog-card-img" style="background: linear-gradient(135deg, #0d1321 0%, #1d2951 50%, #15223a 100%);"</div>
                 <div class="blog-card-body">
                     <span class="blog-card-category">Product</span>
                     <h3><a href="./no-daily-drawdown-no-time-limit/">No Time Limits, No Daily Drawdown: Why FundedXYZ Is Different</a></h3>
@@ -231,7 +367,7 @@
 
             <!-- Article 9 -->
             <article class="blog-card" data-cat="education">
-                <div class="blog-card-img" style="background: linear-gradient(135deg, #121224, #3D52D5);display:flex;align-items:center;justify-content:center;font-size:3rem;">📐</div>
+                <div class="blog-card-img" style="background: linear-gradient(135deg, #0b0e17 0%, #1c1f2e 50%, #262a3d 100%);"</div>
                 <div class="blog-card-body">
                     <span class="blog-card-category">Education</span>
                     <h3><a href="./risk-management-10-percent-rule/">Crypto Prop Trading Risk Management: The 10% Rule Explained</a></h3>
@@ -245,7 +381,7 @@
 
             <!-- Article 10 -->
             <article class="blog-card" data-cat="product">
-                <div class="blog-card-img" style="background: linear-gradient(135deg, #1a1a3e, #8A2BE2);display:flex;align-items:center;justify-content:center;font-size:3rem;">📈</div>
+                <div class="blog-card-img" style="background: linear-gradient(135deg, #071a2b 0%, #0e3551 50%, #0a2744 100%);"</div>
                 <div class="blog-card-body">
                     <span class="blog-card-category">Product</span>
                     <h3><a href="./from-79-to-200k-scaling-path/">From $79 to $200K: The FundedXYZ Scaling Path Explained</a></h3>
@@ -259,7 +395,7 @@
 
             <!-- Article 11 -->
             <article class="blog-card" data-cat="education">
-                <div class="blog-card-img" style="background: linear-gradient(135deg, #121224, #3D52D5);display:flex;align-items:center;justify-content:center;font-size:3rem;">🤖</div>
+                <div class="blog-card-img" style="background: linear-gradient(135deg, #100e2e 0%, #211a4a 50%, #1a1440 100%);"</div>
                 <div class="blog-card-body">
                     <span class="blog-card-category">Education</span>
                     <h3><a href="./ai-search-crypto-prop-firms/">What AI Search Engines Say About Crypto Prop Firms</a></h3>
@@ -273,7 +409,7 @@
 
             <!-- Article 12 -->
             <article class="blog-card" data-cat="market">
-                <div class="blog-card-img" style="background: linear-gradient(135deg, #1a1a3e, #28a745);display:flex;align-items:center;justify-content:center;font-size:3rem;">📉</div>
+                <div class="blog-card-img" style="background: linear-gradient(135deg, #0c1829 0%, #182848 50%, #1a1e36 100%);"</div>
                 <div class="blog-card-body">
                     <span class="blog-card-category">Market Analysis</span>
                     <h3><a href="./weekly-market-alpha/">Weekly Market Alpha: BTC/ETH/SOL Trading Setups</a></h3>
@@ -314,7 +450,7 @@
                 <div class="footer-column">
                     <h4>Platform</h4>
                     <ul>
-                        <li><a href="https://fundedxyz.com/#pricing">Challenge Pricing</a></li>
+                        <li><a href="https://app.fundedxyz.com/login">Challenge Pricing</a></li>
                         <li><a href="https://fundedxyz.com/#how-it-works">How It Works</a></li>
                         <li><a href="https://fundedxyz.com/#faq">FAQ</a></li>
                         <li><a href="https://fundedxyz.com/#contact">Contact</a></li>

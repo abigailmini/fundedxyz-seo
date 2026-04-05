@@ -1,19 +1,5 @@
 // FundedXYZ - Main JS
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile nav toggle
-  const toggle = document.querySelector('.mobile-toggle');
-  const nav = document.querySelector('.nav-links');
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-      toggle.textContent = nav.classList.contains('active') ? '✕' : '☰';
-    });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      nav.classList.remove('active');
-      toggle.textContent = '☰';
-    }));
-  }
-
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
     const q = item.querySelector('.faq-question');
@@ -37,4 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Sticky header CTA show on scroll
+  const header = document.getElementById('header');
+  const headerCta = document.getElementById('headerCta');
+  if (header && headerCta) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 120) {
+        header.classList.add('scrolled');
+        headerCta.classList.add('show');
+      } else {
+        header.classList.remove('scrolled');
+        headerCta.classList.remove('show');
+      }
+    }, { passive: true });
+  }
 });

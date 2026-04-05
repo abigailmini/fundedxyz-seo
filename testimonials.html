@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trader Testimonials | FundedXYZ Reviews</title>
 <meta name="description" content="Read what funded traders say about FundedXYZ. Real reviews from real traders earning profits with our crypto prop trading platform.">
@@ -11,27 +14,295 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+<style>
+  .testimonial-section { position: relative; overflow: hidden; }
+  .testimonial-section::before {
+    content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 800px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(108,92,231,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .testimonial-glass {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+  }
+  .testimonial-glass::before {
+    content: ''; position: absolute; inset: -1px;
+    border-radius: 20px; padding: 1px;
+    background: conic-gradient(from 0deg, transparent 40%, rgba(108,92,231,0.3) 50%, rgba(162,155,254,0.2) 55%, transparent 65%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0; transition: opacity 0.5s ease;
+  }
+  .testimonial-glass:hover::before { opacity: 1; }
+  .testimonial-glass:hover {
+    background: rgba(255,255,255,0.06);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(108,92,231,0.08);
+  }
+  .testimonial-glass .quote-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(162,155,254,0.08));
+    border: 1px solid rgba(108,92,231,0.2);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .testimonial-glass .quote-icon svg { width: 20px; height: 20px; }
+  .testimonial-glass .stars {
+    display: flex; gap: 3px; margin-bottom: 16px;
+  }
+  .testimonial-glass .stars svg {
+    width: 16px; height: 16px; fill: #ffd700; stroke: none;
+  }
+  .testimonial-glass .text {
+    font-size: 15px; line-height: 1.75; color: var(--text-secondary);
+    margin-bottom: 24px; font-style: italic;
+  }
+  .testimonial-glass .author-row {
+    display: flex; align-items: center; gap: 14px;
+    padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .testimonial-glass .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 16px; color: white; flex-shrink: 0;
+  }
+  .testimonial-glass .author-name { font-weight: 700; font-size: 15px; }
+  .testimonial-glass .author-role { font-size: 13px; color: var(--text-muted); }
+  .stats-glass-bar {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    margin-top: 64px;
+  }
+  .stat-glass {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px; padding: 32px 24px; text-align: center;
+    backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+  }
+  .stat-glass:hover { border-color: rgba(108,92,231,0.3); transform: translateY(-4px); }
+  .stat-glass .stat-num {
+    font-size: 36px; font-weight: 900; letter-spacing: -1px;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .stat-glass .stat-lbl { font-size: 14px; color: var(--text-muted); margin-top: 4px; font-weight: 500; }
+  @media (max-width: 1024px) { .testimonials-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .stats-glass-bar { grid-template-columns: repeat(2, 1fr); }
+  }
+        /* ===== MOBILE NAV OVERLAY ===== */
+        .mobile-nav {
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10,10,15,0.98); backdrop-filter: blur(20px); z-index: 999;
+            flex-direction: column; align-items: flex-start; padding: 100px 32px 32px;
+            overflow-y: auto; gap: 2px;
+        }
+        .mobile-nav.active { display: flex; }
+        .mobile-nav-link {
+            font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.6);
+            padding: 12px 16px; border-radius: 8px; width: 100%;
+            text-align: left; transition: all 0.2s; text-decoration: none; display: block;
+        }
+        .mobile-nav-link:hover { color: white; background: rgba(255,255,255,0.05); }
+        .mobile-nav .close-btn {
+            position: fixed; top: 72px; right: 20px;
+            background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+            color: white; cursor: pointer; padding: 0; border-radius: 12px;
+            z-index: 10000; width: 48px; height: 48px;
+            display: flex; align-items: center; justify-content: center;
+            -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+        }
+        .mobile-nav .close-btn:active { background: rgba(139,92,246,0.4); }
+        .mobile-nav-section-label {
+            font-size: 11px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 2px; color: #8b7fe0; margin-top: 16px; margin-bottom: 4px;
+            padding: 0 16px;
+        }
+        
+        /* ===== MOBILE HEADER ===== */
+        .mobile-toggle {
+            display: none; background: none; border: none;
+            color: white; cursor: pointer; padding: 4px;
+        }
+        @media (max-width: 900px) {
+            .nav, .nav-actions .nav-login-btn { display: none; }
+            .mobile-toggle { display: block; }
+            .header .btn-primary.show { display: inline-flex; padding: 9px 18px; font-size: 13px; }
+        }
+        @media (max-width: 480px) {
+            .header .btn-primary.show { display: none; }
+        }
+        
+        /* ===== HEADER LAYOUT ===== */
+        .header .container { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+        .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; margin-left: auto; }
+        </style>
 </head>
 <body>
+<!-- SVG Gradient Defs for Nav Icons -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <defs>
+        <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#6c5ce7"/>
+            <stop offset="100%" stop-color="#a29bfe"/>
+        </linearGradient>
+    </defs>
+</svg>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="home/" class="logo"><img src="assets/logo-fundedxyz.png" alt="FundedXyz" width="176" height="30" style="height:auto"></a>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="payouts.html">Payouts</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="leaderboard.html">Leaderboard</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="blog/">Blog</a></li><li><a href="https://fundedxyz.com" class="nav-cta">Start Challenge</a></li>
-      </ul>
-    </nav>
-    <button class="mobile-toggle" aria-label="Menu"><i data-lucide="menu" class="lucide-icon"></i></button>
-  </div>
+
+
+
+
+
+
+<header class="header" id="header">
+    <div class="container">
+        <a href="home/" class="logo"><img src="assets/logo-fundedxyz.png" alt="FundedXyz" width="176" height="30" style="height:auto"></a>
+
+        <nav class="nav">
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <button class="nav-link">
+                        XYZ Challenge
+                        <svg class="caret" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5l4 4 4-4"/></svg>
+                    </button>
+                    <div class="nav-dropdown">
+                        <a href="y-mode.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><path d="M8 2L3 5v4c0 3 2 5.5 5 6.5 3-1 5-3.5 5-6.5V5L8 2z"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Y Mode</strong><span>Standard &amp; Hard challenges</span></div>
+                        </a>
+                        <a href="z-mode.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><path d="M8 2l4 8H4L8 2z"/><line x1="8" y1="10" x2="8" y2="14"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Z Mode</strong><span>Scholarship-based profit</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link">
+                        Trading
+                        <svg class="caret" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5l4 4 4-4"/></svg>
+                    </button>
+                    <div class="nav-dropdown">
+                        <a href="how-it-works.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Overview</strong><span>How FundedXYZ works</span></div>
+                        </a>
+                        <div class="nav-dropdown-divider"></div>
+                        <a href="payouts.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="14" height="10" rx="1.5"/><line x1="1" y1="7" x2="15" y2="7"/><circle cx="12" cy="10.5" r="1.5"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Payouts</strong><span>Fast USDT payouts</span></div>
+                        </a>
+                        <a href="pricing.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M8 5v6M5.5 7.5h5"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Pricing</strong><span>Challenge pricing tiers</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link">
+                        Resources
+                        <svg class="caret" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5l4 4 4-4"/></svg>
+                    </button>
+                    <div class="nav-dropdown">
+                        <a href="testimonials.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><path d="M2 3h12v8H6l-4 3V3z"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Testimonials</strong><span>Trader success stories</span></div>
+                        </a>
+                        <a href="leaderboard.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="8" width="4" height="6"/><rect x="6" y="4" width="4" height="10"/><rect x="11" y="6" width="4" height="8"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Leaderboard</strong><span>Top trader rankings</span></div>
+                        </a>
+                        <div class="nav-dropdown-divider"></div>
+                        <a href="blog/" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="1.5"/><line x1="5" y1="6" x2="11" y2="6"/><line x1="5" y1="9" x2="9" y2="9"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Blog</strong><span>Guides &amp; market insights</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link">
+                        About
+                        <svg class="caret" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5l4 4 4-4"/></svg>
+                    </button>
+                    <div class="nav-dropdown">
+                        <a href="about.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="5" r="3"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>About Us</strong><span>Our mission &amp; team</span></div>
+                        </a>
+                        <a href="contact.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 3l7 5 7-5"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Contact</strong><span>Get in touch</span></div>
+                        </a>
+                        <div class="nav-dropdown-divider"></div>
+                        <a href="careers.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="6" width="12" height="8" rx="1.5"/><path d="M5 6V4a3 3 0 0 1 6 0v2"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Careers</strong><span>Join the team</span></div>
+                        </a>
+                        <a href="affiliate.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/><path d="M4 11l4-3 4 3"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Affiliate Program</strong><span>Earn commissions</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="faq.html" class="nav-link" style="cursor:pointer; text-decoration:none;">FAQ</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="https://app.fundedxyz.com/login" class="nav-login-btn">Log In</a>
+            <a href="https://app.fundedxyz.com/register" class="btn btn-primary show" id="headerCta">Start Challenge</a>
+            <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('active')" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </div>
 </header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+    <button class="close-btn" onclick="this.parentElement.classList.remove('active')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="mobile-nav-section-label">XYZ Challenge</div>
+
+
+    <a href="y-mode.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Y Mode</a>
+    <a href="z-mode.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Z Mode</a>
+    <div class="mobile-nav-section-label">How It Works</div>
+    <a href="how-it-works.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Overview</a>
+    <a href="payouts.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Payouts</a>
+    <a href="pricing.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Pricing</a>
+    <div class="mobile-nav-section-label">Resources</div>
+    <a href="testimonials.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Testimonials</a>
+    <a href="blog/" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Blog</a>
+    <a href="leaderboard.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Leaderboard</a>
+    <div style="height:4px"></div>
+    <a href="about.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">About</a>
+    <a href="contact.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Contact</a>
+    <a href="affiliate.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Affiliate Program</a>
+    <div style="height:8px"></div>
+    <a href="faq.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">FAQ</a>
+    <div style="height:12px"></div>
+    <a href="https://app.fundedxyz.com/login" class="mobile-nav-link" style="color:var(--text-muted)">Log In</a>
+    <a href="https://app.fundedxyz.com/register" class="btn btn-primary" style="margin-top:8px; padding:15px 40px; font-size:16px;">Start Challenge</a>
+</div>
 
 <section class="hero">
   <div class="container">
@@ -41,71 +312,88 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section testimonial-section">
   <div class="container">
-    <div class="testimonial-grid fade-in">
+    <div class="testimonials-grid fade-in">
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars"><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i></div>
-        <div class="testimonial-text">"I've tried multiple prop firms before FundedXYZ. The single-phase challenge is a game changer — no unnecessary stress, just prove your skill and get funded. Got my first payout within 3 weeks of being funded."</div>
-        <div class="testimonial-author">Alex Chen</div>
-        <div class="testimonial-role">$25K Funded Trader • Singapore</div>
+      <div class="testimonial-glass">
+        <div class="quote-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#brandGrad)" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg></div>
+        <div class="stars"><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg></div>
+        <div class="text">"I've tried multiple prop firms before FundedXYZ. The single-phase challenge is a game changer — no unnecessary stress, just prove your skill and get funded. Got my first payout within 3 weeks."</div>
+        <div class="author-row">
+          <div class="avatar">AC</div>
+          <div><div class="author-name">Alex Chen</div><div class="author-role">$25K Funded Trader • Singapore</div></div>
+        </div>
       </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars"><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i></div>
-        <div class="testimonial-text">"The no time limit policy is what sold me. I trade part-time alongside my day job, and most prop firms make it impossible with tight deadlines. FundedXYZ actually respects traders' schedules."</div>
-        <div class="testimonial-author">Sarah Mitchell</div>
-        <div class="testimonial-role">$10K Funded Trader • United Kingdom</div>
+      <div class="testimonial-glass">
+        <div class="quote-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#brandGrad)" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg></div>
+        <div class="stars"><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg></div>
+        <div class="text">"The no time limit policy is what sold me. I trade part-time alongside my day job, and most prop firms make it impossible with tight deadlines. FundedXYZ actually respects traders' schedules."</div>
+        <div class="author-row">
+          <div class="avatar">SM</div>
+          <div><div class="author-name">Sarah Mitchell</div><div class="author-role">$10K Funded Trader • United Kingdom</div></div>
+        </div>
       </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars"><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i></div>
-        <div class="testimonial-text">"Payout was smooth, received in USDT within 5 days of requesting. The 80% profit split is very fair, and the trading rules are straightforward. No hidden gotchas like other firms I've dealt with."</div>
-        <div class="testimonial-author">Marcus Johnson</div>
-        <div class="testimonial-role">$50K Funded Trader • United States</div>
+      <div class="testimonial-glass">
+        <div class="quote-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#brandGrad)" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg></div>
+        <div class="stars"><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg></div>
+        <div class="text">"Payout was smooth, received in USDT within 5 days of requesting. The 80% profit split is very fair, and the trading rules are straightforward. No hidden gotchas like other firms."</div>
+        <div class="author-row">
+          <div class="avatar">MJ</div>
+          <div><div class="author-name">Marcus Johnson</div><div class="author-role">$50K Funded Trader • United States</div></div>
+        </div>
       </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars"><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i></div>
-        <div class="testimonial-text">"Started with the $5K challenge to test the waters. Passed it, got funded, made consistent profits. Now I'm scaling up to the $25K account. FundedXYZ has become my primary trading platform."</div>
-        <div class="testimonial-author">Yuki Tanaka</div>
-        <div class="testimonial-role">$5K → $25K Funded Trader • Japan</div>
+      <div class="testimonial-glass">
+        <div class="quote-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#brandGrad)" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg></div>
+        <div class="stars"><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg></div>
+        <div class="text">"Started with the $5K challenge to test the waters. Passed it, got funded, made consistent profits. Now I'm scaling up to the $25K account. FundedXYZ has become my primary trading platform."</div>
+        <div class="author-row">
+          <div class="avatar">YT</div>
+          <div><div class="author-name">Yuki Tanaka</div><div class="author-role">$5K → $25K Funded Trader • Japan</div></div>
+        </div>
       </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars"><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i></div>
-        <div class="testimonial-text">"The leverage options are perfect for crypto. 5x is enough to make meaningful trades without being reckless. The risk management rules are strict but fair — exactly what a serious trader wants."</div>
-        <div class="testimonial-author">David Okoye</div>
-        <div class="testimonial-role">$100K Funded Trader • Nigeria</div>
+      <div class="testimonial-glass">
+        <div class="quote-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#brandGrad)" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg></div>
+        <div class="stars"><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg></div>
+        <div class="text">"The leverage options are perfect for crypto. 5x is enough to make meaningful trades without being reckless. The risk management rules are strict but fair — exactly what a serious trader wants."</div>
+        <div class="author-row">
+          <div class="avatar">DO</div>
+          <div><div class="author-name">David Okoye</div><div class="author-role">$100K Funded Trader • Nigeria</div></div>
+        </div>
       </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars"><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i><i data-lucide="star" class="lucide-star"></i></div>
-        <div class="testimonial-text">"What impressed me most is the support team. They're available 24/7 and actually know what they're talking about. Any issues with my account were resolved within hours, not days."</div>
-        <div class="testimonial-author">Elena Rodriguez</div>
-        <div class="testimonial-role">$25K Funded Trader • Spain</div>
+      <div class="testimonial-glass">
+        <div class="quote-icon"><svg viewBox="0 0 24 24" fill="none" stroke="url(#brandGrad)" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg></div>
+        <div class="stars"><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg><svg viewBox="0 0 20 20"><polygon points="10,1 12.5,7 19,7.5 14,12 15.5,19 10,15.5 4.5,19 6,12 1,7.5 7.5,7"/></svg></div>
+        <div class="text">"What impressed me most is the support team. They're available 24/7 and actually know what they're talking about. Any issues with my account were resolved within hours, not days."</div>
+        <div class="author-row">
+          <div class="avatar">ER</div>
+          <div><div class="author-name">Elena Rodriguez</div><div class="author-role">$25K Funded Trader • Spain</div></div>
+        </div>
       </div>
 
     </div>
-  </div>
-</section>
 
-<section class="section section-dark">
-  <div class="container">
-    <div class="stats-bar fade-in">
-      <div class="stat"><div class="stat-value">4.8/5</div><div class="stat-label">Average Rating</div></div>
-      <div class="stat"><div class="stat-value">5,000+</div><div class="stat-label">Active Traders</div></div>
-      <div class="stat"><div class="stat-value">92%</div><div class="stat-label">Would Recommend</div></div>
-      <div class="stat"><div class="stat-value">$2.4M+</div><div class="stat-label">Paid to Traders</div></div>
+    <div class="stats-glass-bar fade-in">
+      <div class="stat-glass"><div class="stat-num">4.8/5</div><div class="stat-lbl">Average Rating</div></div>
+      <div class="stat-glass"><div class="stat-num">5,000+</div><div class="stat-lbl">Active Traders</div></div>
+      <div class="stat-glass"><div class="stat-num">92%</div><div class="stat-lbl">Would Recommend</div></div>
+      <div class="stat-glass"><div class="stat-num">$5M+</div><div class="stat-lbl">Paid to Traders</div></div>
     </div>
   </div>
 </section>
 
 <section class="section" style="text-align:center;">
   <div class="container">
-    <div class="section-title fade-in">Ready to Write Your Success Story?</div>
-    <p style="color:var(--text-secondary);margin-bottom:32px;" class="fade-in">Join thousands of traders who trust FundedXYZ for their funded trading journey.</p>
+    <div class="section-header fade-in">
+      <span class="section-label">Your Turn</span>
+      <div class="section-title">Ready to Write Your Success Story?</div>
+      <p style="color:var(--text-secondary);max-width:560px;margin:0 auto 32px;">Join thousands of traders who trust FundedXYZ for their funded trading journey.</p>
+    </div>
     <a href="pricing.html" class="btn btn-primary fade-in">Start Your Challenge</a>
   </div>
 </section>

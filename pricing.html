@@ -2,130 +2,672 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Challenge Pricing | FundedXYZ - Get Funded Up to $100K</title>
-<meta name="description" content="Choose your FundedXYZ challenge: $5K to $100K accounts. 8% profit target, 10% max loss, unlimited time, up to 90% profit split. Start trading crypto today.">
+<title>Challenge Pricing | FundedXYZ - Y Mode & Z Mode Plans</title>
+<meta name="description" content="FundedXYZ challenge pricing for Y Mode and Z Mode. From $20 entry. Up to $200K funding, no time limits, up to 90% profit split. Compare all plans.">
 <meta property="og:title" content="Challenge Pricing | FundedXYZ">
-<meta property="og:description" content="$5K to $100K funded accounts. 8% target, unlimited time, 90% profit split.">
+<meta property="og:description" content="Y Mode & Z Mode plans from $20. Up to $200K, no time limits, 90% profit split.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+<style>
+  .mode-toggle { display:flex; justify-content:center; gap:8px; margin-bottom:48px; flex-wrap:wrap; }
+  .mode-toggle-btn {
+    padding:14px 28px; border-radius:50px; font-size:14px; font-weight:700;
+    cursor:pointer; border:2px solid var(--border); background:var(--bg-card);
+    color:var(--text-secondary); transition:all 0.3s; font-family:inherit;
+    white-space:nowrap;
+  }
+  .mode-toggle-btn.active {
+    background:var(--accent-gradient); color:white; border-color:transparent;
+    box-shadow:0 4px 20px rgba(108,92,231,0.4);
+  }
+  .mode-toggle-btn:hover:not(.active) { border-color:var(--accent); color:white; }
+  .mode-section { display:none; }
+  .mode-section.active { display:block; }
+  .mode-badge { display:inline-block; background:rgba(108,92,231,0.15); color:var(--accent-light);
+    padding:4px 12px; border-radius:20px; font-size:12px; font-weight:600;
+    text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px; }
+  .pricing-grid { display:grid; grid-template-columns:repeat(5, 1fr); gap:16px; }
+  .pricing-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg);
+    padding:32px 24px; text-align:center; transition:all 0.3s; }
+  .pricing-card:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+  .pricing-card.featured { border-color:var(--accent); position:relative; }
+  .pricing-card.featured::before { content:'Most Popular'; position:absolute; top:-12px; left:50%;
+    transform:translateX(-50%); background:var(--accent-gradient); color:white; font-size:11px;
+    font-weight:700; padding:4px 16px; border-radius:20px; white-space:nowrap; }
+  .pricing-amount { font-size:32px; font-weight:900; margin:8px 0 4px; }
+  .pricing-label { font-size:13px; color:var(--text-muted); margin-bottom:20px; }
+  .pricing-price { font-size:24px; font-weight:800; color:var(--green); margin-bottom:4px; }
+  .pricing-price-label { font-size:12px; color:var(--text-muted); margin-bottom:20px; }
+  .pricing-features { list-style:none; margin:0 0 24px; padding:0; text-align:left; }
+  .pricing-features li { display:flex; justify-content:space-between; padding:8px 0;
+    border-bottom:1px solid rgba(255,255,255,0.04); font-size:13px; color:var(--text-secondary); }
+  .pricing-features li span:last-child { font-weight:600; color:white; }
+  .scholarship-amount { color:var(--green) !important; font-weight:700 !important; }
+
+  /* Mobile responsive: 2x2 grid for mode tabs */
+  @media (max-width: 1200px) {
+    .pricing-grid { grid-template-columns:repeat(5, 1fr); gap:12px; }
+    .pricing-card { padding:24px 16px; }
+    .pricing-amount { font-size:26px; }
+    .pricing-features li { font-size:12px; }
+  }
+  @media (max-width: 768px) {
+    .mode-toggle {
+      display:grid; grid-template-columns:1fr 1fr; gap:8px;
+      max-width:400px; margin-left:auto; margin-right:auto; margin-bottom:36px;
+    }
+    .mode-toggle-btn {
+      padding:12px 8px; font-size:13px; text-align:center;
+      border-radius:12px; line-height:1.3;
+    }
+    .pricing-grid {
+      grid-template-columns:1fr 1fr; gap:12px;
+      overflow-x:auto;
+    }
+    .pricing-card {
+      padding:20px 14px;
+    }
+    .pricing-amount { font-size:24px; }
+    .pricing-price { font-size:20px; }
+    .pricing-features li { font-size:12px; padding:6px 0; }
+  }
+  @media (max-width: 420px) {
+    .pricing-grid {
+      grid-template-columns:1fr; gap:16px;
+    }
+  }
+        /* ===== MOBILE NAV OVERLAY ===== */
+        .mobile-nav {
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10,10,15,0.98); backdrop-filter: blur(20px); z-index: 999;
+            flex-direction: column; align-items: flex-start; padding: 100px 32px 32px;
+            overflow-y: auto; gap: 2px;
+        }
+        .mobile-nav.active { display: flex; }
+        .mobile-nav-link {
+            font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.6);
+            padding: 12px 16px; border-radius: 8px; width: 100%;
+            text-align: left; transition: all 0.2s; text-decoration: none; display: block;
+        }
+        .mobile-nav-link:hover { color: white; background: rgba(255,255,255,0.05); }
+        .mobile-nav .close-btn {
+            position: fixed; top: 72px; right: 20px;
+            background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+            color: white; cursor: pointer; padding: 0; border-radius: 12px;
+            z-index: 10000; width: 48px; height: 48px;
+            display: flex; align-items: center; justify-content: center;
+            -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+        }
+        .mobile-nav .close-btn:active { background: rgba(139,92,246,0.4); }
+        .mobile-nav-section-label {
+            font-size: 11px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 2px; color: #8b7fe0; margin-top: 16px; margin-bottom: 4px;
+            padding: 0 16px;
+        }
+        
+        /* ===== MOBILE HEADER ===== */
+        .mobile-toggle {
+            display: none; background: none; border: none;
+            color: white; cursor: pointer; padding: 4px;
+        }
+        @media (max-width: 900px) {
+            .nav, .nav-actions .nav-login-btn { display: none; }
+            .mobile-toggle { display: block; }
+            .header .btn-primary.show { display: inline-flex; padding: 9px 18px; font-size: 13px; }
+        }
+        @media (max-width: 480px) {
+            .header .btn-primary.show { display: none; }
+        }
+        
+        /* ===== HEADER LAYOUT ===== */
+        .header .container { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+        .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; margin-left: auto; }
+        </style>
 </head>
 <body>
+<!-- SVG Gradient Defs for Nav Icons -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <defs>
+        <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#6c5ce7"/>
+            <stop offset="100%" stop-color="#a29bfe"/>
+        </linearGradient>
+    </defs>
+</svg>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="home/" class="logo"><img src="assets/logo-fundedxyz.png" alt="FundedXyz" width="176" height="30" style="height:auto"></a>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="payouts.html">Payouts</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="leaderboard.html">Leaderboard</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="blog/">Blog</a></li><li><a href="https://fundedxyz.com" class="nav-cta">Start Challenge</a></li>
-      </ul>
-    </nav>
-    <button class="mobile-toggle" aria-label="Menu"><i data-lucide="menu" class="lucide-icon"></i></button>
-  </div>
+
+
+
+
+
+
+<header class="header" id="header">
+    <div class="container">
+        <a href="home/" class="logo"><img src="assets/logo-fundedxyz.png" alt="FundedXyz" width="176" height="30" style="height:auto"></a>
+
+        <nav class="nav">
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <button class="nav-link">
+                        XYZ Challenge
+                        <svg class="caret" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5l4 4 4-4"/></svg>
+                    </button>
+                    <div class="nav-dropdown">
+                        <a href="y-mode.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><path d="M8 2L3 5v4c0 3 2 5.5 5 6.5 3-1 5-3.5 5-6.5V5L8 2z"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Y Mode</strong><span>Standard &amp; Hard challenges</span></div>
+                        </a>
+                        <a href="z-mode.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><path d="M8 2l4 8H4L8 2z"/><line x1="8" y1="10" x2="8" y2="14"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Z Mode</strong><span>Scholarship-based profit</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link">
+                        Trading
+                        <svg class="caret" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5l4 4 4-4"/></svg>
+                    </button>
+                    <div class="nav-dropdown">
+                        <a href="how-it-works.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Overview</strong><span>How FundedXYZ works</span></div>
+                        </a>
+                        <div class="nav-dropdown-divider"></div>
+                        <a href="payouts.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="14" height="10" rx="1.5"/><line x1="1" y1="7" x2="15" y2="7"/><circle cx="12" cy="10.5" r="1.5"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Payouts</strong><span>Fast USDT payouts</span></div>
+                        </a>
+                        <a href="pricing.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M8 5v6M5.5 7.5h5"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Pricing</strong><span>Challenge pricing tiers</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link">
+                        Resources
+                        <svg class="caret" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5l4 4 4-4"/></svg>
+                    </button>
+                    <div class="nav-dropdown">
+                        <a href="testimonials.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><path d="M2 3h12v8H6l-4 3V3z"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Testimonials</strong><span>Trader success stories</span></div>
+                        </a>
+                        <a href="leaderboard.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="8" width="4" height="6"/><rect x="6" y="4" width="4" height="10"/><rect x="11" y="6" width="4" height="8"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Leaderboard</strong><span>Top trader rankings</span></div>
+                        </a>
+                        <div class="nav-dropdown-divider"></div>
+                        <a href="blog/" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="1.5"/><line x1="5" y1="6" x2="11" y2="6"/><line x1="5" y1="9" x2="9" y2="9"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Blog</strong><span>Guides &amp; market insights</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link">
+                        About
+                        <svg class="caret" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5l4 4 4-4"/></svg>
+                    </button>
+                    <div class="nav-dropdown">
+                        <a href="about.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="5" r="3"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>About Us</strong><span>Our mission &amp; team</span></div>
+                        </a>
+                        <a href="contact.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 3l7 5 7-5"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Contact</strong><span>Get in touch</span></div>
+                        </a>
+                        <div class="nav-dropdown-divider"></div>
+                        <a href="careers.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="6" width="12" height="8" rx="1.5"/><path d="M5 6V4a3 3 0 0 1 6 0v2"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Careers</strong><span>Join the team</span></div>
+                        </a>
+                        <a href="affiliate.html" class="nav-dropdown-item">
+                            <div class="nav-dropdown-icon"><svg viewBox="0 0 16 16" fill="none" stroke="url(#brandGrad)" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/><path d="M4 11l4-3 4 3"/></svg></div>
+                            <div class="nav-dropdown-text"><strong>Affiliate Program</strong><span>Earn commissions</span></div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="faq.html" class="nav-link" style="cursor:pointer; text-decoration:none;">FAQ</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="https://app.fundedxyz.com/login" class="nav-login-btn">Log In</a>
+            <a href="https://app.fundedxyz.com/register" class="btn btn-primary show" id="headerCta">Start Challenge</a>
+            <button class="mobile-toggle" onclick="document.getElementById('mobileNav').classList.add('active')" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </div>
 </header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+    <button class="close-btn" onclick="this.parentElement.classList.remove('active')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="mobile-nav-section-label">XYZ Challenge</div>
+
+
+    <a href="y-mode.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Y Mode</a>
+    <a href="z-mode.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Z Mode</a>
+    <div class="mobile-nav-section-label">How It Works</div>
+    <a href="how-it-works.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Overview</a>
+    <a href="payouts.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Payouts</a>
+    <a href="pricing.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Pricing</a>
+    <div class="mobile-nav-section-label">Resources</div>
+    <a href="testimonials.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Testimonials</a>
+    <a href="blog/" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Blog</a>
+    <a href="leaderboard.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Leaderboard</a>
+    <div style="height:4px"></div>
+    <a href="about.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">About</a>
+    <a href="contact.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Contact</a>
+    <a href="affiliate.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">Affiliate Program</a>
+    <div style="height:8px"></div>
+    <a href="faq.html" class="mobile-nav-link" onclick="this.closest('.mobile-nav').classList.remove('active')">FAQ</a>
+    <div style="height:12px"></div>
+    <a href="https://app.fundedxyz.com/login" class="mobile-nav-link" style="color:var(--text-muted)">Log In</a>
+    <a href="https://app.fundedxyz.com/register" class="btn btn-primary" style="margin-top:8px; padding:15px 40px; font-size:16px;">Start Challenge</a>
+</div>
 
 <section class="hero">
   <div class="container">
     <span class="section-label">Challenge Plans</span>
-    <h1>Choose Your <span class="gradient-text">Account Size</span></h1>
-    <p>All plans share the same fair trading rules. Pick the account size that matches your strategy and start your journey to becoming a funded trader.</p>
+    <h1>Choose Your <span class="gradient-text">Challenge Mode</span></h1>
+    <p>Two modes. Multiple account sizes. All with single-phase evaluation, no time limits, and USDT payouts. Find your fit.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="pricing-grid fade-in">
 
-      <div class="pricing-card">
-        <h3>Starter</h3>
-        <div class="pricing-amount">$5,000</div>
-        <div class="pricing-label">Account Size</div>
-        <ul class="pricing-features">
-          <li><span>Profit Target</span><span>8%</span></li>
-          <li><span>Daily Max Profit</span><span>3%</span></li>
-          <li><span>Max Loss</span><span>10%</span></li>
-          <li><span>Max Daily Loss</span><span>5%</span></li>
-          <li><span>Trading Period</span><span>Unlimited</span></li>
-          <li><span>Leverage</span><span>1:5</span></li>
-          <li><span>Profit Split</span><span>80%</span></li>
-        </ul>
-        <a href="https://fundedxyz.com" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
-      </div>
-
-      <div class="pricing-card">
-        <h3>Growth</h3>
-        <div class="pricing-amount">$10,000</div>
-        <div class="pricing-label">Account Size</div>
-        <ul class="pricing-features">
-          <li><span>Profit Target</span><span>8%</span></li>
-          <li><span>Daily Max Profit</span><span>3%</span></li>
-          <li><span>Max Loss</span><span>10%</span></li>
-          <li><span>Max Daily Loss</span><span>5%</span></li>
-          <li><span>Trading Period</span><span>Unlimited</span></li>
-          <li><span>Leverage</span><span>1:5</span></li>
-          <li><span>Profit Split</span><span>80%</span></li>
-        </ul>
-        <a href="https://fundedxyz.com" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
-      </div>
-
-      <div class="pricing-card featured">
-        <h3>Professional</h3>
-        <div class="pricing-amount">$25,000</div>
-        <div class="pricing-label">Account Size</div>
-        <ul class="pricing-features">
-          <li><span>Profit Target</span><span>8%</span></li>
-          <li><span>Daily Max Profit</span><span>3%</span></li>
-          <li><span>Max Loss</span><span>10%</span></li>
-          <li><span>Max Daily Loss</span><span>5%</span></li>
-          <li><span>Trading Period</span><span>Unlimited</span></li>
-          <li><span>Leverage</span><span>1:5</span></li>
-          <li><span>Profit Split</span><span>80%</span></li>
-        </ul>
-        <a href="https://fundedxyz.com" class="btn btn-primary" style="width:100%;justify-content:center;">Start Challenge</a>
-      </div>
-
-      <div class="pricing-card">
-        <h3>Expert</h3>
-        <div class="pricing-amount">$50,000</div>
-        <div class="pricing-label">Account Size</div>
-        <ul class="pricing-features">
-          <li><span>Profit Target</span><span>8%</span></li>
-          <li><span>Daily Max Profit</span><span>3%</span></li>
-          <li><span>Max Loss</span><span>10%</span></li>
-          <li><span>Max Daily Loss</span><span>5%</span></li>
-          <li><span>Trading Period</span><span>Unlimited</span></li>
-          <li><span>Leverage</span><span>1:5</span></li>
-          <li><span>Profit Split</span><span>80%</span></li>
-        </ul>
-        <a href="https://fundedxyz.com" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
-      </div>
-
-      <div class="pricing-card">
-        <h3>Elite</h3>
-        <div class="pricing-amount">$100,000</div>
-        <div class="pricing-label">Account Size</div>
-        <ul class="pricing-features">
-          <li><span>Profit Target</span><span>8%</span></li>
-          <li><span>Daily Max Profit</span><span>3%</span></li>
-          <li><span>Max Loss</span><span>10%</span></li>
-          <li><span>Max Daily Loss</span><span>5%</span></li>
-          <li><span>Trading Period</span><span>Unlimited</span></li>
-          <li><span>Leverage</span><span>1:5</span></li>
-          <li><span>Profit Split</span><span>80-90%</span></li>
-        </ul>
-        <a href="https://fundedxyz.com" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
-      </div>
-
+    <div class="mode-toggle fade-in">
+      <button class="mode-toggle-btn active" onclick="switchMode('ymode-std')">Y Mode Standard</button>
+      <button class="mode-toggle-btn" onclick="switchMode('ymode-hard')">Y Mode Hard</button>
+      <button class="mode-toggle-btn" onclick="switchMode('zmode-std')">Z Mode Standard</button>
+      <button class="mode-toggle-btn" onclick="switchMode('zmode-hard')">Z Mode Hard</button>
     </div>
+
+    <!-- ===== Y MODE STANDARD ===== -->
+    <div class="mode-section active" id="ymode-std">
+      <div style="text-align:center;margin-bottom:32px;">
+        <span class="mode-badge">Y Mode — Standard</span>
+        <h2 style="font-size:28px;font-weight:800;margin-bottom:8px;">Percentage-Based Profit Sharing</h2>
+        <p style="color:var(--text-secondary);max-width:600px;margin:0 auto;">Keep 70% of your trading profits. No time limits. Single-phase challenge.</p>
+      </div>
+
+      <div class="pricing-grid fade-in">
+        <div class="pricing-card">
+          <h3>Starter</h3>
+          <div class="pricing-amount">$2,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$30</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>15%</span></li>
+            <li><span>Max Loss</span><span>9%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Profit Sharing</span><span>70%</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Growth</h3>
+          <div class="pricing-amount">$5,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$80</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>15%</span></li>
+            <li><span>Max Loss</span><span>9%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Profit Sharing</span><span>70%</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card featured">
+          <h3>Professional</h3>
+          <div class="pricing-amount">$25,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$350</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>15%</span></li>
+            <li><span>Max Loss</span><span>9%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Profit Sharing</span><span>70%</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-primary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Expert</h3>
+          <div class="pricing-amount">$50,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$650</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>15%</span></li>
+            <li><span>Max Loss</span><span>9%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Profit Sharing</span><span>70%</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Elite</h3>
+          <div class="pricing-amount">$100,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$1,200</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>15%</span></li>
+            <li><span>Max Loss</span><span>9%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Profit Sharing</span><span>70%</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Y MODE HARD ===== -->
+    <div class="mode-section" id="ymode-hard">
+      <div style="text-align:center;margin-bottom:32px;">
+        <span class="mode-badge">Y Mode — Hard</span>
+        <h2 style="font-size:28px;font-weight:800;margin-bottom:8px;">Tighter Drawdown, Cheaper Entry</h2>
+        <p style="color:var(--text-secondary);max-width:600px;margin:0 auto;">Lower fees, tighter risk limits. 70% profit sharing. For disciplined traders.</p>
+      </div>
+
+      <div class="pricing-grid fade-in">
+        <div class="pricing-card">
+          <h3>Growth</h3>
+          <div class="pricing-amount">$10,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$150</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>16%</span></li>
+            <li><span>Max Loss</span><span>6%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Profit Sharing</span><span>70%</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Professional</h3>
+          <div class="pricing-amount">$25,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$300</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>16%</span></li>
+            <li><span>Max Loss</span><span>6%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Profit Sharing</span><span>70%</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card featured">
+          <h3>Expert</h3>
+          <div class="pricing-amount">$50,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$550</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>16%</span></li>
+            <li><span>Max Loss</span><span>6%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Profit Sharing</span><span>70%</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-primary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Elite</h3>
+          <div class="pricing-amount">$100,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$1,000</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>16%</span></li>
+            <li><span>Max Loss</span><span>6%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Profit Sharing</span><span>70%</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Aura</h3>
+          <div class="pricing-amount">$200,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$1,800</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>16%</span></li>
+            <li><span>Max Loss</span><span>6%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Profit Sharing</span><span>70%</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Z MODE STANDARD ===== -->
+    <div class="mode-section" id="zmode-std">
+      <div style="text-align:center;margin-bottom:32px;">
+        <span class="mode-badge">Z Mode — Standard</span>
+        <h2 style="font-size:28px;font-weight:800;margin-bottom:8px;">Fixed Scholarship Payouts</h2>
+        <p style="color:var(--text-secondary);max-width:600px;margin:0 auto;">Earn a fixed scholarship amount when you pass. Know exactly what you'll earn before you start.</p>
+      </div>
+
+      <div class="pricing-grid fade-in">
+        <div class="pricing-card">
+          <h3>Starter</h3>
+          <div class="pricing-amount">$2,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$40</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>15%</span></li>
+            <li><span>Max Loss</span><span>9%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Scholarship</span><span class="scholarship-amount">$120</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Growth</h3>
+          <div class="pricing-amount">$5,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$80</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>15%</span></li>
+            <li><span>Max Loss</span><span>9%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Scholarship</span><span class="scholarship-amount">$240</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card featured">
+          <h3>Professional</h3>
+          <div class="pricing-amount">$25,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$380</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>15%</span></li>
+            <li><span>Max Loss</span><span>9%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Scholarship</span><span class="scholarship-amount">$1,100</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-primary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Expert</h3>
+          <div class="pricing-amount">$50,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$680</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>15%</span></li>
+            <li><span>Max Loss</span><span>9%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Scholarship</span><span class="scholarship-amount">$2,000</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Elite</h3>
+          <div class="pricing-amount">$100,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$1,200</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>15%</span></li>
+            <li><span>Max Loss</span><span>9%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Scholarship</span><span class="scholarship-amount">$3,600</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Z MODE HARD ===== -->
+    <div class="mode-section" id="zmode-hard">
+      <div style="text-align:center;margin-bottom:32px;">
+        <span class="mode-badge">Z Mode — Hard</span>
+        <h2 style="font-size:28px;font-weight:800;margin-bottom:8px;">Lower Fees, Tighter Limits</h2>
+        <p style="color:var(--text-secondary);max-width:600px;margin:0 auto;">Ultra-low entry fees with tighter drawdown. Fixed scholarship payouts for disciplined traders.</p>
+      </div>
+
+      <div class="pricing-grid fade-in">
+        <div class="pricing-card">
+          <h3>Starter</h3>
+          <div class="pricing-amount">$2,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$20</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>13%</span></li>
+            <li><span>Max Loss</span><span>4.5%</span></li>
+            <li><span>Max Daily Loss</span><span>4.5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Scholarship</span><span class="scholarship-amount">$80</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Growth</h3>
+          <div class="pricing-amount">$5,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$40</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>13%</span></li>
+            <li><span>Max Loss</span><span>4.5%</span></li>
+            <li><span>Max Daily Loss</span><span>4.5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Scholarship</span><span class="scholarship-amount">$160</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card featured">
+          <h3>Professional</h3>
+          <div class="pricing-amount">$25,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$190</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>13%</span></li>
+            <li><span>Max Loss</span><span>4.5%</span></li>
+            <li><span>Max Daily Loss</span><span>4.5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Scholarship</span><span class="scholarship-amount">$800</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-primary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Expert</h3>
+          <div class="pricing-amount">$50,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$340</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>13%</span></li>
+            <li><span>Max Loss</span><span>4.5%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Scholarship</span><span class="scholarship-amount">$1,400</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Elite</h3>
+          <div class="pricing-amount">$100,000</div>
+          <div class="pricing-label">Account Size</div>
+          <div class="pricing-price">$600</div>
+          <div class="pricing-price-label">Challenge Fee</div>
+          <ul class="pricing-features">
+            <li><span>Profit Target</span><span>13%</span></li>
+            <li><span>Max Loss</span><span>4.5%</span></li>
+            <li><span>Max Daily Loss</span><span>5%</span></li>
+            <li><span>Trading Period</span><span>Unlimited</span></li>
+            <li><span>Leverage</span><span>1:5</span></li>
+            <li><span>Scholarship</span><span class="scholarship-amount">$2,800</span></li>
+          </ul>
+          <a href="https://app.fundedxyz.com/register" class="btn btn-secondary" style="width:100%;justify-content:center;">Start Challenge</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -133,8 +675,8 @@
   <div class="container" style="text-align:center;">
     <div class="section-title fade-in">All Plans Include</div>
     <div class="cards-grid fade-in" style="margin-top:40px;">
-      <div class="card"><div class="card-icon"><i data-lucide="timer" class="lucide-icon"></i></div><h3>Unlimited Time</h3><p>No deadlines. Trade at your own pace without pressure.</p></div>
-      <div class="card"><div class="card-icon"><i data-lucide="banknote" class="lucide-icon"></i></div><h3>Fast USDT Payouts</h3><p>Receive your profits within 7 days via USDT.</p></div>
+      <div class="card"><div class="card-icon"><i data-lucide="timer" class="lucide-icon"></i></div><h3>No Time Limits</h3><p>Trade at your own pace. No deadlines, no pressure.</p></div>
+      <div class="card"><div class="card-icon"><i data-lucide="banknote" class="lucide-icon"></i></div><h3>Fast USDT Payouts</h3><p>Receive your profits within 1-5 days via USDT.</p></div>
       <div class="card"><div class="card-icon"><i data-lucide="bar-chart-3" class="lucide-icon"></i></div><h3>Real-Time Dashboard</h3><p>Track your progress with detailed analytics and performance stats.</p></div>
     </div>
   </div>
@@ -144,10 +686,10 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="logo"><img src="assets/logo-fundedxyz.png" alt="FundedXyz" width="160" height="27" style="height:auto"></div>
-      <p>Where performance meets opportunity. Trade crypto with up to $100K in funded capital and keep up to 90% of profits.</p>
+      <p>Where performance meets opportunity. Trade crypto with up to $200K in funded capital and keep up to 90% of profits.</p>
     </div>
-    <div class="footer-col"><h4>Platform</h4><ul><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="payouts.html">Payouts</a></li><li><a href="leaderboard.html">Leaderboard</a></li></ul></div>
-    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="testimonials.html">Testimonials</a></li><li><a href="affiliate.html">Affiliate Program</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+    <div class="footer-col"><h4>Platform</h4><ul><li><a href="how-it-works.html">How It Works</a></li><li><a href="y-mode.html">Y Mode</a></li><li><a href="z-mode.html">Z Mode</a></li><li><a href="payouts.html">Payouts</a></li><li><a href="leaderboard.html">Leaderboard</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="testimonials.html">Testimonials</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div class="footer-col"><h4>Legal</h4><ul><li><a href="terms.html">Terms of Service</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="refund-policy.html">Refund Policy</a></li></ul></div>
   </div>
   <div class="footer-bottom">
@@ -157,6 +699,15 @@
 </footer>
 
 <script src="assets/main.js"></script>
-<script>document.addEventListener("DOMContentLoaded",function(){lucide.createIcons()});</script>
+<script>
+document.addEventListener("DOMContentLoaded",function(){lucide.createIcons()});
+
+function switchMode(mode) {
+  document.querySelectorAll('.mode-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.mode-toggle-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(mode).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
 </body>
 </html>
